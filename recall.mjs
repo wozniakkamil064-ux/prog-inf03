@@ -11,7 +11,7 @@ export const elapsed = (milliseconds, withHours=false) => {
   const fields = withHours ? [Math.floor(n/3600),Math.floor(n/60)%60,n%60] : [Math.floor(n/60),n%60];
   return fields.map(value=>String(value).padStart(2,'0')).join(':');
 };
-export function mountRecall(area,data,{q,qa,e,code,fold,btn,plain,countText,state,save,trackActivity}) {
+export function mountRecall(area,data,{q,qa,e,code,fold,btn,plain,countText,state,save}) {
   const labels = { quiz:'Quiz',flash:'Fiszki',html:'Słownik HTML' };
   const modes = { diagnose:'Diagnoza',test:'Próba pisemna',review:'Powtórka błędów' };
   const modeInfo = { diagnose:'12 pytań. Wyjaśnienie otrzymasz od razu.',test:'40 pytań w 60 minut. Wynik zobaczysz po oddaniu.',review:'Powtórz błędne i pominięte pytania.' };
@@ -47,7 +47,6 @@ export function mountRecall(area,data,{q,qa,e,code,fold,btn,plain,countText,stat
     quiz.finished=true;
     quiz.ids.forEach(id=>grade(pool.get(id)));
     save();
-    if (Object.keys(quiz.answers).length) trackActivity('quiz',quiz.runId || [quiz.mode,...quiz.ids].join(':'));
   }
   function renderQuiz() {
     if (hasQuiz() && quiz.deadline && Date.now()>=quiz.deadline) finish();

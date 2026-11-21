@@ -1,17 +1,6 @@
-import { mountLab } from './lab.mjs?v=3';
-import { mountRecall } from './recall.mjs?v=3';
+import { mountLab } from './lab.mjs?v=4';
+import { mountRecall } from './recall.mjs?v=4';
 import { mountExams, mountArchive } from './exams.mjs';
-import { mountActivity, trackActivity } from './activity.mjs';
-import { mountWalkthrough } from './walkthrough.mjs';
-
-const demo = {
-  HTML: ['index.html', '<form>\n  <label for="email">E-mail</label>\n  <input id="email" type="email">\n</form>', 'Etykieta i pole działają razem.', 'Kliknięcie etykiety ustawia fokus w polu.'],
-  CSS: ['style.css', '.karty {\n  display: grid;\n  grid-template-columns: 2fr 1fr;\n  gap: 16px;\n}', 'Jak ułożą się kolumny?', 'Dwie kolumny w proporcji 2:1 i odstęp 16 px.'],
-  SQL: ['kwerendy.sql', 'SELECT nazwa, cena\nFROM rowery\nWHERE dostepny = 1\nORDER BY cena ASC\nLIMIT 2;', 'Co zwróci zapytanie?', 'Dwie najtańsze dostępne pozycje.'],
-  JS: ['app.js', 'const stawka = 12.50;\nconst godziny = Number("4");\nconst koszt = stawka * godziny;\nconsole.log(koszt);', 'Jaki będzie wynik?', '50'],
-  PHP: ['index.php', '<?php\n$wynik = $db->query("SELECT nazwa FROM rowery");\nwhile ($r = $wynik->fetch_assoc()) {\n  echo htmlspecialchars($r["nazwa"], ENT_QUOTES, "UTF-8");\n}', 'Jak dane trafią do HTML?', 'Pętla wypisze kolejne nazwy jako bezpieczny tekst.']
-};
-let selected = 'HTML';
 const q = (selector, root = document) => root.querySelector(selector);
 const qa = (selector, root = document) => [...root.querySelectorAll(selector)];
 const escapeHTML = (value) => String(value ?? '').replace(/[&<>"']/g,ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[ch]);
@@ -30,38 +19,47 @@ state.variants ??= {};
 state.drafts ??= {};
 state.missed ??= {};
 state.exam ??= {};
-const kit = { q,qa,e,code,fold,btn,plain,countText,state,save,trackActivity };
+const kit = { q,qa,e,code,fold,btn,plain,countText,state,save };
 
-const demoTabs = q('#demo-tabs');
-const demoResult = q('#demo-result');
-const demoRun = q('#demo-run');
-demoTabs.innerHTML = Object.keys(demo).map(key => '<button type="button" data-demo="'+key+'" aria-pressed="'+(key===selected)+'">'+key+'</button>').join('');
-demoRun.hidden = false;
-function renderDemo() {
-  const [file,sample,initial] = demo[selected];
-  q('#demo-file').textContent = file;
-  const highlighted = line => e(line).replace(/(&lt;\/?)([\w?]+)|\b(SELECT|FROM|WHERE|ORDER BY|LIMIT|const|echo|while|return)\b/g,
-    (match,prefix,tag,word) => prefix ? prefix+'<b>'+tag+'</b>' : '<b>'+word+'</b>');
-  q('#demo-code code').innerHTML = sample.split('\n').map((line,index,lines) =>
-    '<span class="demo-line"><span aria-hidden="true" class="line-number">'+(index+1)+'</span><span>'+highlighted(line)+(index===lines.length-1?'<i class="code-cursor" aria-hidden="true"></i>':'')+'</span></span>'
-  ).join('\n');
-  demoResult.textContent = initial;
-  delete demoResult.dataset.ran;
+const warmups = [
+  {subject:'JavaScript',title:'Co wypisze ten kod?',code:'const cena = "12";\nconsole.log(cena + 5);',options:['17','"125"','Błąd'],answer:1,why:'Wartość cena jest tekstem. Operator + łączy ją z zapisem liczby 5. Użyj Number(cena), aby dodawać liczby.'},
+  {subject:'PHP',title:'Której wartości szuka PHP?',code:'<input id="email" name="kontakt">\n\n<?php $email = $_POST["kontakt"];',options:['name="kontakt"','id="email"','typu pola'],answer:0,why:'Atrybut name określa klucz wysyłany do PHP. id pozwala powiązać pole z etykietą lub odnaleźć je w JavaScripcie.'},
+  {subject:'SQL',title:'Jaka będzie kolejność cen?',code:'SELECT cena FROM produkty\nORDER BY cena DESC;\n\n-- W bazie: 12, 45, 28',options:['12, 28, 45','45, 28, 12','28, 45, 12'],answer:1,why:'DESC sortuje malejąco. Najwyższa cena pojawi się jako pierwsza.'},
+  {subject:'CSS',title:'Ile miejsca zajmie obrys?',code:'.karta {\n  width: 200px;\n  padding: 10px;\n  box-sizing: border-box;\n}',options:['200 px','220 px','180 px'],answer:0,why:'Przy border-box szerokość obejmuje padding i obramowanie. Obrys ma 200 px, a miejsce na treść ma 180 px.'},
+  {subject:'HTML',title:'Co połączy etykietę z polem?',code:'<label for="imie">Imię</label>\n<input name="osoba" id="...">',options:['id="osoba"','id="label"','id="imie"'],answer:2,why:'Wartość for w label odpowiada identyfikatorowi id pola. Kliknięcie etykiety ustawi w nim fokus.'}
+];
+let warmupIndex=0;
+const warmupOptions=q('#warmup-options');
+const warmupFeedback=q('#warmup-feedback');
+const warmupNext=q('#warmup-next');
+function showWarmup(focus=false) {
+  const current=warmups[warmupIndex];
+  q('#warmup-subject').textContent=current.subject;
+  q('#warmup-heading').textContent=current.title;
+  q('#warmup-code code').textContent=current.code;
+  warmupOptions.innerHTML=current.options.map((option,index)=>
+    '<button type="button" class="warmup-option" data-answer="'+index+'">'+e(option)+'</button>').join('');
+  warmupFeedback.textContent='Spróbuj odpowiedzieć z pamięci.';
+  warmupFeedback.className='warmup-feedback';
+  warmupNext.hidden=true;
+  if(focus) q('button',warmupOptions).focus({preventScroll:true});
 }
-renderDemo();
-demoTabs.addEventListener('click',event => {
-  const button = event.target.closest('[data-demo]');
-  if (!button) return;
-  selected = button.dataset.demo;
-  for (const tab of qa('[data-demo]',demoTabs)) tab.setAttribute('aria-pressed',String(tab===button));
-  renderDemo();
+warmupOptions.addEventListener('click',event=>{
+  const button=event.target.closest('[data-answer]');
+  if(!button || button.disabled) return;
+  const current=warmups[warmupIndex];
+  const correct=Number(button.dataset.answer)===current.answer;
+  qa('button',warmupOptions).forEach(item=>{
+    item.disabled=true;
+    if(Number(item.dataset.answer)===current.answer) item.classList.add('correct');
+  });
+  if(!correct) button.classList.add('incorrect');
+  warmupFeedback.classList.add('answered');
+  warmupFeedback.textContent=(correct?'Dobrze. ':'Poprawna odpowiedź: '+current.options[current.answer]+'. ')+current.why;
+  warmupNext.hidden=false;
 });
-demoRun.addEventListener('click',() => {
-  demoResult.textContent = '› ' + demo[selected][3];
-  delete demoResult.dataset.ran;
-  requestAnimationFrame(() => { demoResult.dataset.ran = 'yes'; });
-});
-demoResult.setAttribute('role','status');
+warmupNext.addEventListener('click',()=>{warmupIndex=(warmupIndex+1)%warmups.length;showWarmup(true);});
+showWarmup();
 
 function mountCourse(data) {
   const area = q('#course');
@@ -69,28 +67,36 @@ function mountCourse(data) {
   const all = modules.flatMap(group => group.lessons.map(item => ({...item, group})));
   const byId = new Map(all.map(item => [item.id,item]));
   const index = all.map(item => ({item,text:plain([item.group.title,item.title,item.body,item.code,item.trap,item.practice].join(' '))}));
-  const topics = {
-    start:['Pliki','XAMPP','Organizacja'],html:['Semantyka','Znaczniki','Formularze'],css:['Selektory','Grid','Flexbox'],
-    sql:['SELECT','JOIN','Agregacje'],js:['DOM','Zdarzenia','Walidacja'],php:['POST','mysqli','Bezpieczny HTML'],
-    media:['Formaty','Kadrowanie','CMS'],pisemny:['HTTP','BHP','Teoria'],proby:['SQL + PHP','SQL + JS','Checklista']
-  };
-  const previous = modules.find(module => module.lessons.some(item => item.id === state.last));
-  let module = previous || modules[0];
   let lesson = byId.get(state.last) || all[0];
-  let opened = Boolean(previous);
+  let module = lesson.group;
   const header = q('#header-progress');
   const continueButton = q('#continue');
   const lessonCount = () => all.filter(item => state.lessons[item.id]).length;
-  const inputLabel = '<label class="sr-only" for="lesson-search">Szukaj w lekcjach</label>';
-  area.innerHTML = '<div class="terminal-search">'+inputLabel+
-    '<span aria-hidden="true" class="search-prompt">$ szukaj</span><input type="search" id="lesson-search" placeholder="np. JOIN, formularz, grid" autocomplete="off" aria-describedby="lesson-search-status">'+
-    '<span id="lesson-search-status" role="status"></span><kbd aria-hidden="true">/</kbd></div><div class="catalog" id="catalog"></div>';
+  area.innerHTML = '<div class="course-toolbar"><div class="course-current"><span class="small-label">OTWARTY MODUŁ</span>'+
+    '<strong id="course-module-title"></strong><span class="small" id="course-module-status"></span></div>'+
+    '<label class="course-search" for="lesson-search"><span>Szukaj lekcji</span><input type="search" id="lesson-search" placeholder="Temat lub fragment kodu" autocomplete="off" aria-describedby="lesson-search-status"></label></div>'+
+    '<div class="course-search-results" id="course-search-results" hidden><p id="lesson-search-status" role="status"></p><div id="lesson-search-matches"></div></div>'+
+    '<div class="course-layout"><nav class="course-modules" aria-label="Moduły kursu"></nav><div class="course-reader" id="course-reader"></div></div>';
   const search = q('#lesson-search',area);
-  const catalog = q('#catalog',area);
+  const moduleList = q('.course-modules',area);
+  const reader = q('#course-reader',area);
+  const resultsPanel = q('#course-search-results',area);
+  const matches = q('#lesson-search-matches',area);
   const status = q('#lesson-search-status',area);
+  const currentTitle = q('#course-module-title',area);
+  const currentStatus = q('#course-module-status',area);
+  function progressText(item) {
+    return item.lessons.filter(x=>state.lessons[x.id]).length+'/'+item.lessons.length;
+  }
   function updateProgress() {
     header.textContent = lessonCount() + ' / ' + all.length + ' lekcji';
     continueButton.textContent = state.last ? 'Wróć do lekcji' : 'Zacznij naukę';
+    currentTitle.textContent = module.title;
+    currentStatus.textContent = progressText(module) + ' ukończonych lekcji';
+    moduleList.innerHTML = modules.map(item =>
+      '<button type="button" class="course-module" data-module="'+e(item.id)+'" aria-pressed="'+(item===module)+'">'+
+      '<span class="course-module-title">'+e(item.title)+'</span><span class="course-module-count">'+progressText(item)+'</span></button>'
+    ).join('');
   }
   function lessonMarkup() {
     const i = module.lessons.findIndex(item=>item.id===lesson.id);
@@ -104,38 +110,32 @@ function mountCourse(data) {
     '<div class="tool-row">'+btn('Poprzednia','data-lesson="-1" '+(global===0?'disabled':''))+btn('Następna','data-lesson="1" '+(global===all.length-1?'disabled':''),'primary')+
     '<label class="check"><input id="lesson-done" type="checkbox" '+(state.lessons[lesson.id]?'checked':'')+'> Umiem wykonać</label></div></article>';
   }
-  function progressText(item) {
-    return item.lessons.filter(x=>state.lessons[x.id]).length+'/'+item.lessons.length;
+  function renderMatches() {
+    const words = plain(search.value.trim()).split(/\s+/).filter(Boolean);
+    resultsPanel.hidden = words.length===0;
+    if (!words.length) {
+      status.textContent = '';
+      matches.innerHTML = '';
+      return;
+    }
+    const results = index.filter(row=>words.every(word=>row.text.includes(word))).map(row=>row.item);
+    status.textContent = countText(results.length,['wynik','wyniki','wyników']);
+    matches.innerHTML = results.length ? results.map(item =>
+      '<button class="course-search-match" type="button" data-result="'+e(item.id)+'"><strong>'+e(item.title)+'</strong><span>'+e(item.group.title)+'</span></button>'
+    ).join('') : '<p class="small">Spróbuj krótszego hasła albo nazwy języka.</p>';
   }
   function render() {
-    const words = plain(search.value.trim()).split(/\s+/).filter(Boolean);
-    if (words.length) {
-      const results = index.filter(row=>words.every(word=>row.text.includes(word))).map(row=>row.item);
-      status.textContent = countText(results.length,['wynik','wyniki','wyników']);
-      catalog.innerHTML = results.length ? results.map(item =>
-        '<button class="catalog-row match-row" type="button" data-result="'+e(item.id)+'"><span class="catalog-title">'+e(item.title)+'</span><span class="catalog-tags">'+e(item.group.title)+'</span></button>'
-      ).join('') : '<p class="notice">Brak dopasowań. Spróbuj krótszej frazy.</p>';
-    } else {
-      status.textContent = countText(all.length,['lekcja','lekcje','lekcji']);
-      catalog.innerHTML = modules.map(item => {
-        const active = opened && item===module;
-        return '<div class="catalog-entry"><button type="button" class="catalog-row" data-module="'+e(item.id)+'" aria-expanded="'+active+'"'+(active?' aria-controls="lesson-panel"':'')+'>'+
-          '<span class="catalog-title"><span aria-hidden="true" class="catalog-arrow"></span>'+e(item.title)+'</span>'+
-          '<span class="catalog-tags">'+topics[item.id].map(tag=>'<span>'+e(tag)+'</span>').join('')+'</span>'+
-          '<span class="catalog-progress" aria-label="'+e(progressText(item)+' ukończonych lekcji')+'">'+progressText(item)+'</span></button>'+
-          (active?lessonMarkup():'')+'</div>';
-      }).join('');
-    }
+    reader.innerHTML = lessonMarkup();
     updateProgress();
   }
   function choose(next, focus) {
     if (!next) return;
     module = next.group;
     lesson = next;
-    opened = true;
     state.last = next.id;
     search.value = '';
     save();
+    renderMatches();
     render();
     if (focus) {
       const heading = q('#lesson-panel h3',area);
@@ -154,9 +154,7 @@ function mountCourse(data) {
     const step = event.target.closest('[data-lesson]');
     const result = event.target.closest('[data-result]');
     if (moduleButton) {
-      const id = moduleButton.dataset.module;
-      if (opened && id===module.id) { opened=false; render(); q('[data-module="'+id+'"]',catalog).focus({preventScroll:true}); }
-      else chooseModule(id,true);
+      chooseModule(moduleButton.dataset.module,true);
     } else if(result) {
       choose(byId.get(result.dataset.result),true);
     } else if(step) choose(all[all.indexOf(lesson)+Number(step.dataset.lesson)],true);
@@ -167,21 +165,16 @@ function mountCourse(data) {
       state.lessons[lesson.id] = event.target.checked;
       state.last = lesson.id;
       save();
-      if (event.target.checked) trackActivity('lesson',lesson.id);
-      const active = q('[data-module="'+module.id+'"] .catalog-progress',area);
-      active.textContent = progressText(module);
-      active.setAttribute('aria-label',progressText(module)+' ukończonych lekcji');
       updateProgress();
     }
   });
-  search.addEventListener('input',render);
+  search.addEventListener('input',renderMatches);
   document.addEventListener('keydown',event=>{
-    if (event.target===search && event.key==='Escape' && search.value) { search.value=''; render(); return; }
+    if (event.target===search && event.key==='Escape' && search.value) { search.value=''; renderMatches(); return; }
     if (event.key==='/' && !event.ctrlKey && !event.metaKey && !event.altKey &&
       !event.target.closest('input,textarea,select,[contenteditable]')) { event.preventDefault(); search.focus(); }
   });
   continueButton.addEventListener('click',()=>choose(lesson,false));
-  qa('[data-track-module]').forEach(link=>link.addEventListener('click',()=>chooseModule(link.dataset.trackModule,false)));
   render();
 }
 
@@ -209,10 +202,8 @@ try {
   mountRecall(q('#recall'),data,kit);
   mountExams(q('#exams'),data,kit);
   mountArchive(q('#archive'),archive,kit);
-  mountActivity(q('#activity'),data,kit);
-  mountWalkthrough(q('#walkthrough'),kit);
 } catch (error) {
   console.error(error);
   const errorMarkup = '<div class="notice">Nie udało się wczytać interaktywnej części. <a href="lektura.html">Otwórz wersję do czytania</a> lub odśwież stronę.</div>';
-  for(const selector of ['#course','#lab','#recall','#exams','#archive','#activity','#walkthrough']) q(selector).innerHTML = errorMarkup;
+  for(const selector of ['#course','#lab','#recall','#exams','#archive']) q(selector).innerHTML = errorMarkup;
 }
