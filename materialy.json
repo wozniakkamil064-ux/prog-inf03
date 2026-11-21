@@ -1,0 +1,3075 @@
+{
+  "stats": {
+    "modules": 9,
+    "lessons": 68,
+    "tags": 115,
+    "flashcards": 42,
+    "quiz": 50,
+    "families": 26,
+    "variants": 6656,
+    "practiceExams": 2,
+    "archive": 94
+  },
+  "moduly": [
+    {
+      "id": "start",
+      "title": "Środowisko i obsługa egzaminu",
+      "criteria": "03.2, 03.3, 03.4, 03.5",
+      "finish": "Uruchom stronę przez localhost, zaimportuj bazę testową i przygotuj zestaw plików zgodny z poleceniem.",
+      "lessons": [
+        {
+          "id": "start-1",
+          "title": "Pliki i ścieżki",
+          "language": "text",
+          "priority": 1,
+          "body": "Adres względny jest liczony względem położenia dokumentu. Nazwa i rozszerzenie zasobu muszą zgadzać się z arkuszem.",
+          "code": "zadanie/\n  index.php\n  style.css\n  app.js\n  img/rower.jpg",
+          "trap": "Sprawdź wielkość liter i ukryte rozszerzenia plików.",
+          "practice": "Jaka ścieżka w index.php prowadzi do rower.jpg?"
+        },
+        {
+          "id": "start-2",
+          "title": "Co robi przeglądarka, Apache i baza",
+          "language": "text",
+          "priority": 1,
+          "body": "Przeglądarka renderuje HTML/CSS i uruchamia JS. Apache z PHP wykonuje skrypt na serwerze, a MySQL/MariaDB zwraca dane z zapytania.",
+          "code": "przeglądarka → Apache/PHP → baza\nprzeglądarka ← gotowy HTML ← PHP",
+          "trap": "Dwuklik pliku PHP nie uruchomi go po stronie serwera.",
+          "practice": "Otwórz plik przez http://localhost/zadanie/ i porównaj źródło strony z plikiem PHP."
+        },
+        {
+          "id": "start-3",
+          "title": "Podgląd i konsola",
+          "language": "javascript",
+          "priority": 1,
+          "body": "Sprawdź Console przy błędzie skryptu, Network przy błędzie ładowania plików i Elements przy rozbieżnym CSS.",
+          "code": "console.log(document.querySelector(\"#wynik\"));",
+          "trap": "Wynik null oznacza brak pasującego elementu w chwili wyszukania.",
+          "practice": "Co sprawdzisz przy czerwonym 404 dla style.css?"
+        },
+        {
+          "id": "start-4",
+          "title": "Polecenie na rezultaty",
+          "language": "text",
+          "priority": 1,
+          "body": "Wypisz pliki, ich formaty, zrzuty, skrypty i wymagane zachowania. Zanotuj, co da się sprawdzić po każdym etapie.",
+          "code": "[ ] import i zrzut\n[ ] kwerendy i wyniki\n[ ] strona, styl, skrypt\n[ ] kontrola nazw przy oddaniu",
+          "trap": "Nazwa pliku i format zrzutu zależą od konkretnego polecenia.",
+          "practice": "Wybierz arkusz i zrób listę plików w kolejności wykonania."
+        }
+      ]
+    },
+    {
+      "id": "html",
+      "title": "HTML od zera",
+      "criteria": "03.3",
+      "finish": "Zbuduj poprawny dokument z nawigacją, obrazem, tabelą i formularzem, korzystając z osobnego CSS.",
+      "lessons": [
+        {
+          "id": "html-1",
+          "title": "Szkielet dokumentu",
+          "language": "html",
+          "priority": 1,
+          "body": "DOCTYPE wybiera współczesny tryb renderowania. W html podaj język, a w head kodowanie, viewport, tytuł i zasoby.",
+          "code": "<!doctype html>\n<html lang=\"pl\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Cennik</title>\n  <link rel=\"stylesheet\" href=\"style.css\">\n  <script src=\"app.js\" defer></script>\n</head>\n<body><h1>Cennik</h1></body>\n</html>",
+          "trap": "DOCTYPE jest deklaracją. title ustawia tytuł zakładki, h1 tytuł treści.",
+          "practice": "Napisz szkielet z pamięci i sprawdź polskie litery."
+        },
+        {
+          "id": "html-2",
+          "title": "Semantyka układu i nagłówki",
+          "language": "html",
+          "priority": 1,
+          "body": "header, nav, main, section, article, aside i footer informują o roli zawartości. Poziom nagłówka odzwierciedla hierarchię.",
+          "code": "<header><h1>Katalog</h1></header>\n<main><section><h2>Oferta</h2><p>Trzy modele.</p></section></main>\n<footer>Kontakt</footer>",
+          "trap": "Sam rozmiar tekstu ustaw CSS-em.",
+          "practice": "Zamień szereg divów na czytelny układ semantyczny."
+        },
+        {
+          "id": "html-3",
+          "title": "Atrybuty i elementy puste",
+          "language": "html",
+          "priority": 1,
+          "body": "id identyfikuje pojedynczy element. class możesz nadawać wielu elementom. data-* przechowuje dane pomocnicze. img, input, meta i link są elementami pustymi.",
+          "code": "<img id=\"miniatura\" class=\"foto\" src=\"a.jpg\" alt=\"Rower\">\n<button type=\"button\" data-cena=\"14\">Wybierz</button>",
+          "trap": "Powtórzony identyfikator komplikuje JS i odnośniki.",
+          "practice": "Rozpoznaj, które atrybuty można bezpiecznie powtórzyć."
+        },
+        {
+          "id": "html-4",
+          "title": "Linki i kotwice",
+          "language": "html",
+          "priority": 1,
+          "body": "href może prowadzić do pliku, pełnego URL albo fragmentu z id. Tekst linku powinien opisywać cel.",
+          "code": "<a href=\"oferta.html\">Oferta</a>\n<a href=\"#kontakt\">Kontakt</a>\n<section id=\"kontakt\"><h2>Kontakt</h2></section>",
+          "trap": "Adres #kontakt zadziała, jeśli w dokumencie istnieje id=\"kontakt\".",
+          "practice": "Dodaj odnośnik z podfolderu do pliku poziom wyżej."
+        },
+        {
+          "id": "html-5",
+          "title": "Obraz i tekst alternatywny",
+          "language": "html",
+          "priority": 1,
+          "body": "src podaje ścieżkę. alt przekazuje informację potrzebną po pominięciu obrazu, a alt=\"\" oznacza dekorację.",
+          "code": "<figure>\n  <img src=\"img/mapa.png\" alt=\"Trasa od dworca do parku\">\n  <figcaption>Trasa A</figcaption>\n</figure>",
+          "trap": "Nazwa pliku zwykle mało mówi o treści obrazu.",
+          "practice": "Zapisz trafny alt mapy, zdjęcia produktu i ikony dekoracyjnej."
+        },
+        {
+          "id": "html-6",
+          "title": "Listy i zagnieżdżanie",
+          "language": "html",
+          "priority": 1,
+          "body": "ol oznacza kolejność, ul wypunktowanie, li pozycję. Listę zagnieżdżoną umieszczaj wewnątrz li.",
+          "code": "<ol><li>Importuj bazę</li><li>Wykonaj zapytania</li></ol>",
+          "trap": "Bezpośrednio wewnątrz ul i ol dodawaj pozycje li.",
+          "practice": "Zapisz listę kroków i podlistę plików."
+        },
+        {
+          "id": "html-7",
+          "title": "Tabele danych",
+          "language": "html",
+          "priority": 1,
+          "body": "table zawiera wiersze tr, a tr komórki th lub td. caption opisuje tabelę, a scope powiązanie nagłówka.",
+          "code": "<table>\n  <caption>Cennik</caption>\n  <thead><tr><th scope=\"col\">Usługa</th><th scope=\"col\">Cena</th></tr></thead>\n  <tbody><tr><td>Serwis</td><td>49 zł</td></tr></tbody>\n</table>",
+          "trap": "colspan łączy kolumny, rowspan wiersze.",
+          "practice": "Dodaj wiersz komunikatu obejmujący dwie kolumny."
+        },
+        {
+          "id": "html-8",
+          "title": "Formularz i wysyłka",
+          "language": "html",
+          "priority": 1,
+          "body": "action wskazuje odbiorcę. GET przekazuje pola w adresie, POST w ciele żądania. name to klucz odebrany przez serwer.",
+          "code": "<form action=\"zapis.php\" method=\"post\">\n  <label for=\"email\">E-mail</label>\n  <input id=\"email\" name=\"email\" type=\"email\" required>\n  <button type=\"submit\">Zapisz</button>\n</form>",
+          "trap": "for odwołuje się do id, a PHP odczytuje name. Weryfikacja w HTML wspiera użytkownika i trzeba ją powtórzyć w PHP.",
+          "practice": "Napisz formularz POST, którym PHP otrzyma klucz email."
+        },
+        {
+          "id": "html-9",
+          "title": "Pola wyboru i przyciski",
+          "language": "html",
+          "priority": 1,
+          "body": "Radio z taką samą nazwą działa jako grupa. Checkbox może nie trafić do żądania, jeśli jest odznaczony. option value jest wartością wysyłaną.",
+          "code": "<label><input type=\"radio\" name=\"tryb\" value=\"1\"> Standard</label>\n<label><input type=\"radio\" name=\"tryb\" value=\"2\"> Premium</label>\n<button type=\"button\">Przelicz</button>",
+          "trap": "Przycisk w formularzu domyślnie może wysłać formularz.",
+          "practice": "Zbuduj select z dwiema opcjami i opcjonalny checkbox."
+        },
+        {
+          "id": "html-10",
+          "title": "Multimedia i dostępność",
+          "language": "html",
+          "priority": 2,
+          "body": "Dodaj sterowanie odtwarzaczem, napisy do wideo, nazwy kontrolek, logiczną kolejność fokusu i napisy zamiast wskazówek wyłącznie kolorem.",
+          "code": "<video controls src=\"instrukcja.mp4\">\n  <track kind=\"captions\" src=\"pl.vtt\" srclang=\"pl\" label=\"Polskie\">\n</video>",
+          "trap": "div z obsługą kliknięcia nie przejmuje zachowania klawiaturowego button.",
+          "practice": "Przejdź formularz i menu wyłącznie klawiszem Tab."
+        }
+      ]
+    },
+    {
+      "id": "css",
+      "title": "CSS od selektorów do układu",
+      "criteria": "03.3",
+      "finish": "Odtwórz dwukolumnowy układ arkusza i przypisz style tylko elementom wskazanym w poleceniu.",
+      "lessons": [
+        {
+          "id": "css-1",
+          "title": "Zewnętrzny arkusz i selektory",
+          "language": "css",
+          "priority": 1,
+          "body": "Selektor typu wskazuje tag, kropka klasę, kratka identyfikator. Przecinek grupuje niezależne selektory.",
+          "code": "p { color: #222; }\n.karta { padding: 12px; }\n#wynik { font-weight: 700; }\nh1, h2 { margin-top: 0; }",
+          "trap": ".karta i #karta oznaczają różne atrybuty.",
+          "practice": "Ustaw jeden kolor dla h1 i h2 bez powtarzania deklaracji."
+        },
+        {
+          "id": "css-2",
+          "title": "Relacje, atrybuty i pseudoklasy",
+          "language": "css",
+          "priority": 1,
+          "body": "A B wybiera potomka, A > B dziecko, plus sąsiedniego brata. :hover, :focus-visible i :nth-child testują stan lub pozycję elementu.",
+          "code": "nav > a:hover { color: #b11; }\ninput[type=\"email\"]:focus-visible { outline: 2px solid navy; }\ntbody tr:nth-child(even) { background: #eee; }",
+          "trap": "tbody w selektorze pomaga zachować kolor nagłówka tabeli.",
+          "practice": "Zaznacz tylko parzyste wiersze danych."
+        },
+        {
+          "id": "css-3",
+          "title": "Kaskada i dziedziczenie",
+          "language": "css",
+          "priority": 1,
+          "body": "Przeglądarka rozstrzyga m.in. ważność i pochodzenie reguły, specyficzność oraz kolejność. W tym samym poziomie kaskady id przebija klasę, a późniejszy remis wygrywa.",
+          "code": "#cena { color: purple; }\n.wyroznione { color: green; }\n.wyroznione { color: navy; }",
+          "trap": "Dziedziczy się m.in. color, ale margin elementu nadrzędnego nie przechodzi na dziecko.",
+          "practice": "Jaki kolor otrzyma element przy samym class i przy obu atrybutach?"
+        },
+        {
+          "id": "css-4",
+          "title": "Box model i jednostki",
+          "language": "css",
+          "priority": 1,
+          "body": "Padding jest wewnątrz obramowania, margin na zewnątrz. border-box wlicza padding i obramowanie do podanej szerokości.",
+          "code": ".karta { box-sizing: border-box; width: 240px; padding: 12px; border: 2px solid; margin: 8px; }",
+          "trap": "Przy content-box zewnętrzny obrys to tu 268px bez marginesów.",
+          "practice": "Policz szerokość obrysu tego elementu przy border-box."
+        },
+        {
+          "id": "css-5",
+          "title": "Kolory, tło i tekst",
+          "language": "css",
+          "priority": 1,
+          "body": "W szesnastkowym #RRGGBB każda para koduje kanał. font-family podaje listę krojów, text-align wyrównuje treść w obszarze elementu.",
+          "code": "body { color: #18202b; background-color: #f3f4f6; font-family: Arial, sans-serif; }\nheader { text-align: center; }",
+          "trap": "color to kolor tekstu, background-color to tło.",
+          "practice": "Ustaw tło i kolor stopki bez wpływu na resztę dokumentu."
+        },
+        {
+          "id": "css-6",
+          "title": "Flexbox",
+          "language": "css",
+          "priority": 1,
+          "body": "Rodzic z display:flex układa dzieci wzdłuż osi głównej. justify-content rozkłada je na osi głównej, align-items poprzecznie.",
+          "code": ".panel { display: flex; gap: 16px; align-items: start; }\n.lewy { flex: 2; }\n.prawy { flex: 1; }",
+          "trap": "Zmiana flex-direction zmienia osie.",
+          "practice": "Ustaw dwa panele 2:1 i sprawdź ich układ po zmianie kierunku."
+        },
+        {
+          "id": "css-7",
+          "title": "Grid i breakpointy",
+          "language": "css",
+          "priority": 1,
+          "body": "Grid definiuje tory kolumn i wierszy. Query wybiera zestaw reguł według szerokości obszaru wyświetlania.",
+          "code": ".karty { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }\n@media (max-width: 650px) { .karty { grid-template-columns: 1fr; } }",
+          "trap": "Sprawdź obie strony granicy, np. 650 i 651 px.",
+          "practice": "Odtwórz proporcję 2:1 i przełącz na jedną kolumnę."
+        },
+        {
+          "id": "css-8",
+          "title": "Float i pozycjonowanie",
+          "language": "css",
+          "priority": 2,
+          "body": "float pozwala tekstowi opływać element i pojawia się w starszych układach. clear usuwa opływanie obok poprzednich floatów. Absolute liczy położenie względem właściwego kontenera pozycjonowanego.",
+          "code": ".foto { float: left; margin-right: 12px; }\nfooter { clear: both; }\n.karta { position: relative; }\n.etykieta { position: absolute; top: 0; right: 0; }",
+          "trap": "Sam position:relative nie układa dzieci w kolumnach.",
+          "practice": "Pokaż podgląd po usunięciu clear w przykładzie z kolumnami float."
+        },
+        {
+          "id": "css-9",
+          "title": "Tabele, obrazy i przewijanie",
+          "language": "css",
+          "priority": 2,
+          "body": "border-collapse scala krawędzie komórek. max-width chroni przed wystawaniem obrazu. Obiekt może zachować proporcje w prostokącie przez object-fit.",
+          "code": "table { border-collapse: collapse; width: 100%; }\nth, td { border: 1px solid #555; padding: .4rem; }\nimg { max-width: 100%; height: auto; }",
+          "trap": "width i height wymuszone niezależnie mogą zdeformować obraz.",
+          "practice": "Przetestuj tabelę z bardzo długą komórką na telefonie."
+        }
+      ]
+    },
+    {
+      "id": "sql",
+      "title": "SQL i bazy danych od zera",
+      "criteria": "03.4",
+      "finish": "Zaimportuj bazę, napisz kwerendy z JOIN i agregacją, wykonaj kontrolowany UPDATE i udokumentuj wyniki.",
+      "lessons": [
+        {
+          "id": "sql-1",
+          "title": "Tabele, rekordy, klucze i typy",
+          "language": "sql",
+          "priority": 1,
+          "body": "Klucz główny jednoznacznie wskazuje wiersz. Klucz obcy odwołuje się do identyfikatora w innej tabeli. W MariaDB typ DECIMAL sprawdza się dla kwot.",
+          "code": "CREATE TABLE typy (id INT PRIMARY KEY, nazwa VARCHAR(80));\nCREATE TABLE rowery (id INT PRIMARY KEY, typ_id INT, stawka DECIMAL(7,2), FOREIGN KEY (typ_id) REFERENCES typy(id));",
+          "trap": "Typ liczbowy nie zastępuje poprawnego klucza relacji.",
+          "practice": "Rozpisz relację jeden-do-wielu dla kategorii i produktów."
+        },
+        {
+          "id": "sql-2",
+          "title": "Normalizacja i więzy",
+          "language": "sql",
+          "priority": 2,
+          "body": "Wydziel powtarzalne słowniki, aby zmiana nazwy typu wymagała jednej aktualizacji. NOT NULL wymaga wartości, UNIQUE ogranicza duplikaty.",
+          "code": "CREATE TABLE kategorie (id INT PRIMARY KEY, nazwa VARCHAR(80) NOT NULL UNIQUE);",
+          "trap": "Id kategorii w produktach może się powtarzać.",
+          "practice": "Uzasadnij podział arkusza produktów na dwie tabele."
+        },
+        {
+          "id": "sql-3",
+          "title": "SELECT, alias i DISTINCT",
+          "language": "sql",
+          "priority": 1,
+          "body": "SELECT wybiera kolumny, FROM tabelę. AS nadaje alias w wyniku. DISTINCT usuwa powtórzenia całego zestawu wybranych kolumn.",
+          "code": "SELECT nazwa, stawka AS cena_godziny FROM rowery;\nSELECT DISTINCT typ_id FROM rowery;",
+          "trap": "SELECT * może dać kolumny, których zadanie nie wymaga.",
+          "practice": "Zwróć dokładnie dwie wskazane kolumny, w podanej kolejności."
+        },
+        {
+          "id": "sql-4",
+          "title": "WHERE i wzorce",
+          "language": "sql",
+          "priority": 1,
+          "body": "WHERE wybiera pojedyncze rekordy. LIKE rozpoznaje % jako dowolny ciąg i _ jako jeden znak. IS NULL testuje brak wartości.",
+          "code": "SELECT nazwa FROM rowery\nWHERE dostepny = 1 AND (nazwa LIKE 'M%' OR nazwa LIKE 'R%');",
+          "trap": "Grupuj AND i OR nawiasami. Kolumny z NULL sprawdzaj przez IS NULL.",
+          "practice": "Wyszukaj nazwy kończące się na „k” z pominięciem niedostępnych."
+        },
+        {
+          "id": "sql-5",
+          "title": "Sortowanie i LIMIT",
+          "language": "sql",
+          "priority": 1,
+          "body": "ORDER BY wybiera kolejność, ASC rosnąco, DESC malejąco. Podaj dodatkową kolumnę przy remisach, jeśli kolejność ma znaczenie.",
+          "code": "SELECT nazwa, stawka FROM rowery\nORDER BY stawka ASC, nazwa ASC LIMIT 3;",
+          "trap": "Bez ORDER BY baza nie gwarantuje kolejności wyniku.",
+          "practice": "Podaj dwie najdroższe oferty. Przy remisie posortuj po nazwie."
+        },
+        {
+          "id": "sql-6",
+          "title": "INNER JOIN i LEFT JOIN",
+          "language": "sql",
+          "priority": 1,
+          "body": "INNER JOIN zwraca pasujące pary. LEFT JOIN zachowuje również wiersze z lewej tabeli bez dopasowania. Warunek ON opisuje relację.",
+          "code": "SELECT r.nazwa, t.nazwa AS typ\nFROM rowery AS r INNER JOIN typy AS t ON r.typ_id = t.id;",
+          "trap": "Warunek prawej tabeli w WHERE może usunąć niezłączone wiersze.",
+          "practice": "Wyświetl wszystkie kategorie, także puste."
+        },
+        {
+          "id": "sql-7",
+          "title": "COUNT, SUM, AVG, MIN, MAX",
+          "language": "sql",
+          "priority": 1,
+          "body": "COUNT(*) liczy wiersze. COUNT(kolumna) liczy wartości różne od NULL. Pozostałe agregaty liczą sumę, średnią lub skrajne wartości.",
+          "code": "SELECT COUNT(*) AS liczba, AVG(stawka) AS srednia\nFROM rowery WHERE dostepny = 1;",
+          "trap": "COUNT(*) po LEFT JOIN daje 1 dla zachowanej pustej grupy. Wtedy policz id po prawej.",
+          "practice": "Oblicz liczbę i najwyższą cenę dostępnych produktów."
+        },
+        {
+          "id": "sql-8",
+          "title": "GROUP BY i HAVING",
+          "language": "sql",
+          "priority": 1,
+          "body": "GROUP BY scala wiersze w grupy. WHERE filtruje przed grupowaniem, HAVING po zbudowaniu grup.",
+          "code": "SELECT typ_id, COUNT(*) AS liczba FROM rowery\nWHERE dostepny = 1 GROUP BY typ_id HAVING COUNT(*) >= 2;",
+          "trap": "W prostych kwerendach wszystkie nieagregowane wybrane kolumny dodaj do GROUP BY.",
+          "practice": "Policz modele osobno dla typów i pokaż grupy liczące ponad dwa."
+        },
+        {
+          "id": "sql-9",
+          "title": "INSERT, UPDATE, DELETE",
+          "language": "sql",
+          "priority": 1,
+          "body": "INSERT dodaje rekord. UPDATE zmienia wartości, DELETE usuwa rekordy. Przed zmianą wykonaj SELECT z tym samym WHERE.",
+          "code": "SELECT id, stawka FROM rowery WHERE id = 4;\nUPDATE rowery SET stawka = 17.50 WHERE id = 4;\nSELECT id, stawka FROM rowery WHERE id = 4;",
+          "trap": "Bez WHERE UPDATE lub DELETE może objąć wszystkie wiersze.",
+          "practice": "Zmień cenę jednego rekordu i potwierdź, że pozostałe ceny nie zmieniły się."
+        },
+        {
+          "id": "sql-10",
+          "title": "CREATE, ALTER i widoki",
+          "language": "sql",
+          "priority": 2,
+          "body": "CREATE TABLE zakłada strukturę. ALTER TABLE ją zmienia. Widok przechowuje definicję zapytania jako obiekt bazy.",
+          "code": "ALTER TABLE rowery ADD COLUMN opis VARCHAR(120);\nCREATE VIEW dostepne_rowery AS SELECT id, nazwa FROM rowery WHERE dostepny = 1;",
+          "trap": "DROP usuwa obiekt, a DELETE rekordy z tabeli.",
+          "practice": "Dodaj kolumnę statusu i zbuduj widok z filtrem."
+        },
+        {
+          "id": "sql-11",
+          "title": "Import, eksport i uprawnienia",
+          "language": "sql",
+          "priority": 2,
+          "body": "Wczytaj plik SQL do właściwej bazy i sprawdź tabele. W ćwiczeniowej MariaDB GRANT przydziela określone prawo na danym obiekcie.",
+          "code": "GRANT SELECT ON inf03.rowery TO 'czytelnik'@'localhost';",
+          "trap": "Polecenie zakłada istniejącego użytkownika. Uprawnienia ćwicz na własnej bazie.",
+          "practice": "Wykonaj eksport, odtwórz go w nowej testowej bazie i sprawdź liczbę wierszy."
+        },
+        {
+          "id": "sql-12",
+          "title": "Transakcje i podzapytania",
+          "language": "sql",
+          "priority": 2,
+          "body": "Podzapytanie może zwrócić wartość do porównania. W transakcyjnej tabeli InnoDB ROLLBACK wycofuje niezapisane zmiany danych.",
+          "code": "SELECT nazwa FROM rowery WHERE stawka > (SELECT AVG(stawka) FROM rowery);\nSTART TRANSACTION;\nUPDATE rowery SET stawka = 20 WHERE id = 4;\nROLLBACK;",
+          "trap": "W MySQL i MariaDB wiele poleceń DDL powoduje niejawny COMMIT.",
+          "practice": "Wyszukaj ceny ponad średnią i sprawdź wycofanie aktualizacji."
+        }
+      ]
+    },
+    {
+      "id": "js",
+      "title": "JavaScript od zmiennej do interfejsu",
+      "criteria": "03.5",
+      "finish": "Napisz od podstaw kalkulator lub galerię, obsłuż błędne wejście i potwierdź działanie dla wartości granicznych.",
+      "lessons": [
+        {
+          "id": "js-1",
+          "title": "Zmienne, typy i konwersja",
+          "language": "javascript",
+          "priority": 1,
+          "body": "const wiąże nazwę bez możliwości ponownego przypisania, let dopuszcza zmianę. Pole formularza zwraca tekst.",
+          "code": "const tekst = \"12\";\nconsole.log(tekst + 5); // \"125\"\nconsole.log(Number(tekst) + 5); // 17",
+          "trap": "Number(\"\") zwraca 0. Puste wejście sprawdź przed konwersją.",
+          "practice": "Przewidź wyniki działań z liczbą i tekstem."
+        },
+        {
+          "id": "js-2",
+          "title": "Warunki i porównania",
+          "language": "javascript",
+          "priority": 1,
+          "body": "=== porównuje bez konwersji typu. && wymaga obu prawdziwych warunków. Operator reszty z dzielenia pozwala sprawdzić parzystość.",
+          "code": "if (x >= 1 && x <= 8) { console.log(\"Poprawny zakres\"); }\nconst parzysta = x % 2 === 0;",
+          "trap": "Połączenie nierówności 1 <= x <= 8 nie działa jak zapis matematyczny.",
+          "practice": "Zapisz warunek na pełną liczbę od 1 do 8."
+        },
+        {
+          "id": "js-3",
+          "title": "Pętle i wynik kodu",
+          "language": "javascript",
+          "priority": 1,
+          "body": "Rozpisz kolejne wartości licznika i zmiennej akumulującej. Indeksy tablic zaczynają się od zera.",
+          "code": "let suma = 0;\nfor (let i = 0; i < 4; i++) { suma += i; }\nconsole.log(suma); // 6",
+          "trap": "i <= tablica.length próbuje wejść za ostatnią pozycję.",
+          "practice": "Zapisz tabelkę i, suma dla wariantu zaczynającego od 1."
+        },
+        {
+          "id": "js-4",
+          "title": "Tablice i obiekty",
+          "language": "javascript",
+          "priority": 1,
+          "body": "Tablica przechowuje kolejność wartości. Obiekt pozwala nazwać właściwości. filter wybiera część tablicy, map przekształca elementy.",
+          "code": "const rowery = [{ cena: 12, dostepny: true }, { cena: 18, dostepny: false }];\nconst ceny = rowery.filter(r => r.dostepny).map(r => r.cena);",
+          "trap": "filter zwraca nową tablicę.",
+          "practice": "Wybierz dostępne modele poniżej ceny granicznej."
+        },
+        {
+          "id": "js-5",
+          "title": "Funkcje i zwracanie wartości",
+          "language": "javascript",
+          "priority": 1,
+          "body": "Parametry przekazują argumenty do funkcji. return oddaje wynik i kończy wywołanie.",
+          "code": "function koszt(cena, godziny) {\n  return cena * godziny;\n}\nconsole.log(koszt(12.5, 4)); // 50",
+          "trap": "console.log wyświetla informację, lecz nie zastępuje return.",
+          "practice": "Napisz funkcję liczącą koszt z rabatem od czterech godzin."
+        },
+        {
+          "id": "js-6",
+          "title": "DOM i wybór elementu",
+          "language": "javascript",
+          "priority": 1,
+          "body": "querySelector oczekuje selektora CSS i zwraca pierwszy element albo null. getElementById oczekuje samego id.",
+          "code": "const wynik = document.querySelector(\"#wynik\");\nwynik.textContent = \"Gotowe\";",
+          "trap": "getElementById(\"#wynik\") szuka id zawierającego kratkę.",
+          "practice": "Napraw selektor i zmień tekst w wybranym akapicie."
+        },
+        {
+          "id": "js-7",
+          "title": "Zdarzenia i formularz",
+          "language": "javascript",
+          "priority": 1,
+          "body": "click reaguje na kliknięcie, input na bieżącą zmianę wartości, submit na wysyłkę. W lokalnym kalkulatorze preventDefault blokuje przeładowanie.",
+          "code": "const form = document.querySelector(\"form\");\nform.addEventListener(\"submit\", event => {\n  event.preventDefault();\n  document.querySelector(\"#wynik\").textContent = \"Obliczono\";\n});",
+          "trap": "W addEventListener przekazujesz funkcję. Wywołanie z () wykona ją od razu.",
+          "practice": "Policz koszt po Enter i po kliknięciu przycisku."
+        },
+        {
+          "id": "js-8",
+          "title": "Walidacja i formatowanie liczby",
+          "language": "javascript",
+          "priority": 1,
+          "body": "Sprawdź pusty tekst, poprawność liczby i granice. toFixed tworzy tekst z liczbą miejsc po przecinku. Intl.NumberFormat lokalizuje zapis.",
+          "code": "const tekst = pole.value.trim();\nconst n = Number(tekst);\nif (tekst !== \"\" && Number.isInteger(n) && n >= 1 && n <= 8) {\n  wynik.textContent = new Intl.NumberFormat(\"pl-PL\", { style: \"currency\", currency: \"PLN\" }).format(n * 12.5);\n}",
+          "trap": "parseInt(\"2.7\", 10) daje 2, więc sam nie wykryje wpisania ułamka.",
+          "practice": "Przetestuj \"\", 0, 1, 8, 9 i 1.5."
+        },
+        {
+          "id": "js-9",
+          "title": "Galeria, klasy i lista elementów",
+          "language": "javascript",
+          "priority": 1,
+          "body": "Zmieniaj src wraz z alt. classList.toggle steruje klasą. querySelectorAll pozwala iterować po wszystkich trafieniach.",
+          "code": "document.querySelectorAll(\".miniatura\").forEach(mini => {\n  mini.addEventListener(\"click\", () => {\n    duze.src = mini.src;\n    duze.alt = mini.alt;\n  });\n});",
+          "trap": "Dla dostępnej miniatury rozważ zagnieżdżenie obrazu w button i zdarzenie na przycisku.",
+          "practice": "Dodaj zmianę zdjęcia i tekstu alternatywnego dla trzech przycisków."
+        },
+        {
+          "id": "js-10",
+          "title": "Algorytmy, obiekty i biblioteki",
+          "language": "javascript",
+          "priority": 2,
+          "body": "Przeszukiwanie liniowe sprawdza kolejne elementy. Klasa grupuje stan i zachowanie. W zadaniach pisemnych czytaj też składnię przykładów z bibliotek, np. jQuery.",
+          "code": "const trafienie = [5, 9, 17].find(x => x > 8); // 9\nclass Licznik {\n  stan = 0;\n  dodaj() { this.stan++; }\n}",
+          "trap": "find zwraca pierwsze trafienie albo undefined, filter tablicę wszystkich trafień.",
+          "practice": "Rozpisz liczbę sprawdzeń find dla trafienia i braku wyniku."
+        }
+      ]
+    },
+    {
+      "id": "php",
+      "title": "PHP od formularza do bazy",
+      "criteria": "03.5",
+      "finish": "Odbierz dane, odczytaj pasujące rekordy oraz wygeneruj stronę z obsługą pustej listy.",
+      "lessons": [
+        {
+          "id": "php-1",
+          "title": "Składnia i osadzenie w HTML",
+          "language": "php",
+          "priority": 1,
+          "body": "PHP działa na serwerze. Zmienne zaczynają się od znaku $. Kropka łączy teksty. echo wypisuje fragment odpowiedzi.",
+          "code": "<?php\n$model = 'Rondo';\necho '<p>Model: ' . $model . '</p>';",
+          "trap": "Ten przykład wypisuje stałą. Dla danych wejściowych koduj tekst do HTML.",
+          "practice": "Wypisz znacznik p z ceną i dopiskiem zł."
+        },
+        {
+          "id": "php-2",
+          "title": "Warunki, tablice i foreach",
+          "language": "php",
+          "priority": 1,
+          "body": "Tablica asocjacyjna mapuje nazwy kluczy na wartości. foreach przechodzi po rekordach bez ręcznego indeksu.",
+          "code": "<?php\n$rowery = [['nazwa' => 'Most', 'cena' => 15]];\nforeach ($rowery as $rower) {\n    echo htmlspecialchars($rower['nazwa'], ENT_QUOTES, 'UTF-8');\n}",
+          "trap": "Tablicę asocjacyjną czytaj po kluczu użytym przy tworzeniu lub w wyniku SQL.",
+          "practice": "Policz sumę cen dla trzech rekordów."
+        },
+        {
+          "id": "php-3",
+          "title": "GET, POST i walidacja",
+          "language": "php",
+          "priority": 1,
+          "body": "Sprawdzaj typ, brak wartości i zakres na serwerze. Opcja min_range w FILTER_VALIDATE_INT pomaga odrzucić liczbę poniżej zakresu.",
+          "code": "<?php\n$sztuki = filter_input(INPUT_POST, 'sztuki', FILTER_VALIDATE_INT, ['options' => ['min_range' => 1, 'max_range' => 8]]);\nif ($sztuki === false || $sztuki === null) { echo 'Podaj od 1 do 8 sztuk.'; }",
+          "trap": "false oznacza niepoprawną wartość, null brak wejścia.",
+          "practice": "Sprawdź reakcję PHP na pustą wartość i liczbę 9."
+        },
+        {
+          "id": "php-4",
+          "title": "Dane na wyjściu HTML",
+          "language": "php",
+          "priority": 1,
+          "body": "htmlspecialchars koduje znaki specjalne dla kontekstu HTML. Przy dynamicznej treści i atrybutach tekstowych stosuj kodowanie przed wypisaniem.",
+          "code": "<?php\n$tekst = 'Naprawa & serwis';\necho '<p>' . htmlspecialchars($tekst, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '</p>';",
+          "trap": "Kodowanie HTML nie zastępuje parametrów SQL.",
+          "practice": "Przewidź HTML źródłowy wyprodukowany dla nazwy „A & B”."
+        },
+        {
+          "id": "php-5",
+          "title": "Połączenie mysqli i SELECT",
+          "language": "php",
+          "priority": 1,
+          "body": "Podaj host, konto, hasło i bazę. Ustaw utf8mb4. query wykona stałe zapytanie, a fetch_assoc pobierze wiersz według nazw kolumn.",
+          "code": "<?php\n$db = new mysqli('localhost', 'uczen', 'haslo_lokalne', 'inf03');\n$db->set_charset('utf8mb4');\n$wynik = $db->query('SELECT nazwa FROM rowery ORDER BY nazwa');\nwhile ($r = $wynik->fetch_assoc()) {\n    echo '<li>' . htmlspecialchars($r['nazwa'], ENT_QUOTES, 'UTF-8') . '</li>';\n}\n$db->close();",
+          "trap": "Dane logowania dopasuj do ćwiczeniowego środowiska. Kod listy opakuj w ul.",
+          "practice": "Przerób pętlę na wiersze tabeli."
+        },
+        {
+          "id": "php-6",
+          "title": "Parametry zapytań i zapis",
+          "language": "php",
+          "priority": 1,
+          "body": "prepare oddziela konstrukcję zapytania od wartości. bind_param przyjmuje typy m.in. i dla int i s dla string. Nazwy tabel są częścią ustalonej składni.",
+          "code": "<?php\n$stmt = $db->prepare('UPDATE rowery SET nazwa = ? WHERE id = ?');\n$stmt->bind_param('si', $nazwa, $id);\n$stmt->execute();",
+          "trap": "Zwaliduj id i treść przed wykonaniem. Parametry nie służą do podstawiania nazw kolumn.",
+          "practice": "Napisz INSERT z dwiema wartościami podanymi jako parametry."
+        },
+        {
+          "id": "php-7",
+          "title": "Wynik pusty i format danych",
+          "language": "php",
+          "priority": 1,
+          "body": "Podaj czytelny komunikat dla braku wyników. number_format pozwala wyświetlić kwotę z polskim separatorem dziesiętnym.",
+          "code": "<?php\nif ($wynik->num_rows === 0) { echo '<p>Brak danych.</p>'; }\necho number_format(12.5, 2, ',', ' ') . ' zł';",
+          "trap": "Wartość wyświetlana jako „12,50 zł” nie nadaje się jako surowy operand JS.",
+          "practice": "Wyświetl kwotę w td, a surową wartość liczbową w data-cena."
+        },
+        {
+          "id": "php-8",
+          "title": "Sesje, ciasteczka i pliki",
+          "language": "php",
+          "priority": 2,
+          "body": "session_start wznawia lub tworzy sesję. Dane sesji są po stronie serwera. Ciasteczko klient przesyła w nagłówkach żądań.",
+          "code": "<?php\nsession_start();\n$_SESSION['widoki'] = ($_SESSION['widoki'] ?? 0) + 1;\necho (int) $_SESSION['widoki'];",
+          "trap": "session_start i setcookie wykonaj przed wysłaniem treści.",
+          "practice": "Zobacz, jak działa licznik w dwóch osobnych oknach prywatnych."
+        }
+      ]
+    },
+    {
+      "id": "media",
+      "title": "Grafika, multimedia i publikowanie",
+      "criteria": "03.3, 03.5",
+      "finish": "Przygotuj pliki o podanych rozmiarach i formatach oraz sprawdź aplikację po opublikowaniu.",
+      "lessons": [
+        {
+          "id": "media-1",
+          "title": "Raster, wektor i formaty",
+          "language": "text",
+          "priority": 1,
+          "body": "Raster przechowuje piksele, wektor opisuje kształty. JPEG pasuje do zdjęć, PNG do przezroczystych grafik, SVG do skalowalnych ikon. WebP może obsługiwać przezroczystość.",
+          "code": "zdjęcie → JPEG lub WebP\nikona z kanałem alfa → PNG\nlogo skalowane bez artefaktów → SVG",
+          "trap": "W arkuszu pierwszeństwo ma podany format. Zmiana rozszerzenia nie konwertuje obrazu.",
+          "practice": "Wybierz format dla zdjęcia, zrzutu i logo oraz uzasadnij każdy."
+        },
+        {
+          "id": "media-2",
+          "title": "Kadrowanie, skalowanie i eksport",
+          "language": "text",
+          "priority": 1,
+          "body": "Kadrowanie wybiera obszar. Skalowanie zmienia wymiary w pikselach. Zachowanie proporcji pozwala uniknąć deformacji.",
+          "code": "źródło 1800 × 1200 → połowa wymiarów → 900 × 600 px",
+          "trap": "Rozmiar pliku w KB to inna rzecz niż szerokość i wysokość w px.",
+          "practice": "Przytnij obraz do 3:2, wyeksportuj 900 × 600 i sprawdź wymiary."
+        },
+        {
+          "id": "media-3",
+          "title": "Kanał alfa i kolory",
+          "language": "css",
+          "priority": 1,
+          "body": "Alfa opisuje przezroczystość. W RGB kanały czerwony, zielony i niebieski składają się na kolor ekranu.",
+          "code": ".panel { background: rgb(40 50 180 / 50%); }",
+          "trap": "Przezroczyste tło obrazu sprawdź na jasnym i ciemnym tle.",
+          "practice": "Wyeksportuj ikonę PNG i sprawdź krawędzie na kontrastowym tle."
+        },
+        {
+          "id": "media-4",
+          "title": "CMS i hosting",
+          "language": "text",
+          "priority": 2,
+          "body": "CMS zarządza treścią za pomocą panelu i szablonów. Hosting statyczny udostępnia gotowe pliki. PHP i MariaDB wymagają środowiska serwerowego z odpowiednimi usługami.",
+          "code": "HTML/CSS/JS → hosting statyczny\nPHP + MariaDB → serwer PHP + połączenie z bazą",
+          "trap": "Lokalny adres localhost nie jest publicznym adresem dla innych urządzeń.",
+          "practice": "Wybierz typ hostingu dla portfolio i formularza z zapisem do bazy."
+        },
+        {
+          "id": "media-5",
+          "title": "Test publikacji i ścieżki",
+          "language": "text",
+          "priority": 2,
+          "body": "Po przesłaniu plików odtwórz nawigację, sprawdź odnośniki względne, obsługę błędów i widok telefonu. SFTP może służyć do przesyłania plików do hostingu.",
+          "code": "index.html → css/style.css\nindex.html → img/logo.png",
+          "trap": "Plik Logo.png i logo.png mogą być różnymi nazwami na serwerze.",
+          "practice": "Rozpoznaj przyczynę, gdy lokalnie obraz się ładuje, a na serwerze masz 404."
+        }
+      ]
+    },
+    {
+      "id": "pisemny",
+      "title": "Podstawy informatyki i praca zawodowa",
+      "criteria": "03.1, 03.2, 03.6, 03.7, 03.8",
+      "finish": "Rozwiąż przekrojowy test z tematami pomocniczymi i wyjaśnij wskazane błędy.",
+      "lessons": [
+        {
+          "id": "pisemny-1",
+          "title": "Systemy liczbowe i jednostki",
+          "language": "text",
+          "priority": 2,
+          "body": "Cyfry w systemie pozycyjnym mnoży się przez kolejne potęgi podstawy. Bajt ma osiem bitów. KiB to 1024 bajty.",
+          "code": "1011₂ = 1×8 + 0×4 + 1×2 + 1×1 = 11₁₀\nFF₁₆ = 15×16 + 15 = 255₁₀",
+          "trap": "Mb/s opisuje megabity na sekundę, MB to megabajty.",
+          "practice": "Przelicz 101010₂ na dziesiętny i szesnastkowy."
+        },
+        {
+          "id": "pisemny-2",
+          "title": "Kodowanie, sprzęt i systemy",
+          "language": "text",
+          "priority": 2,
+          "body": "UTF-8 zapisuje znaki Unicode za pomocą od jednego do czterech bajtów. RAM to pamięć robocza, SSD przechowuje dane po odłączeniu zasilania.",
+          "code": "ę → znak Unicode → bajty UTF-8",
+          "trap": "Zgodność kodowania pliku, odpowiedzi i połączenia z bazą pomaga zachować polskie litery.",
+          "practice": "Ustal, które elementy sprawdzisz przy uszkodzonych polskich znakach."
+        },
+        {
+          "id": "pisemny-3",
+          "title": "Sieć i HTTP",
+          "language": "text",
+          "priority": 2,
+          "body": "DNS rozwiązuje nazwy domen. HTTP opisuje wymianę żądań i odpowiedzi. HTTPS chroni transmisję. Status 404 oznacza brak żądanego zasobu.",
+          "code": "GET /img/logo.png → 404 Not Found\nGET /style.css → 200 OK",
+          "trap": "Błędy 4xx zgłasza się w związku z żądaniem, a 5xx w związku z obsługą po stronie serwera.",
+          "practice": "Odróżnij problem z adresem zasobu od problemu uruchomienia PHP."
+        },
+        {
+          "id": "pisemny-4",
+          "title": "Kopie, uprawnienia i dane",
+          "language": "text",
+          "priority": 2,
+          "body": "Stosuj konkretne uprawnienia do zadania. Weryfikuj możliwość odtworzenia kopii. Używaj autorskich danych testowych w publicznych projektach.",
+          "code": "konto raportu → SELECT\nkonto edycji → uprawnienia stosowne do operacji",
+          "trap": "Eksport bez próbnego odtworzenia nie dowodzi, że odzyskasz dane.",
+          "practice": "Jakie prawo wystarczy kontu do odczytania raportu?"
+        },
+        {
+          "id": "pisemny-5",
+          "title": "BHP i ergonomia",
+          "language": "text",
+          "priority": 2,
+          "body": "Zorganizuj stanowisko tak, by ograniczyć obciążenie wzroku i ciała. Przy zagrożeniu zabezpiecz miejsce i zgłoś je odpowiedniej osobie.",
+          "code": "monitory bez odbić • podparte stopy • regularna zmiana pozycji",
+          "trap": "BHP obejmuje też przewody, drogi ewakuacji i stan wyposażenia.",
+          "practice": "Wskaż trzy uchybienia na przykładowym stanowisku komputerowym."
+        },
+        {
+          "id": "pisemny-6",
+          "title": "Angielski techniczny",
+          "language": "text",
+          "priority": 2,
+          "body": "Rozpoznawaj polecenia w dokumentacji i komunikatach. Dobieraj znaczenie do kontekstu programu.",
+          "code": "required field → pole wymagane\nforeign key → klucz obcy\nquery returned no rows → zapytanie nie zwróciło wierszy",
+          "trap": "Library w kontekście kodu oznacza bibliotekę.",
+          "practice": "Zinterpretuj „undefined variable” i „permission denied”."
+        },
+        {
+          "id": "pisemny-7",
+          "title": "Praca w zespole, etyka i dokumentacja",
+          "language": "text",
+          "priority": 2,
+          "body": "Rozpisz zadania z kryteriami odbioru. Zgłoszenie błędu powinno zawierać kroki, wynik oczekiwany i rzeczywisty. Dokumentuj sposób uruchomienia.",
+          "code": "1. Otwórz kalkulator.\n2. Wpisz 0.\nOczekiwane: komunikat. Rzeczywiste: 0 zł.",
+          "trap": "Samo „nie działa” utrudnia odtworzenie usterki.",
+          "practice": "Napisz krótkie zgłoszenie z krokiem, środowiskiem i wynikiem."
+        }
+      ]
+    },
+    {
+      "id": "proby",
+      "title": "Projekty i próby egzaminacyjne",
+      "criteria": "03.3, 03.4, 03.5",
+      "finish": "Wykonaj jedną próbę PHP+SQL i jedną JS+SQL z zegarem. Porównaj pliki z kryteriami i popraw dwie najsłabsze rzeczy.",
+      "lessons": [
+        {
+          "id": "proby-1",
+          "title": "Projekt PHP i SQL",
+          "language": "text",
+          "priority": 1,
+          "body": "Po imporcie zaplanuj tabele oraz kwerendy. W PHP uruchom połączenie, odczyt i generowanie HTML, a dopiero potem przejdź ścieżkę odbioru.",
+          "code": "baza → kwerendy i dowody → HTML/CSS → mysqli → przeglądarka",
+          "trap": "Oddziel działające w bazie zapytanie od błędu w renderowaniu.",
+          "practice": "Wykonaj próbę „Rowerem po mieście” i sprawdź scenariusz braku danych."
+        },
+        {
+          "id": "proby-2",
+          "title": "Projekt JavaScript i SQL",
+          "language": "text",
+          "priority": 1,
+          "body": "Jeśli polecenie przewiduje osobne rezultaty, zapisz kwerendy w pliku i zrzuty oddzielnie. Skrypt kliencki przygotuj według podanych danych i zachowania.",
+          "code": "SQL w phpMyAdmin → pliki i zrzuty\nHTML/CSS/JS → interfejs i działanie w przeglądarce",
+          "trap": "W arkuszu mogą się pojawić PHP i JavaScript jednocześnie. Przeczytaj każdy podpunkt.",
+          "practice": "Wybierz archiwalny wariant JS+SQL i odtwórz go w 150 minut."
+        },
+        {
+          "id": "proby-3",
+          "title": "Próba odbioru i samoocena",
+          "language": "text",
+          "priority": 1,
+          "body": "Sprawdzaj punkty po ukończeniu etapów. Otwórz finalny katalog w docelowym środowisku i wykonaj scenariusze z polecenia.",
+          "code": "nazwy i ścieżki → import → zapytania → skrypty → zrzuty → plik z nazwą przeglądarki",
+          "trap": "Ocena według klucza weryfikuje konkretne rezultaty arkusza.",
+          "practice": "Rozpisz punkty z klucza na wykonane, częściowe i pominięte."
+        }
+      ]
+    }
+  ],
+  "znaczniki": [
+    {
+      "tag": "html",
+      "group": "Dokument",
+      "body": "Korzeń dokumentu. Atrybut lang wybiera język tekstu i pomaga czytnikom ekranu.",
+      "code": "<html lang=\"pl\">…</html>",
+      "priority": 1
+    },
+    {
+      "tag": "head",
+      "group": "Dokument",
+      "body": "Zawiera metadane i odwołania do zasobów. Treść widoczna na stronie trafia do body.",
+      "code": "<head><title>Sklep</title></head>",
+      "priority": 1
+    },
+    {
+      "tag": "body",
+      "group": "Dokument",
+      "body": "Zawiera treść dokumentu i interfejs użytkownika.",
+      "code": "<body><main>Treść</main></body>",
+      "priority": 1
+    },
+    {
+      "tag": "title",
+      "group": "Dokument",
+      "body": "Ustawia nazwę dokumentu wyświetlaną m.in. w zakładce przeglądarki.",
+      "code": "<title>Galeria rowerów</title>",
+      "priority": 1
+    },
+    {
+      "tag": "meta",
+      "group": "Dokument",
+      "body": "Dodaje metadane, takie jak kodowanie znaków lub konfiguracja viewportu.",
+      "code": "<meta charset=\"utf-8\">",
+      "priority": 1
+    },
+    {
+      "tag": "link",
+      "group": "Dokument",
+      "body": "Deklaruje relację z zewnętrznym zasobem, np. arkuszem stylów.",
+      "code": "<link rel=\"stylesheet\" href=\"style.css\">",
+      "priority": 1
+    },
+    {
+      "tag": "style",
+      "group": "Dokument",
+      "body": "Zawiera wewnętrzny arkusz CSS. Umieść go w head, gdy polecenie dopuszcza styl wewnętrzny.",
+      "code": "<style>p { color: navy; }</style>",
+      "priority": 1
+    },
+    {
+      "tag": "base",
+      "group": "Dokument",
+      "body": "Ustala bazę adresów względnych w dokumencie. Występuje najwyżej jeden element base.",
+      "code": "<base href=\"https://example.org/katalog/\">",
+      "priority": 3
+    },
+    {
+      "tag": "script",
+      "group": "Dokument",
+      "body": "Osadza lub wczytuje JavaScript. defer przy zewnętrznym klasycznym skrypcie odkłada wykonanie do zakończenia parsowania HTML.",
+      "code": "<script src=\"app.js\" defer></script>",
+      "priority": 1
+    },
+    {
+      "tag": "noscript",
+      "group": "Dokument",
+      "body": "Wyświetla treść zastępczą w przeglądarce z wyłączoną obsługą skryptów.",
+      "code": "<noscript>Włącz JavaScript, aby użyć kalkulatora.</noscript>",
+      "priority": 2
+    },
+    {
+      "tag": "header",
+      "group": "Układ",
+      "body": "Nagłówek strony lub sekcji. Może zawierać logo, nazwę i nawigację.",
+      "code": "<header><h1>Atlas drzew</h1></header>",
+      "priority": 1
+    },
+    {
+      "tag": "nav",
+      "group": "Układ",
+      "body": "Sekcja głównych odnośników nawigacyjnych.",
+      "code": "<nav><a href=\"#galeria\">Galeria</a></nav>",
+      "priority": 1
+    },
+    {
+      "tag": "main",
+      "group": "Układ",
+      "body": "Wyznacza główną, unikatową treść strony. W prostym dokumencie użyj jednego widocznego main.",
+      "code": "<main><h1>Cennik</h1></main>",
+      "priority": 1
+    },
+    {
+      "tag": "section",
+      "group": "Układ",
+      "body": "Grupuje tematycznie powiązaną treść, zwykle opisaną nagłówkiem.",
+      "code": "<section id=\"kontakt\"><h2>Kontakt</h2></section>",
+      "priority": 1
+    },
+    {
+      "tag": "article",
+      "group": "Układ",
+      "body": "Samodzielna jednostka treści, np. wiadomość, oferta albo wpis.",
+      "code": "<article><h2>Nowa trasa</h2><p>Opis</p></article>",
+      "priority": 1
+    },
+    {
+      "tag": "aside",
+      "group": "Układ",
+      "body": "Treść poboczna powiązana z głównym tematem, np. polecane trasy.",
+      "code": "<aside><h2>Podobne trasy</h2></aside>",
+      "priority": 1
+    },
+    {
+      "tag": "footer",
+      "group": "Układ",
+      "body": "Stopka strony albo sekcji. Może zawierać autorstwo i kontakt.",
+      "code": "<footer>Autor: Jan Kowalski</footer>",
+      "priority": 1
+    },
+    {
+      "tag": "address",
+      "group": "Układ",
+      "body": "Dane kontaktowe dotyczące strony lub najbliższego artykułu.",
+      "code": "<address><a href=\"mailto:biuro@example.org\">Biuro</a></address>",
+      "priority": 2
+    },
+    {
+      "tag": "search",
+      "group": "Układ",
+      "body": "Obszar kontrolek do wyszukiwania lub filtrowania treści.",
+      "code": "<search><form><label>Produkt <input name=\"q\"></label></form></search>",
+      "priority": 3
+    },
+    {
+      "tag": "hgroup",
+      "group": "Układ",
+      "body": "Grupuje jeden nagłówek z akapitem zawierającym podtytuł lub opis.",
+      "code": "<hgroup><h1>Katalog</h1><p>Wiosna</p></hgroup>",
+      "priority": 3
+    },
+    {
+      "tag": "div",
+      "group": "Układ",
+      "body": "Neutralny kontener blokowy. Nadaje się do grupowania elementów na potrzeby stylów.",
+      "code": "<div class=\"karty\">…</div>",
+      "priority": 1
+    },
+    {
+      "tag": "h1",
+      "group": "Tekst",
+      "body": "Nagłówek pierwszego poziomu. W prostym zadaniu oznacza główny tytuł.",
+      "code": "<h1>Wypożyczalnia</h1>",
+      "priority": 1
+    },
+    {
+      "tag": "h2",
+      "group": "Tekst",
+      "body": "Nagłówek drugiego poziomu, zwykle dla głównej sekcji.",
+      "code": "<h2>Oferta</h2>",
+      "priority": 1
+    },
+    {
+      "tag": "h3",
+      "group": "Tekst",
+      "body": "Nagłówek trzeciego poziomu, np. podsekcja pod h2.",
+      "code": "<h3>Rowery miejskie</h3>",
+      "priority": 1
+    },
+    {
+      "tag": "h4",
+      "group": "Tekst",
+      "body": "Nagłówek czwartego poziomu.",
+      "code": "<h4>Modele dziecięce</h4>",
+      "priority": 2
+    },
+    {
+      "tag": "h5",
+      "group": "Tekst",
+      "body": "Nagłówek piątego poziomu.",
+      "code": "<h5>Rozmiary kół</h5>",
+      "priority": 2
+    },
+    {
+      "tag": "h6",
+      "group": "Tekst",
+      "body": "Nagłówek szóstego poziomu.",
+      "code": "<h6>Uwagi do rozmiaru</h6>",
+      "priority": 2
+    },
+    {
+      "tag": "p",
+      "group": "Tekst",
+      "body": "Oznacza akapit tekstu. Listy i tabele umieszczaj poza akapitem.",
+      "code": "<p>Zadzwoń, aby zarezerwować rower.</p>",
+      "priority": 1
+    },
+    {
+      "tag": "span",
+      "group": "Tekst",
+      "body": "Neutralne grupowanie fragmentu wiersza, np. do wyróżnienia ceny CSS-em.",
+      "code": "<span class=\"cena\">49 zł</span>",
+      "priority": 1
+    },
+    {
+      "tag": "a",
+      "group": "Tekst",
+      "body": "Tworzy odnośnik, gdy ma href. Zapis #id przenosi do elementu o tym identyfikatorze.",
+      "code": "<a href=\"oferta.html\">Zobacz ofertę</a>",
+      "priority": 1
+    },
+    {
+      "tag": "strong",
+      "group": "Tekst",
+      "body": "Oznacza ważną lub pilną treść.",
+      "code": "<strong>Rezerwacja jest wymagana.</strong>",
+      "priority": 1
+    },
+    {
+      "tag": "em",
+      "group": "Tekst",
+      "body": "Kładzie nacisk znaczeniowy na fragment zdania.",
+      "code": "<em>Każdy</em> rower ma zapięcie.",
+      "priority": 1
+    },
+    {
+      "tag": "b",
+      "group": "Tekst",
+      "body": "Zwraca uwagę na wyraz bez oznaczania większej ważności.",
+      "code": "Tryb <b>Standard</b>",
+      "priority": 2
+    },
+    {
+      "tag": "i",
+      "group": "Tekst",
+      "body": "Wyróżnia np. termin obcojęzyczny lub odmienny głos w tekście.",
+      "code": "<i lang=\"en\">fallback</i>",
+      "priority": 2
+    },
+    {
+      "tag": "u",
+      "group": "Tekst",
+      "body": "Oznacza tekst z nietekstową adnotacją, np. błąd pisowni.",
+      "code": "<u>progamista</u>",
+      "priority": 3
+    },
+    {
+      "tag": "s",
+      "group": "Tekst",
+      "body": "Oznacza informację, która straciła aktualność.",
+      "code": "<s>59 zł</s> 49 zł",
+      "priority": 2
+    },
+    {
+      "tag": "small",
+      "group": "Tekst",
+      "body": "Drobny druk, uwaga poboczna lub informacja prawna.",
+      "code": "<small>Cena za godzinę.</small>",
+      "priority": 2
+    },
+    {
+      "tag": "mark",
+      "group": "Tekst",
+      "body": "Oznacza fragment istotny w danym kontekście, np. trafienie wyszukiwarki.",
+      "code": "Rower <mark>miejski</mark>",
+      "priority": 2
+    },
+    {
+      "tag": "abbr",
+      "group": "Tekst",
+      "body": "Oznacza skrót. Atrybut title może podać rozwinięcie.",
+      "code": "<abbr title=\"HyperText Markup Language\">HTML</abbr>",
+      "priority": 2
+    },
+    {
+      "tag": "dfn",
+      "group": "Tekst",
+      "body": "Oznacza wystąpienie terminu definiowanego w otaczającej treści.",
+      "code": "<p><dfn>DOM</dfn> to model dokumentu.</p>",
+      "priority": 3
+    },
+    {
+      "tag": "cite",
+      "group": "Tekst",
+      "body": "Oznacza tytuł cytowanego lub przywoływanego dzieła.",
+      "code": "<cite>Informator CKE</cite>",
+      "priority": 2
+    },
+    {
+      "tag": "q",
+      "group": "Tekst",
+      "body": "Krótki cytat wewnątrz akapitu.",
+      "code": "<p>Polecenie brzmi: <q>utwórz listę</q>.</p>",
+      "priority": 2
+    },
+    {
+      "tag": "blockquote",
+      "group": "Tekst",
+      "body": "Wydzielony blok cytatu.",
+      "code": "<blockquote><p>Treść cytatu.</p></blockquote>",
+      "priority": 2
+    },
+    {
+      "tag": "code",
+      "group": "Tekst",
+      "body": "Oznacza kod lub jego fragment.",
+      "code": "Użyj <code>COUNT(*)</code>.",
+      "priority": 1
+    },
+    {
+      "tag": "pre",
+      "group": "Tekst",
+      "body": "Wyświetla tekst z zachowaniem wcięć i nowych wierszy. Często opakowuje code.",
+      "code": "<pre><code>const x = 1;</code></pre>",
+      "priority": 1
+    },
+    {
+      "tag": "kbd",
+      "group": "Tekst",
+      "body": "Opisuje dane wprowadzane przez użytkownika, np. klawisze.",
+      "code": "Naciśnij <kbd>Enter</kbd>.",
+      "priority": 2
+    },
+    {
+      "tag": "samp",
+      "group": "Tekst",
+      "body": "Oznacza przykładowy wynik działania programu.",
+      "code": "<samp>Import zakończony</samp>",
+      "priority": 3
+    },
+    {
+      "tag": "var",
+      "group": "Tekst",
+      "body": "Oznacza zmienną lub wielkość matematyczną.",
+      "code": "<var>n</var> oznacza liczbę sztuk.",
+      "priority": 3
+    },
+    {
+      "tag": "sub",
+      "group": "Tekst",
+      "body": "Indeks dolny.",
+      "code": "H<sub>2</sub>O",
+      "priority": 2
+    },
+    {
+      "tag": "sup",
+      "group": "Tekst",
+      "body": "Indeks górny.",
+      "code": "m<sup>2</sup>",
+      "priority": 2
+    },
+    {
+      "tag": "br",
+      "group": "Tekst",
+      "body": "Wstawia twarde łamanie wiersza, np. w adresie.",
+      "code": "ul. Zielona 5<br>00-001 Warszawa",
+      "priority": 1
+    },
+    {
+      "tag": "wbr",
+      "group": "Tekst",
+      "body": "Wskazuje dopuszczalne miejsce łamania bardzo długiego wyrazu.",
+      "code": "bardzo<wbr>długie<wbr>słowo",
+      "priority": 3
+    },
+    {
+      "tag": "hr",
+      "group": "Tekst",
+      "body": "Oznacza tematyczne przejście pomiędzy fragmentami treści.",
+      "code": "<p>Część pierwsza</p><hr><p>Część druga</p>",
+      "priority": 2
+    },
+    {
+      "tag": "time",
+      "group": "Tekst",
+      "body": "Reprezentuje datę, godzinę lub czas trwania w formie czytelnej maszynowo.",
+      "code": "<time datetime=\"2026-11-21\">21 listopada</time>",
+      "priority": 2
+    },
+    {
+      "tag": "data",
+      "group": "Tekst",
+      "body": "Łączy czytelny tekst z wartością dla oprogramowania. Dla dat służy time.",
+      "code": "<data value=\"42\">Rower miejski</data>",
+      "priority": 3
+    },
+    {
+      "tag": "ins",
+      "group": "Tekst",
+      "body": "Oznacza dodany fragment dokumentu.",
+      "code": "<ins>Nowy punkt regulaminu</ins>",
+      "priority": 2
+    },
+    {
+      "tag": "del",
+      "group": "Tekst",
+      "body": "Oznacza usunięty fragment dokumentu.",
+      "code": "<del>Poprzedni punkt regulaminu</del>",
+      "priority": 2
+    },
+    {
+      "tag": "bdi",
+      "group": "Tekst",
+      "body": "Izoluje kierunek pisma w tekście, np. w nieznanej nazwie użytkownika.",
+      "code": "Użytkownik <bdi>علي</bdi>",
+      "priority": 3
+    },
+    {
+      "tag": "bdo",
+      "group": "Tekst",
+      "body": "Wymusza kierunek tekstu podany w dir.",
+      "code": "<bdo dir=\"rtl\">ABC</bdo>",
+      "priority": 3
+    },
+    {
+      "tag": "ruby",
+      "group": "Tekst",
+      "body": "Łączy tekst bazowy z adnotacją wymowy, np. w języku japońskim.",
+      "code": "<ruby>日<rt>にち</rt></ruby>",
+      "priority": 3
+    },
+    {
+      "tag": "rt",
+      "group": "Tekst",
+      "body": "Treść adnotacji wymowy w ruby.",
+      "code": "<ruby>日<rt>にち</rt></ruby>",
+      "priority": 3
+    },
+    {
+      "tag": "rp",
+      "group": "Tekst",
+      "body": "Nawias zastępczy dla przeglądarek bez renderowania adnotacji ruby.",
+      "code": "<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>",
+      "priority": 3
+    },
+    {
+      "tag": "ul",
+      "group": "Listy",
+      "body": "Lista nieuporządkowana, której pozycjami są elementy li.",
+      "code": "<ul><li>HTML</li><li>SQL</li></ul>",
+      "priority": 1
+    },
+    {
+      "tag": "ol",
+      "group": "Listy",
+      "body": "Lista uporządkowana, np. kolejność kroków.",
+      "code": "<ol><li>Importuj</li><li>Uruchom</li></ol>",
+      "priority": 1
+    },
+    {
+      "tag": "li",
+      "group": "Listy",
+      "body": "Pozycja listy ul, ol lub menu.",
+      "code": "<ol><li>Pierwszy krok</li></ol>",
+      "priority": 1
+    },
+    {
+      "tag": "dl",
+      "group": "Listy",
+      "body": "Lista grup nazw i opisów, np. słownik.",
+      "code": "<dl><dt>DOM</dt><dd>Model dokumentu</dd></dl>",
+      "priority": 2
+    },
+    {
+      "tag": "dt",
+      "group": "Listy",
+      "body": "Nazwa lub termin w grupie listy dl.",
+      "code": "<dl><dt>PHP</dt><dd>Język skryptowy</dd></dl>",
+      "priority": 2
+    },
+    {
+      "tag": "dd",
+      "group": "Listy",
+      "body": "Opis lub wartość przypisana do terminu w dl.",
+      "code": "<dl><dt>Rozmiar</dt><dd>600 × 400 px</dd></dl>",
+      "priority": 2
+    },
+    {
+      "tag": "menu",
+      "group": "Listy",
+      "body": "Lista poleceń, strukturalnie podobna do ul.",
+      "code": "<menu><li><button type=\"button\">Usuń</button></li></menu>",
+      "priority": 3
+    },
+    {
+      "tag": "table",
+      "group": "Tabele",
+      "body": "Tworzy tabelę danych uporządkowanych w wiersze i kolumny.",
+      "code": "<table><tr><td>Rower</td><td>10 zł</td></tr></table>",
+      "priority": 1
+    },
+    {
+      "tag": "caption",
+      "group": "Tabele",
+      "body": "Podpis lub tytuł tabeli, umieszczany przed wierszami i grupami kolumn.",
+      "code": "<table><caption>Cennik</caption><tr><td>10 zł</td></tr></table>",
+      "priority": 1
+    },
+    {
+      "tag": "thead",
+      "group": "Tabele",
+      "body": "Grupuje wiersze nagłówkowe tabeli.",
+      "code": "<thead><tr><th scope=\"col\">Cena</th></tr></thead>",
+      "priority": 1
+    },
+    {
+      "tag": "tbody",
+      "group": "Tabele",
+      "body": "Grupuje zwykłe wiersze danych.",
+      "code": "<tbody><tr><td>10 zł</td></tr></tbody>",
+      "priority": 1
+    },
+    {
+      "tag": "tfoot",
+      "group": "Tabele",
+      "body": "Grupuje wiersze stopki, np. podsumowanie.",
+      "code": "<tfoot><tr><td>Suma: 30 zł</td></tr></tfoot>",
+      "priority": 2
+    },
+    {
+      "tag": "tr",
+      "group": "Tabele",
+      "body": "Wiersz tabeli z komórkami th lub td.",
+      "code": "<tr><th scope=\"row\">Sobota</th><td>10:00</td></tr>",
+      "priority": 1
+    },
+    {
+      "tag": "th",
+      "group": "Tabele",
+      "body": "Komórka nagłówkowa. scope wskazuje wiersz lub kolumnę, której dotyczy.",
+      "code": "<th scope=\"col\">Cena</th>",
+      "priority": 1
+    },
+    {
+      "tag": "td",
+      "group": "Tabele",
+      "body": "Komórka danych. colspan i rowspan rozciągają ją na kilka kolumn lub wierszy.",
+      "code": "<td colspan=\"2\">Brak rezerwacji</td>",
+      "priority": 1
+    },
+    {
+      "tag": "colgroup",
+      "group": "Tabele",
+      "body": "Grupuje kolumny tabeli, np. do przypisania klasy.",
+      "code": "<colgroup class=\"ceny\" span=\"2\"></colgroup>",
+      "priority": 2
+    },
+    {
+      "tag": "col",
+      "group": "Tabele",
+      "body": "Reprezentuje co najmniej jedną kolumnę wewnątrz colgroup.",
+      "code": "<colgroup><col class=\"cena\"></colgroup>",
+      "priority": 2
+    },
+    {
+      "tag": "form",
+      "group": "Formularze",
+      "body": "Grupuje kontrolki i określa adres action oraz metodę method przesłania danych.",
+      "code": "<form action=\"zapis.php\" method=\"post\">…</form>",
+      "priority": 1
+    },
+    {
+      "tag": "label",
+      "group": "Formularze",
+      "body": "Etykieta kontrolki. Dopasuj for do id kontrolki lub zagnieźdź ją w etykiecie.",
+      "code": "<label for=\"km\">Dystans</label><input id=\"km\" name=\"km\">",
+      "priority": 1
+    },
+    {
+      "tag": "input",
+      "group": "Formularze",
+      "body": "Pole formularza zależne od type. name określa nazwę wysyłanego pola.",
+      "code": "<input type=\"number\" name=\"sztuki\" min=\"1\" required>",
+      "priority": 1
+    },
+    {
+      "tag": "textarea",
+      "group": "Formularze",
+      "body": "Pole tekstowe na kilka wierszy. Początkowa wartość znajduje się między znacznikami.",
+      "code": "<textarea name=\"uwagi\" rows=\"4\">Bez uwag</textarea>",
+      "priority": 1
+    },
+    {
+      "tag": "button",
+      "group": "Formularze",
+      "body": "Przycisk. W formularzu podaj type=\"button\" dla akcji JS lub type=\"submit\" dla wysyłki.",
+      "code": "<button type=\"submit\">Zapisz</button>",
+      "priority": 1
+    },
+    {
+      "tag": "select",
+      "group": "Formularze",
+      "body": "Lista wyboru. Atrybut multiple pozwala wybrać kilka opcji.",
+      "code": "<select name=\"typ\"><option value=\"1\">Miejski</option></select>",
+      "priority": 1
+    },
+    {
+      "tag": "option",
+      "group": "Formularze",
+      "body": "Pozycja select, optgroup albo datalist. value określa wartość kontrolki.",
+      "code": "<option value=\"2\" selected>Górski</option>",
+      "priority": 1
+    },
+    {
+      "tag": "optgroup",
+      "group": "Formularze",
+      "body": "Grupuje opcje w select i nadaje grupie etykietę.",
+      "code": "<optgroup label=\"Sport\"><option>Szosa</option></optgroup>",
+      "priority": 2
+    },
+    {
+      "tag": "datalist",
+      "group": "Formularze",
+      "body": "Lista podpowiedzi połączona z input przez list i id. Sama nie ogranicza wpisywanych wartości.",
+      "code": "<input list=\"miasta\"><datalist id=\"miasta\"><option value=\"Łódź\"></datalist>",
+      "priority": 2
+    },
+    {
+      "tag": "fieldset",
+      "group": "Formularze",
+      "body": "Grupuje semantycznie powiązane kontrolki. Nagłówek grupy daje legend.",
+      "code": "<fieldset><legend>Dane</legend><label>Imię <input name=\"imie\"></label></fieldset>",
+      "priority": 2
+    },
+    {
+      "tag": "legend",
+      "group": "Formularze",
+      "body": "Opis grupy kontrolek, zwykle pierwszy element fieldset.",
+      "code": "<fieldset><legend>Rodzaj biletu</legend>…</fieldset>",
+      "priority": 2
+    },
+    {
+      "tag": "output",
+      "group": "Formularze",
+      "body": "Wyświetla wynik obliczeń lub akcji użytkownika.",
+      "code": "<output id=\"suma\" for=\"cena liczba\">0 zł</output>",
+      "priority": 2
+    },
+    {
+      "tag": "progress",
+      "group": "Formularze",
+      "body": "Pokazuje postęp działania. Bez value pokazuje postęp o nieokreślonej wartości.",
+      "code": "<progress value=\"3\" max=\"10\">3/10</progress>",
+      "priority": 2
+    },
+    {
+      "tag": "meter",
+      "group": "Formularze",
+      "body": "Pokazuje pomiar w znanym zakresie, np. ocenę lub temperaturę.",
+      "code": "<meter min=\"0\" max=\"10\" value=\"7\">7/10</meter>",
+      "priority": 2
+    },
+    {
+      "tag": "selectedcontent",
+      "group": "Formularze",
+      "body": "W mechanizmie konfigurowalnego select pokazuje kopię treści aktualnie wybranej opcji.",
+      "code": "<select><button><selectedcontent></selectedcontent></button><option>Miejski</option></select>",
+      "priority": 3
+    },
+    {
+      "tag": "img",
+      "group": "Media",
+      "body": "Osadza obraz. src wskazuje plik, alt niesie treść alternatywną lub jest pusty dla dekoracji.",
+      "code": "<img src=\"rower.jpg\" alt=\"Czerwony rower przy wejściu\">",
+      "priority": 1
+    },
+    {
+      "tag": "figure",
+      "group": "Media",
+      "body": "Reprezentuje samodzielną ilustrację lub przykład, opcjonalnie z podpisem.",
+      "code": "<figure><img src=\"mapa.png\" alt=\"Trasa do parku\"><figcaption>Trasa A</figcaption></figure>",
+      "priority": 2
+    },
+    {
+      "tag": "figcaption",
+      "group": "Media",
+      "body": "Podpis figure. Umieść go jako pierwszy albo ostatni element figury.",
+      "code": "<figcaption>Widok trasy z południa</figcaption>",
+      "priority": 2
+    },
+    {
+      "tag": "picture",
+      "group": "Media",
+      "body": "Wybiera źródło obrazu na podstawie warunków. Zawiera img jako element docelowy i zapasowy.",
+      "code": "<picture><source type=\"image/webp\" srcset=\"rower.webp\"><img src=\"rower.jpg\" alt=\"Rower\"></picture>",
+      "priority": 2
+    },
+    {
+      "tag": "source",
+      "group": "Media",
+      "body": "Wskazuje alternatywne źródło w picture, audio lub video.",
+      "code": "<source media=\"(max-width: 600px)\" srcset=\"male.jpg\">",
+      "priority": 2
+    },
+    {
+      "tag": "audio",
+      "group": "Media",
+      "body": "Osadza materiał dźwiękowy. controls wyświetla sterowanie.",
+      "code": "<audio controls src=\"opis.ogg\"></audio>",
+      "priority": 2
+    },
+    {
+      "tag": "video",
+      "group": "Media",
+      "body": "Osadza film z możliwością sterowania i podania grafiki poster.",
+      "code": "<video controls src=\"trasa.mp4\" poster=\"kadr.jpg\"></video>",
+      "priority": 2
+    },
+    {
+      "tag": "track",
+      "group": "Media",
+      "body": "Dodaje ścieżkę tekstową, np. napisy WebVTT w video.",
+      "code": "<track kind=\"captions\" src=\"napisy.vtt\" srclang=\"pl\" label=\"Polskie\">",
+      "priority": 2
+    },
+    {
+      "tag": "map",
+      "group": "Media",
+      "body": "Definiuje mapę obszarów obrazu połączoną z img przez usemap.",
+      "code": "<map name=\"plan\"><area shape=\"rect\" coords=\"0,0,80,80\" href=\"wejscie.html\" alt=\"Wejście\"></map>",
+      "priority": 3
+    },
+    {
+      "tag": "area",
+      "group": "Media",
+      "body": "Definiuje klikalny obszar mapy obrazu. Kształt i współrzędne podają shape i coords.",
+      "code": "<area shape=\"circle\" coords=\"40,40,18\" href=\"most.html\" alt=\"Most\">",
+      "priority": 3
+    },
+    {
+      "tag": "iframe",
+      "group": "Media",
+      "body": "Osadza osobny dokument. Atrybut title opisuje zawartość ramki.",
+      "code": "<iframe src=\"cennik.html\" title=\"Cennik wypożyczalni\"></iframe>",
+      "priority": 2
+    },
+    {
+      "tag": "canvas",
+      "group": "Media",
+      "body": "Udostępnia płótno pikselowe do rysowania przez skrypt.",
+      "code": "<canvas id=\"wykres\" width=\"300\" height=\"150\">Wykres</canvas>",
+      "priority": 2
+    },
+    {
+      "tag": "embed",
+      "group": "Media",
+      "body": "Osadza zewnętrzny zasób obsługiwany przez przeglądarkę, np. PDF.",
+      "code": "<embed type=\"application/pdf\" src=\"plan.pdf\">",
+      "priority": 3
+    },
+    {
+      "tag": "object",
+      "group": "Media",
+      "body": "Osadza zasób i może wyświetlić HTML zastępczy.",
+      "code": "<object data=\"plan.pdf\" type=\"application/pdf\"><a href=\"plan.pdf\">Pobierz plan</a></object>",
+      "priority": 3
+    },
+    {
+      "tag": "details",
+      "group": "Interakcje",
+      "body": "Natywna rozwijana sekcja. Może działać bez JavaScriptu.",
+      "code": "<details><summary>Rozwiązanie</summary>Treść rozwiązania</details>",
+      "priority": 2
+    },
+    {
+      "tag": "summary",
+      "group": "Interakcje",
+      "body": "Etykieta rozwijanej sekcji details.",
+      "code": "<details><summary>Podpowiedź</summary>Użyj JOIN.</details>",
+      "priority": 2
+    },
+    {
+      "tag": "dialog",
+      "group": "Interakcje",
+      "body": "Okno dialogowe. Metoda showModal() otwiera je w trybie modalnym.",
+      "code": "<dialog id=\"pomoc\"><p>Instrukcja</p></dialog>",
+      "priority": 3
+    },
+    {
+      "tag": "template",
+      "group": "Interakcje",
+      "body": "Przechowuje niewyświetlany fragment dokumentu przeznaczony zwykle do klonowania przez JS.",
+      "code": "<template id=\"wiersz\"><li></li></template>",
+      "priority": 3
+    },
+    {
+      "tag": "slot",
+      "group": "Interakcje",
+      "body": "Punkt podstawiania treści w drzewie Shadow DOM komponentu.",
+      "code": "<slot name=\"tytul\">Tytuł domyślny</slot>",
+      "priority": 3
+    },
+    {
+      "tag": "svg",
+      "group": "Osadzane standardy",
+      "body": "Korzeń osadzonej grafiki wektorowej SVG.",
+      "code": "<svg viewBox=\"0 0 20 20\"><circle cx=\"10\" cy=\"10\" r=\"8\"/></svg>",
+      "priority": 2
+    },
+    {
+      "tag": "math",
+      "group": "Osadzane standardy",
+      "body": "Korzeń zapisu matematycznego MathML.",
+      "code": "<math><msup><mi>x</mi><mn>2</mn></msup></math>",
+      "priority": 3
+    }
+  ],
+  "fiszki": [
+    {
+      "id": 1,
+      "topic": "HTML",
+      "front": "Co umieszczasz w head na początku dokumentu?",
+      "back": "Kodowanie UTF-8, metadane viewportu, title i odwołania do zasobów. Doctype jest przed html."
+    },
+    {
+      "id": 2,
+      "topic": "HTML",
+      "front": "Co łączy label z polem, a co tworzy klucz wysłany do PHP?",
+      "back": "for odpowiada wartości id. Kluczem otrzymanym przez PHP jest name."
+    },
+    {
+      "id": 3,
+      "topic": "HTML",
+      "front": "Jak połączyć „Oferta” z sekcją na tej samej stronie?",
+      "back": "Wstaw href=\"#oferta\" w a oraz id=\"oferta\" w sekcji."
+    },
+    {
+      "id": 4,
+      "topic": "HTML",
+      "front": "Kiedy użyć pustego tekstu alternatywnego?",
+      "back": "Dla obrazu dekoracyjnego ustaw alt=\"\" bez spacji. Dla informacyjnego opisz informacje widoczne na obrazie."
+    },
+    {
+      "id": 5,
+      "topic": "HTML",
+      "front": "Jak odróżnić nagłówek tabeli od komórki danych?",
+      "back": "th to nagłówek, td to wartość danych. scope wskazuje kolumnę lub wiersz."
+    },
+    {
+      "id": 6,
+      "topic": "HTML",
+      "front": "Jaki type dla przycisku obsługiwanego wyłącznie przez JS?",
+      "back": "type=\"button\". W formularzu przycisk wysyłający ma type=\"submit\"."
+    },
+    {
+      "id": 7,
+      "topic": "HTML",
+      "front": "Jak podłączyć CSS i zewnętrzny JS?",
+      "back": "link rel=\"stylesheet\" href=\"style.css\" oraz script src=\"app.js\" defer z zamknięciem script."
+    },
+    {
+      "id": 8,
+      "topic": "CSS",
+      "front": "Jak wybrać tylko bezpośrednie linki nav?",
+      "back": "Selektorem nav > a. Selektor nav a wybiera też zagnieżdżone linki."
+    },
+    {
+      "id": 9,
+      "topic": "CSS",
+      "front": "Jak zaznaczyć parzyste wiersze danych tabeli?",
+      "back": "tbody tr:nth-child(even)."
+    },
+    {
+      "id": 10,
+      "topic": "CSS",
+      "front": "Co wlicza się do width przy box-sizing: border-box?",
+      "back": "Treść, padding i border. Margin pozostaje poza tym obrysem."
+    },
+    {
+      "id": 11,
+      "topic": "CSS",
+      "front": "Co wygra w tej samej warstwie kaskady, #wynik czy .wynik?",
+      "back": "#wynik ma większą specyficzność. Kolejność rozstrzyga remis specyficzności."
+    },
+    {
+      "id": 12,
+      "topic": "CSS",
+      "front": "Czym ustawić odstępy w Flexbox lub Grid?",
+      "back": "gap ustawia odstęp między elementami lub torami."
+    },
+    {
+      "id": 13,
+      "topic": "CSS",
+      "front": "Jak ułożyć proporcję 2:1 w Grid?",
+      "back": "grid-template-columns: 2fr 1fr przy display: grid."
+    },
+    {
+      "id": 14,
+      "topic": "CSS",
+      "front": "Jak przełączyć układ przy 700 px włącznie?",
+      "back": "@media (max-width: 700px) { ... }."
+    },
+    {
+      "id": 15,
+      "topic": "SQL",
+      "front": "Jaka jest podstawowa kolejność klauzul?",
+      "back": "SELECT, FROM z JOIN i ON, WHERE, GROUP BY, HAVING, ORDER BY, LIMIT."
+    },
+    {
+      "id": 16,
+      "topic": "SQL",
+      "front": "Co umieścić w ON dla tabeli rowery i typy?",
+      "back": "r.typ_id = t.id, jeśli typ_id jest kluczem obcym wskazującym id typu."
+    },
+    {
+      "id": 17,
+      "topic": "SQL",
+      "front": "Jak zachować grupę bez pasującego wiersza?",
+      "back": "Rozpocznij od tabeli grup i użyj LEFT JOIN. Warunki dotyczące dopasowania prawych rekordów umieść w ON."
+    },
+    {
+      "id": 18,
+      "topic": "SQL",
+      "front": "Jak policzyć dopasowania po LEFT JOIN?",
+      "back": "COUNT(p.id) liczy tylko niepuste wartości po stronie dopasowanych pozycji."
+    },
+    {
+      "id": 19,
+      "topic": "SQL",
+      "front": "Która klauzula filtruje po liczbie elementów grupy?",
+      "back": "HAVING, np. HAVING COUNT(*) >= 2. WHERE filtruje przed grupowaniem."
+    },
+    {
+      "id": 20,
+      "topic": "SQL",
+      "front": "Jak znaleźć brak wartości?",
+      "back": "IS NULL albo IS NOT NULL."
+    },
+    {
+      "id": 21,
+      "topic": "SQL",
+      "front": "Co zrobić przed UPDATE konkretnego rekordu?",
+      "back": "Uruchom kontrolny SELECT z tym samym WHERE. Potwierdź, że wskazuje zamierzony rekord."
+    },
+    {
+      "id": 22,
+      "topic": "SQL",
+      "front": "Jak uruchomić odczyt od najwyższej ceny z remisem po nazwie?",
+      "back": "ORDER BY cena DESC, nazwa ASC."
+    },
+    {
+      "id": 23,
+      "topic": "JavaScript",
+      "front": "Co daje \"12\" + 5 i jak otrzymać 17?",
+      "back": "Daje \"125\". Użyj Number(\"12\") + 5."
+    },
+    {
+      "id": 24,
+      "topic": "JavaScript",
+      "front": "Czemu sprawdzić pusty tekst przed Number?",
+      "back": "Number(\"\") zwraca 0, więc brak wartości może zostać pomylony z poprawnym zerem."
+    },
+    {
+      "id": 25,
+      "topic": "JavaScript",
+      "front": "O co pytasz Number.isInteger(n)?",
+      "back": "Czy n ma typ number i reprezentuje skończoną liczbę całkowitą."
+    },
+    {
+      "id": 26,
+      "topic": "JavaScript",
+      "front": "Jak brzmi ostatni poprawny indeks tablicy?",
+      "back": "tablica.length - 1, jeśli tablica ma elementy."
+    },
+    {
+      "id": 27,
+      "topic": "JavaScript",
+      "front": "Co dają filter i map?",
+      "back": "filter wybiera elementy, a map zwraca przekształconą wartość dla każdego wejściowego elementu."
+    },
+    {
+      "id": 28,
+      "topic": "JavaScript",
+      "front": "Jak wstawić wynik jako zwykły tekst?",
+      "back": "element.textContent = wynik."
+    },
+    {
+      "id": 29,
+      "topic": "JavaScript",
+      "front": "Jak podpiąć funkcję bez jej natychmiastowego wywołania?",
+      "back": "element.addEventListener(\"click\", funkcja)."
+    },
+    {
+      "id": 30,
+      "topic": "JavaScript",
+      "front": "Kiedy użyć preventDefault?",
+      "back": "Np. przy lokalnym przeliczaniu na submit, gdy formularz ma pozostać na tej samej stronie."
+    },
+    {
+      "id": 31,
+      "topic": "PHP",
+      "front": "W którym miejscu działa kod PHP?",
+      "back": "Na serwerze z interpreterem PHP. Przeglądarka otrzymuje wynik, zwykle HTML."
+    },
+    {
+      "id": 32,
+      "topic": "PHP",
+      "front": "Jaką operacją łączysz dwa teksty?",
+      "back": "Kropką, np. $nazwa . \" zł\"."
+    },
+    {
+      "id": 33,
+      "topic": "PHP",
+      "front": "Jak odczytać nazwę wysłaną metodą POST?",
+      "back": "Z $_POST['nazwa'] lub filter_input(INPUT_POST, 'nazwa', ...), zgodnie z name kontrolki."
+    },
+    {
+      "id": 34,
+      "topic": "PHP",
+      "front": "Co wywołać po otwarciu połączenia mysqli?",
+      "back": "set_charset('utf8mb4'), aby ustawić kodowanie połączenia."
+    },
+    {
+      "id": 35,
+      "topic": "PHP",
+      "front": "Co robi fetch_assoc()?",
+      "back": "Pobiera kolejny rekord jako tablicę asocjacyjną, której klucze to nazwy kolumn lub aliasy."
+    },
+    {
+      "id": 36,
+      "topic": "PHP",
+      "front": "Jak przekazać wartość wpisaną przez użytkownika do SQL?",
+      "back": "prepare z ?, bind_param z typem i zmienną, a następnie execute."
+    },
+    {
+      "id": 37,
+      "topic": "PHP",
+      "front": "Jak wypisać wartość tekstową wewnątrz HTML?",
+      "back": "htmlspecialchars($tekst, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')."
+    },
+    {
+      "id": 38,
+      "topic": "Grafika",
+      "front": "Co różni kadrowanie od skalowania?",
+      "back": "Kadrowanie wybiera wycinek obrazu. Skalowanie zmienia jego wymiary w pikselach."
+    },
+    {
+      "id": 39,
+      "topic": "Grafika",
+      "front": "Którego formatu użyć do ikony rastrowej z przezroczystością?",
+      "back": "PNG z kanałem alfa, jeśli taki format przewiduje zadanie."
+    },
+    {
+      "id": 40,
+      "topic": "Grafika",
+      "front": "Czy zmiana rozszerzenia .jpg na .png zmienia format?",
+      "back": "Trzeba otworzyć plik i wyeksportować go jako PNG."
+    },
+    {
+      "id": 41,
+      "topic": "Praktyka",
+      "front": "Co zapisać zaraz po wykonaniu kwerendy?",
+      "back": "Wklej kwerendę do wymaganego pliku. Zachowaj zrzut wyniku zgodny z nazwą i formatem z polecenia."
+    },
+    {
+      "id": 42,
+      "topic": "Praktyka",
+      "front": "Jaki ma być ostatni test całego zadania?",
+      "back": "Otwórz gotowe pliki w docelowym środowisku. Sprawdź ekran, zdarzenia, dane i dokładne nazwy oddawanych plików."
+    }
+  ],
+  "pytania": [
+    {
+      "text": "Który element najlepiej opisuje blok odnośników do głównych podstron?",
+      "options": [
+        "<aside>",
+        "<nav>",
+        "<footer>",
+        "<address>"
+      ],
+      "answer": 1,
+      "explanation": "nav oznacza sekcję przeznaczoną przede wszystkim do nawigacji.",
+      "id": "html-1",
+      "module": "html"
+    },
+    {
+      "text": "Pole ma zapis <input id=\"miasto\" name=\"lokalizacja\" value=\"Łódź\">. Pod jaką nazwą formularz przekaże jego wartość?",
+      "options": [
+        "miasto",
+        "Łódź",
+        "input",
+        "lokalizacja"
+      ],
+      "answer": 3,
+      "explanation": "Pole name określa nazwę parametru. Identyfikator id służy m.in. do powiązania pola z etykietą.",
+      "id": "html-2",
+      "module": "html"
+    },
+    {
+      "text": "W nagłówku tabeli komórka ma zająć trzy sąsiednie kolumny. Który zapis jest prawidłowy?",
+      "options": [
+        "<th colspan=\"3\">",
+        "<th rowspan=\"3\">",
+        "<th cols=\"3\">",
+        "<tr span=\"3\">"
+      ],
+      "answer": 0,
+      "explanation": "colspan określa liczbę kolumn zajmowanych przez komórkę.",
+      "id": "html-3",
+      "module": "html"
+    },
+    {
+      "text": "Obrazek obok podpisu służy wyłącznie dekoracji. Jaki atrybut pomija go w typowym odczycie czytnika ekranowego?",
+      "options": [
+        "alt=\"dekoracja\"",
+        "title=\"dekoracja\"",
+        "alt=\"\"",
+        "src=\"\""
+      ],
+      "answer": 2,
+      "explanation": "Pusty tekst alternatywny mówi technologiom asystującym, że grafika pełni funkcję dekoracyjną.",
+      "id": "html-4",
+      "module": "html"
+    },
+    {
+      "text": "Po co użyć <pre> w przykładzie kodu, w którym ważne są wcięcia?",
+      "options": [
+        "Ukrywa tekst w DOM",
+        "Zachowuje spacje i nowe wiersze",
+        "Kopiuje kod do schowka",
+        "Uruchamia zawarty kod"
+      ],
+      "answer": 1,
+      "explanation": "Element pre domyślnie zachowuje białe znaki. Kod wewnątrz można dodatkowo oznaczyć przez code.",
+      "id": "html-5",
+      "module": "html"
+    },
+    {
+      "text": "Który zapis poprawnie dołączy plik styl.css do dokumentu?",
+      "options": [
+        "<style src=\"styl.css\">",
+        "<script href=\"styl.css\"></script>",
+        "<link src=\"styl.css\">",
+        "<link rel=\"stylesheet\" href=\"styl.css\">"
+      ],
+      "answer": 3,
+      "explanation": "rel=\"stylesheet\" określa typ zasobu, a href wskazuje jego adres.",
+      "id": "html-6",
+      "module": "html"
+    },
+    {
+      "text": "Który typ w MySQL najlepiej przechowa cenę 7,99 zł z dokładnością do grosza?",
+      "options": [
+        "DATE",
+        "TINYINT",
+        "DECIMAL(8,2)",
+        "TEXT"
+      ],
+      "answer": 2,
+      "explanation": "DECIMAL przechowuje wartości dziesiętne o ustalonej precyzji i skali.",
+      "id": "sql-1",
+      "module": "sql"
+    },
+    {
+      "text": "Zapytanie ma zachować wszystkich klientów, nawet bez zamówień. Klienci są po lewej stronie złączenia. Którego złączenia użyjesz?",
+      "options": [
+        "INNER JOIN",
+        "LEFT JOIN",
+        "CROSS JOIN",
+        "JOIN bez ON"
+      ],
+      "answer": 1,
+      "explanation": "LEFT JOIN zachowuje wiersze z lewej tabeli. Przy braku pary z prawej strony zwraca NULL.",
+      "id": "sql-2",
+      "module": "sql"
+    },
+    {
+      "text": "Jak odfiltrować kategorie po grupowaniu tak, aby pokazać tylko te z co najmniej pięcioma rekordami?",
+      "options": [
+        "WHERE COUNT(*) >= 5",
+        "ORDER BY COUNT(*) >= 5",
+        "LIMIT COUNT(*) >= 5",
+        "HAVING COUNT(*) >= 5"
+      ],
+      "answer": 3,
+      "explanation": "HAVING umożliwia zapisanie warunku na wyniku funkcji agregującej.",
+      "id": "sql-3",
+      "module": "sql"
+    },
+    {
+      "text": "Który wzorzec oznacza nazwę zaczynającą się na M i mającą dokładnie 3 znaki?",
+      "options": [
+        "LIKE 'M__'",
+        "LIKE 'M%'",
+        "LIKE '%M__'",
+        "LIKE '_M_'"
+      ],
+      "answer": 0,
+      "explanation": "Każdy znak _ odpowiada dokładnie jednemu znakowi, więc M__ ma łącznie trzy pozycje.",
+      "id": "sql-4",
+      "module": "sql"
+    },
+    {
+      "text": "Który warunek sprawdzi, czy pole data_odbioru nie ma wartości?",
+      "options": [
+        "data_odbioru = NULL",
+        "data_odbioru IS NULL",
+        "data_odbioru LIKE 'NULL'",
+        "data_odbioru <> NULL"
+      ],
+      "answer": 1,
+      "explanation": "Do porównania z NULL używa się IS NULL lub IS NOT NULL.",
+      "id": "sql-5",
+      "module": "sql"
+    },
+    {
+      "text": "W tabeli jest 5 wierszy, a kolumna email w dwóch z nich ma wartość NULL. Ile zwróci COUNT(email)?",
+      "options": [
+        "2",
+        "5",
+        "7",
+        "3"
+      ],
+      "answer": 3,
+      "explanation": "COUNT(kolumna) liczy wartości różne od NULL. W tym przykładzie 5 − 2 = 3.",
+      "id": "sql-6",
+      "module": "sql"
+    },
+    {
+      "text": "Klienci mają wiele zamówień, a każde zamówienie ma jednego klienta. Gdzie umieścisz klucz obcy?",
+      "options": [
+        "W obu tabelach jako obowiązkowe pole",
+        "W klientach jako zamowienie_id",
+        "W zamówieniach jako klient_id",
+        "W osobnej kopii tabeli klientów"
+      ],
+      "answer": 2,
+      "explanation": "Zamówienia są stroną wiele i przechowują identyfikator klienta.",
+      "id": "sql-7",
+      "module": "sql"
+    },
+    {
+      "text": "Którym poleceniem zmienisz szerokość kolumny z VARCHAR(20) na VARCHAR(60) w MySQL?",
+      "options": [
+        "ALTER TABLE",
+        "UPDATE",
+        "INSERT INTO",
+        "SELECT DISTINCT"
+      ],
+      "answer": 0,
+      "explanation": "ALTER TABLE zmienia strukturę tabeli, w tym definicję kolumny.",
+      "id": "sql-8",
+      "module": "sql"
+    },
+    {
+      "text": "Rozpocząłeś transakcję w InnoDB i zmieniłeś wiersze. Co wycofa zmiany przed ich zatwierdzeniem?",
+      "options": [
+        "COMMIT",
+        "ROLLBACK",
+        "GRANT",
+        "GROUP BY"
+      ],
+      "answer": 1,
+      "explanation": "ROLLBACK wycofuje niezatwierdzone zmiany w transakcji.",
+      "id": "sql-9",
+      "module": "sql"
+    },
+    {
+      "text": "Co zwróci wyrażenie \"4\" + 3 w JavaScript?",
+      "options": [
+        "7",
+        "NaN",
+        "\"7\"",
+        "\"43\""
+      ],
+      "answer": 3,
+      "explanation": "Przy dodawaniu napisu operator + łączy teksty. Liczba 3 zostaje zamieniona na napis.",
+      "id": "javascript-1",
+      "module": "javascript"
+    },
+    {
+      "text": "Ile razy wykona się ciało pętli for (let i = 2; i <= 8; i += 3)?",
+      "options": [
+        "2",
+        "3",
+        "6",
+        "7"
+      ],
+      "answer": 1,
+      "explanation": "Kolejne wartości i to 2, 5 oraz 8. Następna wartość 11 nie spełni warunku.",
+      "id": "javascript-2",
+      "module": "javascript"
+    },
+    {
+      "text": "Jak odczytasz zawartość pola tekstowego o id=\"miasto\"?",
+      "options": [
+        "document.querySelector('#miasto').value",
+        "document.querySelector('miasto').innerHTML",
+        "document.getElementById('#miasto').value",
+        "document.getElementById('miasto').textContent"
+      ],
+      "answer": 0,
+      "explanation": "querySelector przyjmuje selektor CSS, a wartość kontrolki jest we właściwości value.",
+      "id": "javascript-3",
+      "module": "javascript"
+    },
+    {
+      "text": "Jakie zdarzenie obsłużysz na formularzu, żeby reagować zarówno na przycisk wysłania, jak i Enter?",
+      "options": [
+        "input",
+        "mouseover",
+        "submit",
+        "blur"
+      ],
+      "answer": 2,
+      "explanation": "submit opisuje próbę wysłania formularza niezależnie od sposobu jej wywołania.",
+      "id": "javascript-4",
+      "module": "javascript"
+    },
+    {
+      "text": "Dla jakich wartości x warunek x > 2 && x < 5 będzie prawdziwy?",
+      "options": [
+        "Dla każdej liczby od 2 do 5 włącznie",
+        "Tylko dla liczb większych od 5",
+        "Dla x równego 2 lub 5",
+        "Dla liczb ściśle pomiędzy 2 a 5"
+      ],
+      "answer": 3,
+      "explanation": "&& wymaga spełnienia obu warunków, a ostre nierówności wykluczają granice.",
+      "id": "javascript-5",
+      "module": "javascript"
+    },
+    {
+      "text": "Co pokaże console.log([10, 20, 30][1])?",
+      "options": [
+        "10",
+        "20",
+        "30",
+        "undefined"
+      ],
+      "answer": 1,
+      "explanation": "Indeksowanie zaczyna się od zera. Indeks 1 oznacza drugi element.",
+      "id": "javascript-6",
+      "module": "javascript"
+    },
+    {
+      "text": "Wynik ma pokazać dosłownie wpisane przez użytkownika znaki < i >. Której właściwości użyjesz?",
+      "options": [
+        "textContent",
+        "innerHTML",
+        "outerHTML",
+        "style"
+      ],
+      "answer": 0,
+      "explanation": "textContent wstawia ciąg jako tekst bez interpretacji znaczników.",
+      "id": "javascript-7",
+      "module": "javascript"
+    },
+    {
+      "text": "Który selektor dotyczy tylko linków będących bezpośrednimi dziećmi elementu o klasie menu?",
+      "options": [
+        "#menu a",
+        ".menu a",
+        ".menu > a",
+        "a.menu"
+      ],
+      "answer": 2,
+      "explanation": "Kropka oznacza klasę, a > ogranicza dopasowanie do bezpośredniego dziecka.",
+      "id": "css-1",
+      "module": "css"
+    },
+    {
+      "text": "Element używa content-box. Ma width: 160px, padding: 12px, border: 2px solid. Ile wynosi szerokość razem z obramowaniem?",
+      "options": [
+        "174 px",
+        "188 px",
+        "160 px",
+        "184 px"
+      ],
+      "answer": 1,
+      "explanation": "Szerokość to 160 + 2 × 12 + 2 × 2 = 188 px. Margines pozostaje poza obramowaniem.",
+      "id": "css-2",
+      "module": "css"
+    },
+    {
+      "text": "Co oznacza padding: 8px 20px?",
+      "options": [
+        "Góra i dół po 8 px, lewa i prawa po 20 px",
+        "Góra i dół po 20 px, lewa i prawa po 8 px",
+        "Góra 8 px, reszta po 20 px",
+        "Dół 8 px, reszta po 20 px"
+      ],
+      "answer": 0,
+      "explanation": "Pierwsza wartość jest pionowa, druga pozioma.",
+      "id": "css-3",
+      "module": "css"
+    },
+    {
+      "text": "Który zapis ustawia kolor tła wiersza tabeli pod kursorem?",
+      "options": [
+        "tr::hover { color: gray; }",
+        "table > hover { background: gray; }",
+        "tr:hover { color: gray; }",
+        "tr:hover { background-color: gray; }"
+      ],
+      "answer": 3,
+      "explanation": ":hover wybiera stan wskazania, a background-color ustawia kolor tła.",
+      "id": "css-4",
+      "module": "css"
+    },
+    {
+      "text": "Jaki sześciocyfrowy zapis koloru odpowiada skrótowi #4a7?",
+      "options": [
+        "#040a07",
+        "#407a47",
+        "#44aa77",
+        "#4a74a7"
+      ],
+      "answer": 2,
+      "explanation": "Każda cyfra zapisu skróconego jest powtórzona w swoim kanale koloru.",
+      "id": "css-5",
+      "module": "css"
+    },
+    {
+      "text": "W kontenerze flex o domyślnym flex-direction: row co zwykle wyśrodkuje dzieci w pionie?",
+      "options": [
+        "align-items: center",
+        "justify-content: center",
+        "text-align: center",
+        "display: inline"
+      ],
+      "answer": 0,
+      "explanation": "Przy kierunku row oś poprzeczna jest pionowa w standardowym poziomym trybie pisma.",
+      "id": "css-6",
+      "module": "css"
+    },
+    {
+      "text": "Co zwróci w PHP wyrażenie \"INF\" . 3?",
+      "options": [
+        "\"INF3\"",
+        "Błąd składni",
+        "3",
+        "\"INF.3\""
+      ],
+      "answer": 0,
+      "explanation": "Operator . łączy napisy. Liczba 3 zostaje zapisana jako część tekstu.",
+      "id": "php-1",
+      "module": "php"
+    },
+    {
+      "text": "Formularz ma method=\"post\" oraz <input name=\"sztuki\">. Gdzie PHP odczyta wartość?",
+      "options": [
+        "$_GET['sztuki']",
+        "$_SESSION['sztuki']",
+        "$_POST['sztuki']",
+        "$_COOKIE['sztuki']"
+      ],
+      "answer": 2,
+      "explanation": "Dane typowego formularza przesłanego metodą POST trafiają do tablicy $_POST.",
+      "id": "php-2",
+      "module": "php"
+    },
+    {
+      "text": "Która funkcja odczyta kolejny rekord SELECT jako tablicę z nazwami kolumn?",
+      "options": [
+        "mysqli_connect",
+        "mysqli_fetch_assoc",
+        "mysqli_close",
+        "mysqli_num_rows"
+      ],
+      "answer": 1,
+      "explanation": "mysqli_fetch_assoc zwraca rekord w postaci tablicy asocjacyjnej.",
+      "id": "php-3",
+      "module": "php"
+    },
+    {
+      "text": "Co zwróci trim(\"  kod testowy  \")?",
+      "options": [
+        "\"kodtestowy\"",
+        "\"  kod testowy\"",
+        "\"kod testowy  \"",
+        "\"kod testowy\""
+      ],
+      "answer": 3,
+      "explanation": "trim usuwa białe znaki z obu końców. Spacja w środku zostaje.",
+      "id": "php-4",
+      "module": "php"
+    },
+    {
+      "text": "Jak przekazać do zapytania SQL numer wpisany przez użytkownika?",
+      "options": [
+        "Wpisać numer w nazwę tabeli",
+        "Złożyć tekst zapytania przez doklejenie wartości",
+        "Użyć parametru w przygotowanym zapytaniu",
+        "Zastąpić WHERE instrukcją echo"
+      ],
+      "answer": 2,
+      "explanation": "Parametr przekazuje wartość oddzielnie od składni zapytania.",
+      "id": "php-5",
+      "module": "php"
+    },
+    {
+      "text": "Gdzie umieścisz stan zalogowania, który PHP ma zachować na serwerze między żądaniami?",
+      "options": [
+        "W $_SESSION po session_start()",
+        "W $_GET",
+        "W $_POST",
+        "W lokalnej zmiennej $stan"
+      ],
+      "answer": 0,
+      "explanation": "Sesja przechowuje dane między żądaniami. Przeglądarka zwykle dostarcza identyfikator sesji w ciasteczku.",
+      "id": "php-6",
+      "module": "php"
+    },
+    {
+      "text": "Jak pobierzesz cenę z tablicy $dane = [\"cena\" => 18.50, \"stan\" => 4]?",
+      "options": [
+        "$dane.cena",
+        "$dane[0]",
+        "$dane->cena",
+        "$dane[\"cena\"]"
+      ],
+      "answer": 3,
+      "explanation": "Nawiasy kwadratowe pobierają element tablicy po kluczu. Tablica używa tu klucza tekstowego cena.",
+      "id": "php-7",
+      "module": "php"
+    },
+    {
+      "text": "Jaki format wybierzesz dla piktogramu złożonego z linii, który ma zachować ostrość przy dowolnym powiększeniu?",
+      "options": [
+        "JPEG",
+        "BMP",
+        "SVG",
+        "MP3"
+      ],
+      "answer": 2,
+      "explanation": "SVG przechowuje kształty w postaci wektorowej.",
+      "id": "media-1",
+      "module": "media"
+    },
+    {
+      "text": "Chcesz zachować półprzezroczyste tło grafiki rastrowej i zapisać piksele bezstratnie. Który format to umożliwia?",
+      "options": [
+        "PNG",
+        "JPEG",
+        "MP3",
+        "CSV"
+      ],
+      "answer": 0,
+      "explanation": "PNG umożliwia bezstratny zapis obrazu i przechowanie kanału alfa.",
+      "id": "media-2",
+      "module": "media"
+    },
+    {
+      "text": "Zdjęcie ma 1200 × 800 px. Który rozmiar po zmniejszeniu zachowa jego proporcje?",
+      "options": [
+        "600 × 600 px",
+        "600 × 500 px",
+        "300 × 300 px",
+        "600 × 400 px"
+      ],
+      "answer": 3,
+      "explanation": "Zmniejszenie obu wymiarów o połowę zachowuje proporcje 3:2.",
+      "id": "media-3",
+      "module": "media"
+    },
+    {
+      "text": "Jak nazywa się operacja usuwająca zbędne fragmenty przy krawędzi zdjęcia?",
+      "options": [
+        "Kwantyzacja",
+        "Kadrowanie",
+        "Odbicie",
+        "Kompresja"
+      ],
+      "answer": 1,
+      "explanation": "Kadrowanie pozostawia tylko wybrany fragment obrazu.",
+      "id": "media-4",
+      "module": "media"
+    },
+    {
+      "text": "Co w typowym CMS zmienia szablon wyglądu wielu podstron?",
+      "options": [
+        "Konto użytkownika",
+        "Kopia bazy",
+        "Motyw",
+        "Rekord DNS"
+      ],
+      "answer": 2,
+      "explanation": "Motyw definiuje szablony i wygląd treści.",
+      "id": "media-5",
+      "module": "media"
+    },
+    {
+      "text": "Ile różnych wartości może przyjąć piksel obrazu o głębi 5 bitów na piksel?",
+      "options": [
+        "5",
+        "32",
+        "25",
+        "10"
+      ],
+      "answer": 1,
+      "explanation": "Pięć bitów pozwala zapisać 2⁵ = 32 kombinacje.",
+      "id": "media-6",
+      "module": "media"
+    },
+    {
+      "text": "Ile wynosi 10110₂ w systemie dziesiętnym?",
+      "options": [
+        "18",
+        "22",
+        "26",
+        "32"
+      ],
+      "answer": 1,
+      "explanation": "Wagi kolejnych ustawionych bitów wynoszą 16, 4 i 2. Ich suma to 22.",
+      "id": "foundations-1",
+      "module": "foundations"
+    },
+    {
+      "text": "Która wartość w bajtach jest równa 2 KiB?",
+      "options": [
+        "2000",
+        "1000",
+        "1024",
+        "2048"
+      ],
+      "answer": 3,
+      "explanation": "KiB używa podstawy 1024. Dwa kibibajty to 2 × 1024 B.",
+      "id": "foundations-2",
+      "module": "foundations"
+    },
+    {
+      "text": "Jaka usługa pozwala odnaleźć adres IP na podstawie nazwy domeny?",
+      "options": [
+        "DNS",
+        "SMTP",
+        "HTML",
+        "CMYK"
+      ],
+      "answer": 0,
+      "explanation": "DNS publikuje rekordy nazw. Przykładowo rekord A wiąże nazwę z adresem IPv4.",
+      "id": "foundations-3",
+      "module": "foundations"
+    },
+    {
+      "text": "Ktoś wysyła wiadomość naśladującą szkolny portal i prosi o wpisanie danych na obcej stronie. Jak nazywa się takie zagrożenie?",
+      "options": [
+        "Kompresja",
+        "Pobieranie asynchroniczne",
+        "Phishing",
+        "Walidacja"
+      ],
+      "answer": 2,
+      "explanation": "Podszywanie się pod zaufaną instytucję dla wyłudzenia danych to phishing.",
+      "id": "foundations-4",
+      "module": "foundations"
+    },
+    {
+      "text": "Który kod odpowiedzi HTTP typowo oznacza, że pod adresem nie odnaleziono zasobu?",
+      "options": [
+        "200",
+        "404",
+        "302",
+        "101"
+      ],
+      "answer": 1,
+      "explanation": "Kod 404 oznacza, że serwer nie odnalazł wskazanego zasobu.",
+      "id": "foundations-5",
+      "module": "foundations"
+    },
+    {
+      "text": "W przejściu obok biurek leżą przewody, o które ktoś może się potknąć. Co zrobisz w pierwszej kolejności?",
+      "options": [
+        "Podniosę jasność monitora",
+        "Otworzę okno",
+        "Zapiszę pliki do chmury",
+        "Zabezpieczę miejsce i zgłoszę zagrożenie zgodnie z procedurą"
+      ],
+      "answer": 3,
+      "explanation": "Luźne przewody stwarzają bezpośrednie ryzyko potknięcia. Trzeba zabezpieczyć miejsce i usunąć przyczynę.",
+      "id": "workplace-1",
+      "module": "workplace"
+    },
+    {
+      "text": "Co oznacza polecenie Restore the database from a backup?",
+      "options": [
+        "Przywróć bazę z kopii zapasowej",
+        "Nadaj uprawnienia do bazy",
+        "Zmień nazwę bazy",
+        "Wyeksportuj samą tabelę"
+      ],
+      "answer": 0,
+      "explanation": "Restore to przywrócenie danych, a backup to kopia zapasowa.",
+      "id": "workplace-2",
+      "module": "workplace"
+    },
+    {
+      "text": "Jak najczytelniej zgłosić błąd, który pojawia się przy wysłaniu formularza?",
+      "options": [
+        "Podać nazwę działu i wyrazić niezadowolenie",
+        "Napisać tylko „zepsute”",
+        "Podać kroki, oczekiwany wynik i faktyczny wynik",
+        "Wysłać samą datę zdarzenia"
+      ],
+      "answer": 2,
+      "explanation": "Kroki i opis różnicy pozwalają odtworzyć problem i sprawdzić poprawkę.",
+      "id": "workplace-3",
+      "module": "workplace"
+    },
+    {
+      "text": "Przed rozdzieleniem zadań ustalono, że publikacja zależy od testów. W jakiej kolejności je zaplanować?",
+      "options": [
+        "Publikacja, potem testy",
+        "Testy, potem publikacja",
+        "Zadania zawsze wykonywać równocześnie",
+        "Najpierw opublikować sam harmonogram"
+      ],
+      "answer": 1,
+      "explanation": "Testy dostarczają wynik potrzebny przed publikacją. Zaplanuj najpierw zadanie, od którego zależy kolejne.",
+      "id": "workplace-4",
+      "module": "workplace"
+    }
+  ],
+  "probne": [
+    {
+      "title": "Próbny egzamin / Rowerem po mieście",
+      "brief": "Masz 150 minut. Zbuduj lokalny katalog miejskiej wypożyczalni rowerów w PHP, MariaDB/MySQL, HTML, CSS i JavaScripcie. Korzystaj z lokalnego Apache i MySQL w XAMPP lub równoważnego zestawu. Zaimportuj bazę z rowery.sql. Czasy w sekcjach to orientacyjny podział pracy.",
+      "sections": [
+        {
+          "title": "Przygotowanie i SQL · 35 min",
+          "items": [
+            "Utwórz folder rowery w katalogu witryn lokalnego Apache. Zaimportuj plik rowery.sql do pustej bazy inf03_rowery. Baza ma 3 typy i 5 rowerów. Kolumna typ_id w tabeli rowery wskazuje id w tabeli typy. Zapisz zrzut całego ekranu pokazujący obie tabele jako import.png.",
+            "Zapisz cztery ponumerowane zapytania w kwerendy.txt. Zapytanie 1 ma zwracać nazwę i stawkę dostępnych rowerów, rosnąco po stawce. Przed aktualizacją oczekiwane wiersze to Rondo (11,00), Aleja (12,50) i Most (15,00).",
+            "Zapytanie 2 ma zwracać nazwy wszystkich rowerów i odpowiadających im typów, w kolejności rosnącej według nazwy roweru. Wynik ma mieć 5 wierszy.",
+            "Zapytanie 3 ma zwracać każdy typ oraz liczbę dostępnych rowerów tego typu. Malejąco po liczbie oczekiwane wyniki to Miejski 2, Trekkingowy 1, Górski 0.",
+            "Zapytanie 4 ma zmienić stawkę roweru o id równym 4 na 17,50 zł i zachować pozostałe wiersze.",
+            "Uruchom każde zapytanie i zachowaj widoczny wynik jako q1.png, q2.png, q3.png i q4.png. W przypadku aktualizacji pokaż komunikat o zmianie lub kontrolny SELECT dla id = 4."
+          ]
+        },
+        {
+          "title": "Grafika i HTML · 30 min",
+          "items": [
+            "Przygotuj ikonę kierunkową jako plik ikona.png o wymiarach 256 × 256 px. Umieść zieloną strzałkę na przezroczystym tle i zostaw co najmniej 24 px marginesu wokół niej.",
+            "Utwórz index.php z językiem polskim, kodowaniem UTF-8 i tytułem „Rowerem po mieście”. Dodaj metadane viewport i odwołanie do zewnętrznego style.css.",
+            "W nagłówku umieść ikonę z tekstem alternatywnym „Strzałka kierunkowa” i nagłówek h1 „Rowerem po mieście”. Nawigacja ma zawierać odnośniki „Rowery” i „Kalkulator” do odpowiednich sekcji na tej stronie.",
+            "Utwórz sekcję „Dostępne rowery” z tabelą o kolumnach „Model”, „Typ” i „Stawka za godzinę”. Obok dodaj sekcję „Kalkulator” z polami „Rower” i „Liczba godzin”, przyciskiem „Oblicz” oraz miejscem na wynik. W stopce wpisz „Wypożyczalnia miejska”."
+          ]
+        },
+        {
+          "title": "CSS · 25 min",
+          "items": [
+            "Ustaw tło strony na #F1F5F9 i tekst na #0F172A. Użyj czcionki bezszeryfowej. Nagłówek i stopkę wyróżnij tłem #14532D oraz białym tekstem.",
+            "Ustaw odległość 24 px między sekcjami. Powyżej 700 px pokaż tabelę i kalkulator obok siebie w proporcji 2:1. Do 700 px ułóż sekcje w jednej kolumnie.",
+            "Nadaj tabeli szerokość 100%, połącz jej obramowania i zastosuj tło #DCFCE7 dla parzystych wierszy danych. Dodaj widoczne wyróżnienie fokusu klawiatury dla odnośników i pól."
+          ]
+        },
+        {
+          "title": "PHP i JavaScript · 45 min",
+          "items": [
+            "Połącz się z bazą inf03_rowery przez mysqli i ustaw kodowanie utf8mb4. Wybierz dostępne rowery z nazwami ich typów i uporządkuj je alfabetycznie według nazw rowerów.",
+            "Za pomocą wyniku zapytania wypełnij tabelę i listę „Rower” w kalkulatorze. Każda pozycja listy powinna mieć identyfikator roweru jako value, nazwę jako tekst oraz stawkę liczbową jako data-stawka. Nazwy wyświetlaj bezpiecznie w HTML. Stawkę w tabeli podaj w zł z dwiema cyframi po przecinku.",
+            "Dodaj zewnętrzny skrypt app.js. Po kliknięciu „Oblicz” pobierz stawkę wybranego roweru i pomnóż przez liczbę godzin. Od 4 godzin odejmij 10% od łącznej ceny. Pokaż wynik w formacie walutowym.",
+            "Dla pustego pola, wartości ułamkowej i liczby spoza 1–8 pokaż „Podaj od 1 do 8 pełnych godzin.”. Ustaw początkowo 1 godzinę."
+          ]
+        },
+        {
+          "title": "Oddanie pracy · 15 min",
+          "items": [
+            "Sprawdź, czy katalog wyświetla Aleja, Most i Rondo, a Szlak oraz Szczyt pozostają poza wynikami. Stawka roweru Most po wykonaniu UPDATE ma wynieść 17,50 zł.",
+            "Wybierz Aleja i ustaw 4 godziny. Kalkulator powinien pokazać 45,00 zł. Następnie ustaw 1 godzinę, 8 godzin i 9 godzin. Dla Aleja oczekiwane są 12,50 zł, 90,00 zł i komunikat o błędzie.",
+            "Sprawdź układ przy 700 px i 701 px. Przejdź klawiszem Tab przez nawigację, wybór roweru, liczbę godzin i przycisk. Otwórz ikonę na kontrastowym tle i sprawdź przezroczystość.",
+            "Zapisz nazwę przeglądarki w pliku przegladarka.txt. Oddajesz index.php, style.css, app.js, ikona.png, kwerendy.txt, import.png, q1.png–q4.png i przegladarka.txt. Otwórz projekt jeszcze raz z adresu lokalnego serwera."
+          ]
+        }
+      ],
+      "id": "wypozyczalnia",
+      "minutes": 150,
+      "sqlFile": "rowery.sql",
+      "sql": "CREATE DATABASE IF NOT EXISTS inf03_rowery\n  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\nUSE inf03_rowery;\n\nCREATE TABLE typy (\n  id INT PRIMARY KEY,\n  nazwa VARCHAR(30) NOT NULL\n);\n\nCREATE TABLE rowery (\n  id INT PRIMARY KEY,\n  typ_id INT NOT NULL,\n  nazwa VARCHAR(50) NOT NULL,\n  stawka DECIMAL(5, 2) NOT NULL,\n  dostepny BOOLEAN NOT NULL,\n  FOREIGN KEY (typ_id) REFERENCES typy(id)\n);\n\nINSERT INTO typy (id, nazwa) VALUES\n  (1, 'Miejski'),\n  (2, 'Trekkingowy'),\n  (3, 'Górski');\n\nINSERT INTO rowery (id, typ_id, nazwa, stawka, dostepny) VALUES\n  (1, 1, 'Aleja', 12.50, 1),\n  (2, 1, 'Rondo', 11.00, 1),\n  (3, 2, 'Szlak', 16.50, 0),\n  (4, 2, 'Most', 15.00, 1),\n  (5, 3, 'Szczyt', 19.00, 0);\n",
+      "queries": [
+        "SELECT nazwa, stawka FROM rowery WHERE dostepny = 1 ORDER BY stawka ASC;",
+        "SELECT r.nazwa AS rower, t.nazwa AS typ FROM rowery AS r INNER JOIN typy AS t ON r.typ_id = t.id ORDER BY r.nazwa ASC;",
+        "SELECT t.nazwa, COUNT(r.id) AS liczba FROM typy AS t LEFT JOIN rowery AS r ON r.typ_id = t.id AND r.dostepny = 1 GROUP BY t.id, t.nazwa ORDER BY liczba DESC;",
+        "UPDATE rowery SET stawka = 17.50 WHERE id = 4;"
+      ],
+      "smoke": [
+        "Po aktualizacji katalog zawiera Aleja, Most i Rondo. Stawka Most to 17,50 zł.",
+        "Dla 4 godzin roweru Aleja wynik to 45,00 zł. Dla 9 godzin widoczny jest komunikat błędu.",
+        "Ikona 256 × 256 px zachowuje przezroczystość."
+      ]
+    },
+    {
+      "id": "trasy",
+      "minutes": 150,
+      "title": "Mapa tras weekendowych",
+      "sqlFile": "02-trasy.sql",
+      "sql": "CREATE DATABASE IF NOT EXISTS inf03_trasy CHARACTER SET utf8mb4;\nUSE inf03_trasy;\nCREATE TABLE poziomy (id INT PRIMARY KEY, nazwa VARCHAR(50) NOT NULL);\nCREATE TABLE trasy (id INT PRIMARY KEY, poziom_id INT NOT NULL, nazwa VARCHAR(80) NOT NULL, km INT NOT NULL, otwarta INT NOT NULL, FOREIGN KEY (poziom_id) REFERENCES poziomy(id));\nINSERT INTO poziomy VALUES (1, 'Łatwa'), (2, 'Średnia'), (3, 'Trudna');\nINSERT INTO trasy VALUES (1,1,'Łąka',4,1), (2,1,'Park',6,1), (3,2,'Rzeka',9,1), (4,2,'Wzgórze',14,0), (5,3,'Szczyt',18,0);\n",
+      "brief": "Zbuduj stronę katalogującą trasy. Część bazy wykonaj w MariaDB/MySQL. Dane wyświetlane na stronie wpisz z zestawu podanego w poleceniu. Zdarzenia obsłuż w JavaScripcie.",
+      "sections": [
+        {
+          "title": "Przygotowanie i zapytania · 40 min",
+          "items": [
+            "Zaimportuj 02-trasy.sql i zapisz zrzut widoku obu tabel jako import.png.",
+            "Pierwsza kwerenda zwraca nazwa i km otwartych tras według dystansu malejąco.",
+            "Druga kwerenda zwraca nazwy tras i poziomów, po id tras rosnąco.",
+            "Trzecia kwerenda liczy otwarte trasy dla każdego poziomu, również dla poziomu bez otwartych tras. Sortuj po id poziomu.",
+            "Czwarta kwerenda zmienia dystans trasy Park z 6 na 7 km. Zapisz zapytania w kwerendy.txt. Zrzuty pełnego ekranu zapisz jako kw1.png do kw4.png. Dla UPDATE pokaż kontrolny SELECT."
+          ]
+        },
+        {
+          "title": "Grafika i HTML · 35 min",
+          "items": [
+            "Przygotuj baner 900 × 300 px jako baner.jpg. Wykorzystaj własne zdjęcie lub autorską ilustrację. Zapisz rozmiar do 200 kB.",
+            "Utwórz index.html, ustaw lang=\"pl\", UTF-8 i tytuł „Mapa tras”. Podłącz zewnętrzny style.css oraz app.js z defer.",
+            "Umieść h1 i baner z tekstem alt „Ilustracja tras weekendowych”. Dodaj nawigację do sekcji „Trasy” i „Kalkulator”.",
+            "Dodaj podpisaną tabelę otwartych tras z kolumnami „Trasa”, „Dystans”, „Poziom”. Użyj kolejności Łąka (4 km, Łatwa), Park (7 km, Łatwa), Rzeka (9 km, Średnia).",
+            "Zbuduj kalkulator z listą tras, polem na tempo w km/h, polem wyboru postoju, przyciskiem „Oblicz” i obszarem wyniku. Powiąż etykiety z polami."
+          ]
+        },
+        {
+          "title": "CSS · 25 min",
+          "items": [
+            "Ustaw tło nagłówka i stopki #153245 z jasnym tekstem. W sekcji z tabelą scal obramowania i zaznacz nieparzyste wiersze danych kolorem #E3F0F3.",
+            "Na ekranie szerszym niż 720 px pokaż tabelę i kalkulator w proporcji 2:1. Przy 720 px i mniej ustaw jedną kolumnę.",
+            "Zapewnij skalowanie banera z zachowaniem proporcji i wyraźne wyróżnienie fokusu."
+          ]
+        },
+        {
+          "title": "Skrypt · 35 min",
+          "items": [
+            "Wartość opcji określa dystans całkowity trasy. Pole tempa przyjmuje liczbę od 1 do 20 km/h włącznie, w tym ułamki. Przy pustym polu lub błędnym tempie wypisz „Wpisz tempo od 1 do 20 km/h.”",
+            "Po kliknięciu policz czas w minutach: 60 × dystans / tempo. Przy zaznaczonym postoju dodaj 15 minut. Zaokrąglij na końcu do pełnych minut i wyświetl „Szacowany czas: X min”.",
+            "Sprawdź, czy zmiana trasy, tempa i postoju wpływa na wynik. Pole wejściowe i wynik pozostają dostępne z klawiatury."
+          ]
+        },
+        {
+          "title": "Kontrola i oddanie · 15 min",
+          "items": [
+            "Dla Parku przy tempie 4 z postojem pokaż 120 min. Dla Łąki przy tempie 2,5 bez postoju pokaż 96 min. Dla pustego pola i liczby 0 pokaż komunikat.",
+            "Oddaj index.html, style.css, app.js, baner.jpg, import.png, kwerendy.txt, kw1.png–kw4.png oraz przegladarka.txt z nazwą przeglądarki."
+          ]
+        }
+      ],
+      "queries": [
+        "SELECT nazwa, km FROM trasy WHERE otwarta = 1 ORDER BY km DESC;",
+        "SELECT t.nazwa AS trasa, p.nazwa AS poziom FROM trasy AS t INNER JOIN poziomy AS p ON t.poziom_id = p.id ORDER BY t.id;",
+        "SELECT p.nazwa, COUNT(t.id) AS liczba FROM poziomy AS p LEFT JOIN trasy AS t ON t.poziom_id = p.id AND t.otwarta = 1 GROUP BY p.id, p.nazwa ORDER BY p.id;",
+        "UPDATE trasy SET km = 7 WHERE id = 2;"
+      ],
+      "smoke": [
+        "Przed aktualizacją kwerenda 1 zwraca Rzeka 9, Park 6, Łąka 4. Po aktualizacji Park ma 7 km.",
+        "Kwerenda 2 zwraca pięć wierszy. Kwerenda 3 daje Łatwa 2, Średnia 1, Trudna 0.",
+        "Dla 7 km przy 4 km/h z postojem wynik to 120 min. Dla 4 km przy 2,5 km/h bez postoju wynik to 96 min.",
+        "Każde pole ma etykietę i działa po przejściu klawiszem Tab. Przy 720 px sekcje są w jednej kolumnie."
+      ]
+    }
+  ],
+  "materialyWstepne": [
+    {
+      "id": "html-formularz",
+      "category": "HTML",
+      "title": "Formularz, który wysyła dane",
+      "duration": 7,
+      "prompt": "Zbuduj formularz POST do pliku zapis.php. Dodaj wymagane pola „Imię” i „E-mail” o nazwach imie i email oraz przycisk „Zapisz się”. Kliknięcie etykiety ma ustawiać fokus w odpowiednim polu. Puste lub niepoprawne pola mają zatrzymać wysłanie w przeglądarce.",
+      "starter": "<!doctype html>\n<html lang=\"pl\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Zapisy na warsztaty</title>\n</head>\n<body>\n  <h1>Zapisy na warsztaty</h1>\n  <form action=\"zapis.php\" method=\"post\">\n    <!-- Dodaj pola i przycisk. -->\n  </form>\n</body>\n</html>",
+      "hint": "Połącz atrybut for etykiety z id pola. PHP odczyta wartość według atrybutu name, a typ email i required włączają walidację przeglądarki.",
+      "solution": "<!doctype html>\n<html lang=\"pl\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Zapisy na warsztaty</title>\n</head>\n<body>\n  <h1>Zapisy na warsztaty</h1>\n  <form action=\"zapis.php\" method=\"post\">\n    <p><label for=\"imie\">Imię</label>\n      <input id=\"imie\" name=\"imie\" type=\"text\" required></p>\n    <p><label for=\"email\">E-mail</label>\n      <input id=\"email\" name=\"email\" type=\"email\" required></p>\n    <button type=\"submit\">Zapisz się</button>\n  </form>\n</body>\n</html>",
+      "explanation": "name decyduje o kluczu przesyłanym do skryptu. id pozwala odwołać się do pola z etykiety i JavaScriptu. Pole e-mail można przetestować, wpisując „abc” i naciskając przycisk wysyłki. Walidację powtórz w PHP."
+    },
+    {
+      "id": "html-tabela",
+      "category": "HTML",
+      "title": "Czytelny cennik w tabeli",
+      "duration": 6,
+      "prompt": "Utwórz tabelę „Cennik serwisu”. Dodaj nagłówki kolumn „Usługa” i „Cena”, a pod nimi dwa wiersze „Regulacja hamulca — 35 zł” oraz „Wymiana dętki — 25 zł”. Podpis tabeli i nagłówki mają być opisane znacznikami HTML.",
+      "starter": "<!doctype html>\n<html lang=\"pl\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Cennik serwisu</title>\n</head>\n<body>\n  <main>\n    <h1>Serwis rowerowy</h1>\n    <!-- Wstaw tabelę. -->\n  </main>\n</body>\n</html>",
+      "hint": "caption to podpis tabeli. W thead umieść wiersz nagłówków, a w tbody wiersze danych. Nagłówki kolumn zapiszesz jako th z scope=\"col\".",
+      "solution": "<!doctype html>\n<html lang=\"pl\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Cennik serwisu</title>\n</head>\n<body>\n  <main>\n    <h1>Serwis rowerowy</h1>\n    <table>\n      <caption>Cennik serwisu</caption>\n      <thead>\n        <tr><th scope=\"col\">Usługa</th><th scope=\"col\">Cena</th></tr>\n      </thead>\n      <tbody>\n        <tr><td>Regulacja hamulca</td><td>35 zł</td></tr>\n        <tr><td>Wymiana dętki</td><td>25 zł</td></tr>\n      </tbody>\n    </table>\n  </main>\n</body>\n</html>",
+      "explanation": "th i scope wiążą wartości z nagłówkami, co pomaga przy odczycie tabeli przez czytnik ekranu. Kolejność elementów tabeli w rozwiązaniu pozwala oddzielnie stylować wiersze danych i nagłówka."
+    },
+    {
+      "id": "css-siatka",
+      "category": "CSS",
+      "title": "Trzy kolumny na szerokim ekranie",
+      "duration": 9,
+      "prompt": "Wyświetl trzy karty jako trzy równe kolumny, z odstępem 12 px. Przy szerokości 600 px i mniejszej ułóż karty pionowo. Zmieniaj tylko CSS.",
+      "starter": "<!doctype html>\n<html lang=\"pl\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Galeria rowerów</title>\n  <style>\n    body { font-family: system-ui, sans-serif; }\n    article { padding: 1rem; background: #ecfccb; border: 1px solid #84cc16; }\n  </style>\n</head>\n<body>\n  <main class=\"galeria\">\n    <article>Rower miejski</article>\n    <article>Rower trekkingowy</article>\n    <article>Rower górski</article>\n  </main>\n</body>\n</html>",
+      "hint": "Ustaw display: grid i grid-template-columns: repeat(3, 1fr) na kontenerze. W zapytaniu @media (max-width: 600px) zmień liczbę kolumn.",
+      "solution": "<!doctype html>\n<html lang=\"pl\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Galeria rowerów</title>\n  <style>\n    body { font-family: system-ui, sans-serif; }\n    article { padding: 1rem; background: #ecfccb; border: 1px solid #84cc16; }\n    .galeria {\n      display: grid;\n      grid-template-columns: repeat(3, 1fr);\n      gap: 12px;\n    }\n    @media (max-width: 600px) {\n      .galeria { grid-template-columns: 1fr; }\n    }\n  </style>\n</head>\n<body>\n  <main class=\"galeria\">\n    <article>Rower miejski</article>\n    <article>Rower trekkingowy</article>\n    <article>Rower górski</article>\n  </main>\n</body>\n</html>",
+      "explanation": "Jednostka fr rozdziela przestrzeń pozostałą po uwzględnieniu odstępów. Szerokości 600 i 601 px sprawdzają oba zachowania tuż przy granicy."
+    },
+    {
+      "id": "css-selektory",
+      "category": "CSS",
+      "title": "Pokieruj selektorami",
+      "duration": 7,
+      "prompt": "Ustaw pogrubienie tylko linków w nawigacji, a podkreślenie tych linków pokaż po najechaniu myszą lub uzyskaniu fokusu klawiaturą. Wyróżnij bieżący link ciemnozielonym kolorem #166534. Link w stopce ma zachować domyślny wygląd.",
+      "starter": "<!doctype html>\n<html lang=\"pl\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Nawigacja</title>\n  <style>\n    /* Dodaj selektory. */\n  </style>\n</head>\n<body>\n  <nav aria-label=\"Menu główne\">\n    <a href=\"#start\" aria-current=\"page\">Start</a>\n    <a href=\"#kontakt\">Kontakt</a>\n  </nav>\n  <main id=\"start\"><h1>Rowerem po mieście</h1></main>\n  <footer id=\"kontakt\"><a href=\"mailto:info@example.com\">Napisz do nas</a></footer>\n</body>\n</html>",
+      "hint": "Zacznij od selektora nav a. Stan obsłuż przez :hover i :focus-visible. Bieżący link znajdziesz po wartości aria-current.",
+      "solution": "<!doctype html>\n<html lang=\"pl\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Nawigacja</title>\n  <style>\n    nav a {\n      font-weight: bold;\n      text-decoration: none;\n    }\n    nav a:hover,\n    nav a:focus-visible {\n      text-decoration: underline;\n    }\n    nav a[aria-current=\"page\"] {\n      color: #166534;\n    }\n  </style>\n</head>\n<body>\n  <nav aria-label=\"Menu główne\">\n    <a href=\"#start\" aria-current=\"page\">Start</a>\n    <a href=\"#kontakt\">Kontakt</a>\n  </nav>\n  <main id=\"start\"><h1>Rowerem po mieście</h1></main>\n  <footer id=\"kontakt\"><a href=\"mailto:info@example.com\">Napisz do nas</a></footer>\n</body>\n</html>",
+      "explanation": "Selektor z nav ogranicza zakres stylu. :focus-visible obsługuje m.in. przechodzenie po linkach klawiszem Tab. Kontakt w menu i napis w stopce pozwalają porównać zakres reguł."
+    },
+    {
+      "id": "js-kalkulator",
+      "category": "JavaScript",
+      "title": "Oblicz koszt wypożyczenia",
+      "duration": 10,
+      "prompt": "Po naciśnięciu „Oblicz” wypisz koszt przy stawce 12,50 zł za godzinę. Za 4 lub więcej godzin udziel 10% rabatu od całej kwoty. Akceptuj tylko całkowitą liczbę godzin od 1 do 8. Dla 4 godzin wynik powinien wynieść 45,00 zł.",
+      "starter": "<!doctype html>\n<html lang=\"pl\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Cennik</title>\n</head>\n<body>\n  <h1>Cennik</h1>\n  <label for=\"godziny\">Liczba godzin (1–8)</label>\n  <input id=\"godziny\" type=\"number\" min=\"1\" max=\"8\" value=\"2\">\n  <button id=\"oblicz\" type=\"button\">Oblicz</button>\n  <output id=\"wynik\" aria-live=\"polite\"></output>\n  <script>\n    const pole = document.querySelector('#godziny');\n    const wynik = document.querySelector('#wynik');\n    // Połącz przycisk z funkcją i oblicz wynik.\n  </script>\n</body>\n</html>",
+      "hint": "Pobierz liczbę przez valueAsNumber. Pustą lub niepoprawną wartość wykryjesz przez Number.isInteger i porównanie z granicami. Użyj textContent do zapisania wyniku.",
+      "solution": "<!doctype html>\n<html lang=\"pl\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Cennik</title>\n</head>\n<body>\n  <h1>Cennik</h1>\n  <label for=\"godziny\">Liczba godzin (1–8)</label>\n  <input id=\"godziny\" type=\"number\" min=\"1\" max=\"8\" value=\"2\">\n  <button id=\"oblicz\" type=\"button\">Oblicz</button>\n  <output id=\"wynik\" aria-live=\"polite\"></output>\n  <script>\n    const pole = document.querySelector('#godziny');\n    const wynik = document.querySelector('#wynik');\n    const przycisk = document.querySelector('#oblicz');\n    const waluta = new Intl.NumberFormat('pl-PL', { style: 'currency', currency: 'PLN' });\n\n    przycisk.addEventListener('click', () => {\n      const godziny = pole.valueAsNumber;\n      if (!Number.isInteger(godziny) || godziny < 1 || godziny > 8) {\n        wynik.textContent = 'Podaj całkowitą liczbę godzin od 1 do 8.';\n        return;\n      }\n\n      const cena = godziny * 12.5;\n      const cenaKoncowa = godziny >= 4 ? cena * 0.9 : cena;\n      wynik.textContent = waluta.format(cenaKoncowa);\n    });\n  </script>\n</body>\n</html>",
+      "explanation": "Przy 3 godzinach cena to 37,50 zł. Przy 4 godzinach rabat obniża 50,00 zł do 45,00 zł. Sprawdź również 0, 8, 9, pustą wartość i ułamek."
+    },
+    {
+      "id": "js-filtr",
+      "category": "JavaScript",
+      "title": "Przefiltruj listę bez przeładowania",
+      "duration": 12,
+      "prompt": "Po zmianie kategorii ukryj niedopasowane pozycje i pokaż liczbę widocznych rowerów. Wybór „Wszystkie” ma przywracać pełną listę. Po wejściu licznik powinien od razu pokazać 3.",
+      "starter": "<!doctype html>\n<html lang=\"pl\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Wypożyczalnia</title>\n</head>\n<body>\n  <h1>Wypożyczalnia</h1>\n  <label for=\"typ\">Kategoria</label>\n  <select id=\"typ\">\n    <option value=\"wszystkie\">Wszystkie</option>\n    <option value=\"miejski\">Miejskie</option>\n    <option value=\"gorski\">Górskie</option>\n  </select>\n  <ul id=\"rowery\">\n    <li data-typ=\"miejski\">Rondo</li>\n    <li data-typ=\"gorski\">Szczyt</li>\n    <li data-typ=\"miejski\">Aleja</li>\n  </ul>\n  <p id=\"licznik\" aria-live=\"polite\"></p>\n  <script>\n    const lista = document.querySelectorAll('#rowery li');\n    // Dodaj obsługę zmiany kategorii oraz początkowy licznik.\n  </script>\n</body>\n</html>",
+      "hint": "Każdy element li ma atrybut data-typ, który odczytasz przez dataset.typ. Ustaw właściwość hidden. Tę samą funkcję wywołaj na początku i przy zmianie selecta.",
+      "solution": "<!doctype html>\n<html lang=\"pl\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Wypożyczalnia</title>\n</head>\n<body>\n  <h1>Wypożyczalnia</h1>\n  <label for=\"typ\">Kategoria</label>\n  <select id=\"typ\">\n    <option value=\"wszystkie\">Wszystkie</option>\n    <option value=\"miejski\">Miejskie</option>\n    <option value=\"gorski\">Górskie</option>\n  </select>\n  <ul id=\"rowery\">\n    <li data-typ=\"miejski\">Rondo</li>\n    <li data-typ=\"gorski\">Szczyt</li>\n    <li data-typ=\"miejski\">Aleja</li>\n  </ul>\n  <p id=\"licznik\" aria-live=\"polite\"></p>\n  <script>\n    const wybierzTyp = document.querySelector('#typ');\n    const lista = document.querySelectorAll('#rowery li');\n    const licznik = document.querySelector('#licznik');\n\n    function filtruj() {\n      const typ = wybierzTyp.value;\n      let widoczne = 0;\n\n      for (const rower of lista) {\n        rower.hidden = typ !== 'wszystkie' && rower.dataset.typ !== typ;\n        if (!rower.hidden) widoczne += 1;\n      }\n\n      licznik.textContent = 'Liczba rowerów: ' + widoczne;\n    }\n\n    wybierzTyp.addEventListener('change', filtruj);\n    filtruj();\n  </script>\n</body>\n</html>",
+      "explanation": "Wydarzenie change uruchamia aktualizację po zmianie wyboru. Dla Miejskie wynik to 2, dla Górskie 1, a po powrocie do Wszystkie 3."
+    },
+    {
+      "id": "js-przelacznik",
+      "category": "JavaScript",
+      "title": "Pokaż i ukryj szczegóły",
+      "duration": 7,
+      "prompt": "Przycisk ma pokazywać ukryty opis. Kolejne kliknięcie ma go ponownie schować. Dopasuj tekst przycisku i atrybut aria-expanded do stanu opisu.",
+      "starter": "<!doctype html>\n<html lang=\"pl\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Katalog</title>\n</head>\n<body>\n  <h1>Katalog</h1>\n  <button id=\"pokaz\" type=\"button\" aria-controls=\"szczegoly\" aria-expanded=\"false\">\n    Pokaż szczegóły\n  </button>\n  <p id=\"szczegoly\" hidden>\n    Kask i odblaski są wliczone w cenę wynajmu.\n  </p>\n  <script>\n    // Dodaj zdarzenie kliknięcia.\n  </script>\n</body>\n</html>",
+      "hint": "Zmień hidden na wartość przeciwną. Jeśli po zmianie opis jest ukryty, tekst przycisku powinien brzmieć „Pokaż szczegóły”.",
+      "solution": "<!doctype html>\n<html lang=\"pl\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Katalog</title>\n</head>\n<body>\n  <h1>Katalog</h1>\n  <button id=\"pokaz\" type=\"button\" aria-controls=\"szczegoly\" aria-expanded=\"false\">\n    Pokaż szczegóły\n  </button>\n  <p id=\"szczegoly\" hidden>\n    Kask i odblaski są wliczone w cenę wynajmu.\n  </p>\n  <script>\n    const przycisk = document.querySelector('#pokaz');\n    const szczegoly = document.querySelector('#szczegoly');\n\n    przycisk.addEventListener('click', () => {\n      szczegoly.hidden = !szczegoly.hidden;\n      przycisk.textContent = szczegoly.hidden ? 'Pokaż szczegóły' : 'Ukryj szczegóły';\n      przycisk.setAttribute('aria-expanded', String(!szczegoly.hidden));\n    });\n  </script>\n</body>\n</html>",
+      "explanation": "Atrybut hidden odpowiada za widoczność opisu, a aria-expanded informuje użytkownika czytnika ekranu o stanie przycisku. Przetestuj dwa kliknięcia oraz obsługę za pomocą klawiatury."
+    },
+    {
+      "id": "sql-filtrowanie",
+      "category": "SQL",
+      "title": "Znajdź najtańsze dostępne rowery",
+      "duration": 8,
+      "prompt": "Z tabeli lab_rowery wypisz kolumny nazwa i stawka dla dostępnych rowerów o stawce nieprzekraczającej 15 zł. Posortuj od najtańszego, a przy równej stawce użyj kolejności alfabetycznej.",
+      "setup": "CREATE TABLE lab_typy (\n  id INT PRIMARY KEY,\n  nazwa VARCHAR(30) NOT NULL\n);\nCREATE TABLE lab_rowery (\n  id INT PRIMARY KEY,\n  typ_id INT NOT NULL,\n  nazwa VARCHAR(30) NOT NULL,\n  stawka DECIMAL(5, 2) NOT NULL,\n  dostepny BOOLEAN NOT NULL\n);\nINSERT INTO lab_typy VALUES (1, 'Miejski'), (2, 'Trekkingowy'), (3, 'Górski');\nINSERT INTO lab_rowery VALUES\n  (1, 1, 'Aleja', 12.50, TRUE),\n  (2, 1, 'Rondo', 11.00, TRUE),\n  (3, 2, 'Szlak', 16.50, FALSE),\n  (4, 2, 'Most', 15.00, TRUE),\n  (5, 3, 'Szczyt', 19.00, FALSE);\n\n",
+      "starter": "-- Dopisz SELECT, warunek i sortowanie.\n",
+      "hint": "Warunki możesz połączyć przez AND. W ORDER BY podaj kolejno stawkę i nazwę. ASC oznacza kolejność rosnącą.",
+      "solution": "SELECT nazwa, stawka\nFROM lab_rowery\nWHERE dostepny = TRUE AND stawka <= 15.00\nORDER BY stawka ASC, nazwa ASC;",
+      "explanation": "Kolejność wyników to Rondo (11,00), Aleja (12,50) i Most (15,00). Porównanie <= zachowuje wiersz dokładnie na granicy."
+    },
+    {
+      "id": "sql-zlaczenie",
+      "category": "SQL",
+      "title": "Połącz rowery z typami",
+      "duration": 9,
+      "prompt": "Korzystając z tabel lab_rowery i lab_typy, wypisz nazwę i typ każdego dostępnego roweru w kolejności alfabetycznej według nazwy roweru. Kolumny wynikowe nazwij rower i typ.",
+      "setup": "CREATE TABLE lab_typy (\n  id INT PRIMARY KEY,\n  nazwa VARCHAR(30) NOT NULL\n);\nCREATE TABLE lab_rowery (\n  id INT PRIMARY KEY,\n  typ_id INT NOT NULL,\n  nazwa VARCHAR(30) NOT NULL,\n  stawka DECIMAL(5, 2) NOT NULL,\n  dostepny BOOLEAN NOT NULL\n);\nINSERT INTO lab_typy VALUES (1, 'Miejski'), (2, 'Trekkingowy'), (3, 'Górski');\nINSERT INTO lab_rowery VALUES\n  (1, 1, 'Aleja', 12.50, TRUE),\n  (2, 1, 'Rondo', 11.00, TRUE),\n  (3, 2, 'Szlak', 16.50, FALSE),\n  (4, 2, 'Most', 15.00, TRUE),\n  (5, 3, 'Szczyt', 19.00, FALSE);\n\n",
+      "starter": "-- Dopisz zapytanie łączące lab_rowery i lab_typy.\n",
+      "hint": "Połącz lab_rowery.typ_id z lab_typy.id. Obie tabele mają kolumnę nazwa, więc podczas wyboru dopisz alias tabeli.",
+      "solution": "SELECT r.nazwa AS rower, t.nazwa AS typ\nFROM lab_rowery AS r\nINNER JOIN lab_typy AS t ON r.typ_id = t.id\nWHERE r.dostepny = TRUE\nORDER BY r.nazwa ASC;",
+      "explanation": "Wynik zawiera trzy wiersze: Aleja — Miejski, Most — Trekkingowy, Rondo — Miejski. Klucz obcy oznacza powiązanie, a warunek ON wskazuje, które kolumny mają pasować podczas łączenia."
+    },
+    {
+      "id": "sql-agregacja",
+      "category": "SQL",
+      "title": "Policz dostępne rowery w każdej kategorii",
+      "duration": 13,
+      "prompt": "Dla każdego typu zwróć nazwę w kolumnie nazwa oraz liczbę dostępnych rowerów w kolumnie liczba. Pokaż również typy, dla których liczba wynosi 0. Sortuj malejąco po liczbie, a typy z tą samą liczbą uporządkuj po nazwie rosnąco.",
+      "setup": "CREATE TABLE lab_typy (\n  id INT PRIMARY KEY,\n  nazwa VARCHAR(30) NOT NULL\n);\nCREATE TABLE lab_rowery (\n  id INT PRIMARY KEY,\n  typ_id INT NOT NULL,\n  nazwa VARCHAR(30) NOT NULL,\n  stawka DECIMAL(5, 2) NOT NULL,\n  dostepny BOOLEAN NOT NULL\n);\nINSERT INTO lab_typy VALUES (1, 'Miejski'), (2, 'Trekkingowy'), (3, 'Górski');\nINSERT INTO lab_rowery VALUES\n  (1, 1, 'Aleja', 12.50, TRUE),\n  (2, 1, 'Rondo', 11.00, TRUE),\n  (3, 2, 'Szlak', 16.50, FALSE),\n  (4, 2, 'Most', 15.00, TRUE),\n  (5, 3, 'Szczyt', 19.00, FALSE);\n\n",
+      "starter": "-- Przygotuj zestawienie z LEFT JOIN, COUNT i GROUP BY.\n",
+      "hint": "Zacznij od tabeli typów. Warunek dotyczący dostępności roweru dopisz w ON. COUNT(r.id) pominie wartości NULL w grupach bez dopasowania.",
+      "solution": "SELECT t.nazwa, COUNT(r.id) AS liczba\nFROM lab_typy AS t\nLEFT JOIN lab_rowery AS r ON r.typ_id = t.id AND r.dostepny = TRUE\nGROUP BY t.id, t.nazwa\nORDER BY liczba DESC, t.nazwa ASC;",
+      "explanation": "Wynik to Miejski 2, Trekkingowy 1 i Górski 0. Wiersz dla Górski przetrwa LEFT JOIN. COUNT(*) policzyłby ten wiersz jako 1, a COUNT(r.id) pomija go, bo identyfikator jest NULL."
+    },
+    {
+      "id": "php-post",
+      "category": "PHP",
+      "title": "Odczytaj i sprawdź formularz POST",
+      "duration": 12,
+      "prompt": "Zapisz kod jako rezerwacja.php i otwórz przez lokalny serwer PHP. Po wysłaniu formularza zaakceptuj wyłącznie całkowitą liczbę godzin od 1 do 8. Wypisz „Zarezerwowana liczba godzin: X” albo „Podaj liczbę od 1 do 8.”. Przy pierwszym otwarciu pokaż sam formularz.",
+      "starter": "<!doctype html>\n<html lang=\"pl\">\n<meta charset=\"utf-8\">\n<title>Rezerwacja</title>\n<form method=\"post\">\n  <label for=\"godziny\">Godziny</label>\n  <input id=\"godziny\" name=\"godziny\" type=\"number\" min=\"1\" max=\"8\" required>\n  <button type=\"submit\">Zarezerwuj</button>\n</form>\n<?php\n// Dodaj odczyt danych POST i komunikat.\n?>\n</html>",
+      "hint": "Sprawdź metodę w $_SERVER['REQUEST_METHOD']. Użyj filter_input(INPUT_POST, 'godziny', FILTER_VALIDATE_INT, ...) i sprawdź wynik przez porównania ścisłe.",
+      "solution": "<!doctype html>\n<html lang=\"pl\">\n<meta charset=\"utf-8\">\n<title>Rezerwacja</title>\n<form method=\"post\">\n  <label for=\"godziny\">Godziny</label>\n  <input id=\"godziny\" name=\"godziny\" type=\"number\" min=\"1\" max=\"8\" required>\n  <button type=\"submit\">Zarezerwuj</button>\n</form>\n<?php\nif ($_SERVER['REQUEST_METHOD'] === 'POST') {\n    $godziny = filter_input(INPUT_POST, 'godziny', FILTER_VALIDATE_INT, [\n        'options' => ['min_range' => 1, 'max_range' => 8]\n    ]);\n\n    if ($godziny === false || $godziny === null) {\n        echo '<p>Podaj liczbę od 1 do 8.</p>';\n    } else {\n        echo '<p>Zarezerwowana liczba godzin: ' . $godziny . '</p>';\n    }\n}\n?>\n</html>",
+      "explanation": "type, min i max dają szybką informację w przeglądarce. Walidacja po stronie serwera dodatkowo sprawdza brak pola, format liczby i zakres. filter_input zwraca false dla błędnej wartości i null przy braku pola."
+    },
+    {
+      "id": "php-tabela",
+      "category": "PHP",
+      "title": "Zamień wynik zapytania w tabelę HTML",
+      "duration": 15,
+      "prompt": "Wykorzystaj bazę z próbnego egzaminu. Wypisz nazwę i stawkę dostępnych rowerów w tabeli HTML, w kolejności nazw. Stawkę wyświetl z dwiema cyframi po przecinku i końcówką „zł”. Zabezpiecz treść komórek zawierających nazwy zanim umieścisz je w HTML.",
+      "starter": "<?php\nmysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);\n$db = new mysqli('localhost', 'root', '', 'inf03_rowery');\n$db->set_charset('utf8mb4');\n// Wykonaj SELECT i zbuduj tabelę.\n$db->close();",
+      "hint": "Pobieraj kolejne wiersze metodą fetch_assoc(). htmlspecialchars() bezpiecznie umieszcza nazwę w HTML, a number_format() formatuje stawkę.",
+      "solution": "<?php\nheader('Content-Type: text/html; charset=UTF-8');\nmysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);\n$db = new mysqli('localhost', 'root', '', 'inf03_rowery');\n$db->set_charset('utf8mb4');\n\n$wynik = $db->query('SELECT nazwa, stawka FROM rowery WHERE dostepny = 1 ORDER BY nazwa');\necho '<table><caption>Dostępne rowery</caption><thead><tr>';\necho '<th scope=\"col\">Nazwa</th><th scope=\"col\">Stawka</th></tr></thead><tbody>';\nwhile ($rower = $wynik->fetch_assoc()) {\n    $nazwa = htmlspecialchars($rower['nazwa'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');\n    $stawka = number_format((float) $rower['stawka'], 2, ',', ' ');\n    echo '<tr><td>' . $nazwa . '</td><td>' . $stawka . ' zł</td></tr>';\n}\necho '</tbody></table>';\n$db->close();",
+      "explanation": "Dla próbnych danych zobaczysz Aleja, Most i Rondo. htmlspecialchars koduje znaki specjalne w nazwie, np. „&” w „Most & Park”. Jeśli Twoje lokalne konto MySQL używa innych danych logowania, podaj je w konstruktorze mysqli."
+    },
+    {
+      "id": "grafika-przezroczystosc",
+      "category": "Grafika",
+      "title": "Przygotuj ikonę z przezroczystością",
+      "duration": 9,
+      "prompt": "W edytorze grafiki utwórz jasnozieloną ikonę kierunkową w formie prostej strzałki. Płótno ma mieć 256 × 256 px. Wycentruj ikonę i zostaw co najmniej 24 px przezroczystego marginesu z każdej strony. Zapisz wynik jako ikona.png.",
+      "starter": "Nowy obraz: 256 × 256 px. Kolor strzałki: #A3E635. Format końcowy: PNG.",
+      "hint": "W edytorze rastrowym sprawdź, czy warstwa ma kanał alfa. Widoczna szachownica w podglądzie edytora oznacza przezroczysty obszar.",
+      "solution": "Utwórz płótno 256 × 256 px na przezroczystym tle. Zbuduj strzałkę z prostokąta i trójkąta lub narzędziem ścieżek. Umieść ją centralnie z co najmniej 24 px odstępu od każdej krawędzi. Wyeksportuj jako ikona.png, otwórz ponownie i sprawdź rozmiar oraz przezroczyste narożniki.",
+      "explanation": "PNG przechowuje kanał alfa. Najprościej sprawdzić efekt, umieszczając ikonę na dwóch różnych kolorach tła. W obu przypadkach tło ma pozostać widoczne wokół strzałki."
+    },
+    {
+      "id": "grafika-kadrowanie",
+      "category": "Grafika",
+      "title": "Przytnij zdjęcie do 3:2",
+      "duration": 8,
+      "prompt": "Weź dowolne własne zdjęcie o szerokości większej niż 900 px. Przytnij je do proporcji 3:2 z głównym motywem blisko środka. Zapisz plik rower.jpg w rozmiarze 900 × 600 px o rozmiarze pliku do 250 KB.",
+      "starter": "Zdjęcie źródłowe z wyraźnym motywem. Format końcowy: JPEG 900 × 600 px, do 250 KB.",
+      "hint": "Zablokuj proporcję kadru 3:2. Przytnij, a potem skaluj. Wielkość pliku możesz regulować ustawieniem jakości podczas eksportu.",
+      "solution": "Narzędziem kadrowania zaznacz prostokąt 3:2 i ustaw jego położenie tak, aby zachować główny motyw. Po przycięciu skaluj obraz do 900 × 600 px z zablokowanym stosunkiem wymiarów. Wyeksportuj do JPEG i w razie potrzeby zmniejsz jakość przed ponownym eksportem ze źródła. We właściwościach pliku sprawdź rozdzielczość oraz rozmiar w bajtach.",
+      "explanation": "Kadrowanie wybiera wycinek zdjęcia. Skalowanie zmienia jego liczbę pikseli. Zachowanie proporcji przed skalowaniem chroni przed rozciągnięciem obrazu."
+    }
+  ],
+  "katalog": [
+    {
+      "id": "sql-filtr",
+      "category": "SQL",
+      "level": 1,
+      "title": "Wybierz rekordy z warunkiem",
+      "variants": 256
+    },
+    {
+      "id": "sql-top",
+      "category": "SQL",
+      "level": 1,
+      "title": "Posortuj i ogranicz wynik",
+      "variants": 256
+    },
+    {
+      "id": "sql-join",
+      "category": "SQL",
+      "level": 2,
+      "title": "Odczytaj nazwę kategorii",
+      "variants": 256
+    },
+    {
+      "id": "sql-grupy",
+      "category": "SQL",
+      "level": 2,
+      "title": "Zlicz również puste grupy",
+      "variants": 256
+    },
+    {
+      "id": "sql-update",
+      "category": "SQL",
+      "level": 2,
+      "title": "Zmień cenę jednego rekordu",
+      "variants": 256
+    },
+    {
+      "id": "sql-having",
+      "category": "SQL",
+      "level": 3,
+      "title": "Wybierz grupy według liczebności",
+      "variants": 256
+    },
+    {
+      "id": "sql-insert",
+      "category": "SQL",
+      "level": 2,
+      "title": "Dodaj rekord przypisany do grupy",
+      "variants": 256
+    },
+    {
+      "id": "js-koszt",
+      "category": "JavaScript",
+      "level": 1,
+      "title": "Policz koszt z opcjonalną dopłatą",
+      "variants": 256
+    },
+    {
+      "id": "js-zakres",
+      "category": "JavaScript",
+      "level": 1,
+      "title": "Napraw walidację pola",
+      "variants": 256
+    },
+    {
+      "id": "js-rabat",
+      "category": "JavaScript",
+      "level": 2,
+      "title": "Zastosuj rabat od progu",
+      "variants": 256
+    },
+    {
+      "id": "js-filtr",
+      "category": "JavaScript",
+      "level": 2,
+      "title": "Przefiltruj tablicę obiektów",
+      "variants": 256
+    },
+    {
+      "id": "js-petla",
+      "category": "JavaScript",
+      "level": 1,
+      "title": "Napraw pętlę sumującą",
+      "variants": 256
+    },
+    {
+      "id": "js-dom",
+      "category": "JavaScript",
+      "level": 2,
+      "title": "Podepnij obliczenie pod kliknięcie",
+      "variants": 256
+    },
+    {
+      "id": "html-form",
+      "category": "HTML",
+      "level": 1,
+      "title": "Napisz formularz z etykietami",
+      "variants": 256
+    },
+    {
+      "id": "html-tabela",
+      "category": "HTML",
+      "level": 1,
+      "title": "Utwórz czytelną tabelę",
+      "variants": 256
+    },
+    {
+      "id": "html-uklad",
+      "category": "HTML",
+      "level": 1,
+      "title": "Połącz semantykę i nawigację",
+      "variants": 256
+    },
+    {
+      "id": "html-media",
+      "category": "HTML",
+      "level": 2,
+      "title": "Umieść ilustrację i podpis",
+      "variants": 256
+    },
+    {
+      "id": "css-grid",
+      "category": "CSS",
+      "level": 1,
+      "title": "Ułóż kolumny według projektu",
+      "variants": 256
+    },
+    {
+      "id": "css-selektor",
+      "category": "CSS",
+      "level": 1,
+      "title": "Dobierz precyzyjny selektor",
+      "variants": 256
+    },
+    {
+      "id": "css-box",
+      "category": "CSS",
+      "level": 1,
+      "title": "Napraw szerokość karty",
+      "variants": 256
+    },
+    {
+      "id": "css-flex",
+      "category": "CSS",
+      "level": 2,
+      "title": "Ustaw kierunek i odstępy w pasku",
+      "variants": 256
+    },
+    {
+      "id": "php-zakres",
+      "category": "PHP",
+      "level": 1,
+      "title": "Sprawdź dane odebrane z formularza",
+      "variants": 256
+    },
+    {
+      "id": "php-wyjscie",
+      "category": "PHP",
+      "level": 1,
+      "title": "Wypisz zewnętrzną treść w HTML",
+      "variants": 256
+    },
+    {
+      "id": "php-suma",
+      "category": "PHP",
+      "level": 2,
+      "title": "Policz sumę w pętli foreach",
+      "variants": 256
+    },
+    {
+      "id": "php-select",
+      "category": "PHP",
+      "level": 3,
+      "title": "Wygeneruj listę po SELECT",
+      "variants": 256
+    },
+    {
+      "id": "grafika-eksport",
+      "category": "Grafika",
+      "level": 1,
+      "title": "Dobierz format i rozmiar pliku",
+      "variants": 256
+    }
+  ],
+  "scenariusze": [
+    {
+      "id": "wypozyczalnia",
+      "label": "Wypożyczalnia rowerów"
+    },
+    {
+      "id": "biblioteka",
+      "label": "Biblioteka"
+    },
+    {
+      "id": "serwis",
+      "label": "Serwis komputerowy"
+    },
+    {
+      "id": "kino",
+      "label": "Kino"
+    },
+    {
+      "id": "muzeum",
+      "label": "Muzeum"
+    },
+    {
+      "id": "kawiarnia",
+      "label": "Kawiarnia"
+    },
+    {
+      "id": "szkola",
+      "label": "Kursy zawodowe"
+    },
+    {
+      "id": "sklep",
+      "label": "Sklep papierniczy"
+    },
+    {
+      "id": "hotel",
+      "label": "Hotel"
+    },
+    {
+      "id": "klub",
+      "label": "Klub sportowy"
+    },
+    {
+      "id": "galeria",
+      "label": "Galeria zdjęć"
+    },
+    {
+      "id": "szkolka",
+      "label": "Szkółka roślin"
+    },
+    {
+      "id": "pracownia",
+      "label": "Pracownia ceramiki"
+    },
+    {
+      "id": "ksiegarnia",
+      "label": "Księgarnia"
+    },
+    {
+      "id": "bilety",
+      "label": "Biuro wycieczek"
+    },
+    {
+      "id": "magazyn",
+      "label": "Magazyn sprzętu"
+    }
+  ],
+  "theorySources": [
+    {
+      "title": "CKE · przebieg egzaminu zawodowego",
+      "url": "https://egzaminy.gov.pl/index.php/cke/egzamin-zawodowy/formula-2019/o-egzaminie",
+      "note": "Losowane zadania dla każdego zdającego. 40 pytań w 60 minut, minimum 20 poprawnych odpowiedzi."
+    },
+    {
+      "title": "Podstawa programowa INF.03 · Dziennik Ustaw",
+      "url": "https://eli.gov.pl/api/acts/DU/2019/991/text/I/D20190991-08.pdf",
+      "note": "Załącznik 28. Działy INF.03.1–INF.03.8 i ich kryteria dla technika programisty."
+    },
+    {
+      "title": "Informator CKE · technik programista",
+      "url": "https://bip.cke.gov.pl/attachments/download/8580",
+      "note": "Przykłady z odpowiedziami i przykładowe zadanie praktyczne INF.03."
+    },
+    {
+      "title": "Przykładowy arkusz pisemny CKE · INF.03",
+      "url": "https://cke.gov.pl/images/_EGZAMIN_ZAWODOWY/Formula_2019/Przykladowe_zadania/Pisemny/inf_03_pisemny.pdf",
+      "note": "Oficjalny zestaw 40 pytań, m.in. o HTML/CSS, bazy danych, JavaScript i PHP."
+    },
+    {
+      "title": "Publiczne zestawy teoretyczne · EgzaminZawodowy.info",
+      "url": "https://www.testy.egzaminzawodowy.info/kwalifikacja-inf3-testy",
+      "note": "Przegląd 21 list pytań oznaczonych latami 2021–2026 objął 828 dostępnych nagłówków pytań wraz z powtórzeniami. To archiwum edukacyjne."
+    },
+    {
+      "title": "Publiczna lista pytań · czerwiec 2026",
+      "url": "https://www.testy.egzaminzawodowy.info/pytania-test-9z9rfzu8cfq0r9f",
+      "note": "Te same 40 nagłówków pojawia się na listach opisanych jako czerwiec 2023 i czerwiec 2025 (test 2)."
+    },
+    {
+      "title": "WHATWG · formularze HTML",
+      "url": "https://html.spec.whatwg.org/multipage/forms.html",
+      "note": "Specyfikacja kontrolek, etykiet i przesyłania danych."
+    },
+    {
+      "title": "W3C · WCAG 2.2",
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "note": "Wytyczne dotyczące dostępności treści internetowych."
+    },
+    {
+      "title": "MySQL · SELECT",
+      "url": "https://dev.mysql.com/doc/refman/8.4/en/select.html",
+      "note": "Składnia filtrowania, grupowania i sortowania wyników."
+    },
+    {
+      "title": "PHP · przygotowane zapytania mysqli",
+      "url": "https://www.php.net/manual/en/mysqli.quickstart.prepared-statements.php",
+      "note": "Przekazywanie parametrów i pobieranie wyników we wtyczce mysqli."
+    }
+  ]
+}

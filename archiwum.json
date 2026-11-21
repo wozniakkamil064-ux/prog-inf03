@@ -1,0 +1,2481 @@
+{
+  "coverage": {
+    "count": 94,
+    "sessions": {
+      "2026-06": 12,
+      "2026-01": 12,
+      "2025-06": 12,
+      "2025-01": 12,
+      "2024-06": 12,
+      "2024-01": 12,
+      "2023-06": 12,
+      "2023-01": 5,
+      "2022-06": 3,
+      "2022-01": 1,
+      "2021-06": 1
+    },
+    "firstSession": "2021-06",
+    "lastSession": "2026-06",
+    "code": "SG"
+  },
+  "sources": {
+    "archive": "https://mahlik.ucz.edu.pl/kursy/materialy/",
+    "crossReference": "https://www.testy.egzaminzawodowy.info/kwalifikacja-inf3-arkusze",
+    "ckeTechnikProgramista": "https://bip.cke.gov.pl/attachments/download/8580",
+    "ckeGeneral": "https://bip.cke.gov.pl/attachments/download/9220"
+  },
+  "counts": {
+    "requirements": {
+      "sql": 89,
+      "sqlImport": 89,
+      "sqlTxt": 89,
+      "screenshots": 89,
+      "semantic": 64,
+      "html5": 94,
+      "css": 94,
+      "browserTxt": 94,
+      "php": 62,
+      "js": 33
+    },
+    "sqlFeatures": {
+      "select": 89,
+      "join": 60,
+      "group": 8,
+      "count": 43,
+      "insert": 28,
+      "order": 36,
+      "avg": 19,
+      "minMax": 12,
+      "delete": 8,
+      "view": 2,
+      "sum": 4,
+      "permissions": 10,
+      "update": 31,
+      "structure": 5
+    },
+    "queryCount": {
+      "0": 5,
+      "4": 79,
+      "5": 10
+    }
+  },
+  "methodology": "Odczyt treści 94 publicznie dostępnych arkuszy CKE z katalogu i porównanie zakresu z drugim archiwum. Liczniki SQL są oparte na frazach w poleceniach, które mogą dopuszczać kilka poprawnych implementacji. Warianty z tożsamymi poleceniami mają osobne kody i wchodzą osobno do statystyk. Pole tech opisuje wymagane technologie skryptowe i SQL, a HTML5 i CSS występują we wszystkich wariantach.",
+  "variants": [
+    {
+      "id": "INF.03-01-26.06-SG",
+      "session": "2026-06",
+      "number": 1,
+      "title": "Islandia",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "group",
+        "count"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_01/inf_03_2026_06_01_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_01/INF_03_2026_06_01_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki1.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_01/pliki1.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-02-26.06-SG",
+      "session": "2026-06",
+      "number": 2,
+      "title": "Wodospady",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 5,
+      "sqlFeatures": [
+        "select",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_02/inf_03_2026_06_02_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_02/INF_03_2026_06_02_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki2.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_02/pliki2.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-03-26.06-SG",
+      "session": "2026-06",
+      "number": 3,
+      "title": "Karta produktu – fotel",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "order",
+        "count",
+        "avg",
+        "minMax",
+        "delete",
+        "view"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_03/inf_03_2026_06_03_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_03/INF_03_2026_06_03_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki3.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_03/pliki3.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-04-26.06-SG",
+      "session": "2026-06",
+      "number": 4,
+      "title": "Biuro turystyczne",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "group",
+        "count",
+        "sum"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_04/inf_03_2026_06_04_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_04/INF_03_2026_06_04_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki4.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_04/pliki4.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-05-26.06-SG",
+      "session": "2026-06",
+      "number": 5,
+      "title": "Sprzedaż antyków",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_05/inf_03_2026_06_05_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_05/INF_03_2026_06_05_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki5.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_05/pliki5.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-06-26.06-SG",
+      "session": "2026-06",
+      "number": 6,
+      "title": "Konto pacjenta",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "group",
+        "count",
+        "permissions"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_06/inf_03_2026_06_06_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_06/INF_03_2026_06_06_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki7.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_06/pliki7.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-07-26.06-SG",
+      "session": "2026-06",
+      "number": 7,
+      "title": "Kółko i krzyżyk",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "count",
+        "avg"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_07/inf_03_2026_06_07_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_07/INF_03_2026_06_07_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki8.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_07/pliki8.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-08-26.06-SG",
+      "session": "2026-06",
+      "number": 8,
+      "title": "Najlepsze gry – PoGRAJmy!",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "count",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_08/inf_03_2026_06_08_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_08/INF_03_2026_06_08_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki18.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_08/pliki18.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-09-26.06-SG",
+      "session": "2026-06",
+      "number": 9,
+      "title": "Restauracja Marchewka",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 5,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "count",
+        "update",
+        "permissions"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_09/inf_03_2026_06_09_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_09/INF_03_2026_06_09_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki19.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_09/pliki19.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-10-26.06-SG",
+      "session": "2026-06",
+      "number": 10,
+      "title": "Laboratorium medyczne",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "group",
+        "count"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_10/inf_03_2026_06_10_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_10/INF_03_2026_06_10_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki20.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_10/pliki20.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-11-26.06-SG",
+      "session": "2026-06",
+      "number": 11,
+      "title": "Atlas drzew",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "count",
+        "avg"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_11/inf_03_2026_06_11_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_11/INF_03_2026_06_11_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki21.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_11/pliki21.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-12-26.06-SG",
+      "session": "2026-06",
+      "number": 12,
+      "title": "Salon rowerowy",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "avg",
+        "minMax",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_12/inf_03_2026_06_12_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_12/INF_03_2026_06_12_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki22.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_06_12/pliki22.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-01-26.01-SG",
+      "session": "2026-01",
+      "number": 1,
+      "title": "Konfigurator samochodów",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "count",
+        "avg",
+        "minMax"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_01/inf_03_2026_01_01_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_01/INF_03_2026_01_01_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki1.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_01/pliki1.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-02-26.01-SG",
+      "session": "2026-01",
+      "number": 2,
+      "title": "Zdrowy bazarek",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_02/inf_03_2026_01_02_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_02/INF_03_2026_01_02_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki3-1.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_02/pliki3-1.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-03-26.01-SG",
+      "session": "2026-01",
+      "number": 3,
+      "title": "Pola figur",
+      "tech": [
+        "JS"
+      ],
+      "optionalTech": [],
+      "queryCount": 0,
+      "sqlFeatures": [],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_03/inf_03_2026_01_03_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_03/INF_03_2026_01_03_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki2.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_03/pliki2.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-04-26.01-SG",
+      "session": "2026-01",
+      "number": 4,
+      "title": "Matura",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 5,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "avg"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_04/inf_03_2026_01_04_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_04/INF_03_2026_01_04_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki3-2.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_04/pliki3-2.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-05-26.01-SG",
+      "session": "2026-01",
+      "number": 5,
+      "title": "Zgłoszenia wypadków",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "count",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_05/inf_03_2026_01_05_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_05/INF_03_2026_01_05_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki7.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_05/pliki7.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-06-26.01-SG",
+      "session": "2026-01",
+      "number": 6,
+      "title": "Wykaz chorób",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "count"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_06/inf_03_2026_01_06_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_06/INF_03_2026_01_06_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki9-1.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_06/pliki9-1.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-07-26.01-SG",
+      "session": "2026-01",
+      "number": 7,
+      "title": "Pogoda",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "count",
+        "avg",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_07/inf_03_2026_01_07_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_07/INF_03_2026_01_07_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki9-2.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_07/pliki9-2.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-08-26.01-SG",
+      "session": "2026-01",
+      "number": 8,
+      "title": "Korona gór polskich",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_08/inf_03_2026_01_08_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_08/INF_03_2026_01_08_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki13.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_08/pliki13.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-09-26.01-SG",
+      "session": "2026-01",
+      "number": 9,
+      "title": "Stylizacja paznokci",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [
+        "PHP"
+      ],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_09/inf_03_2026_01_09_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_09/INF_03_2026_01_09_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki15.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_09/pliki15.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-10-26.01-SG",
+      "session": "2026-01",
+      "number": 10,
+      "title": "Blog kulinarny",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_10/inf_03_2026_01_10_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_10/INF_03_2026_01_10_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki14.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_10/pliki14.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-11-26.01-SG",
+      "session": "2026-01",
+      "number": 11,
+      "title": "Lista aktorów – KinoTEKA",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 5,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "group",
+        "count"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_11/inf_03_2026_01_11_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_11/INF_03_2026_01_11_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki17.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_11/pliki17.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-12-26.01-SG",
+      "session": "2026-01",
+      "number": 12,
+      "title": "Tatuaże",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "group",
+        "count",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_12/inf_03_2026_01_12_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_12/INF_03_2026_01_12_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki16.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2026_01_12/pliki16.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-01-25.06-SG",
+      "session": "2025-06",
+      "number": 1,
+      "title": "Gry komputerowe",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "minMax",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_01/inf_03_2025_06_01_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_01/INF_03_2025_06_01_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki1.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_01/pliki1.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-02-25.06-SG",
+      "session": "2025-06",
+      "number": 2,
+      "title": "Planer zadań",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "count",
+        "minMax"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_02/inf_03_2025_06_02_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_02/INF_03_2025_06_02_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki2.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_02/pliki2.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-03-25.06-SG",
+      "session": "2025-06",
+      "number": 3,
+      "title": "Biblioteka szkolna",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "delete"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_03/inf_03_2025_06_03_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_03/INF_03_2025_06_03_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki12.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_03/pliki12.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-04-25.06-SG",
+      "session": "2025-06",
+      "number": 4,
+      "title": "Firma Przewozowa",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "insert",
+        "delete"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_04/inf_03_2025_06_04_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_04/INF_03_2025_06_04_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki11.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_04/pliki11.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-05-25.06-SG",
+      "session": "2025-06",
+      "number": 5,
+      "title": "Fotografia",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "count",
+        "sum",
+        "permissions"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_05/inf_03_2025_06_05_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_05/INF_03_2025_06_05_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki6.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_05/pliki6.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-06-25.06-SG",
+      "session": "2025-06",
+      "number": 6,
+      "title": "Biblioteka miejska",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 5,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_06/inf_03_2025_06_06_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_06/INF_03_2025_06_06_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki4.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_06/pliki4.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-07-25.06-SG",
+      "session": "2025-06",
+      "number": 7,
+      "title": "Biuro turystyczne",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 5,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "avg",
+        "structure"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_07/inf_03_2025_06_07_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_07/INF_03_2025_06_07_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki10.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_07/pliki10.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-08-25.06-SG",
+      "session": "2025-06",
+      "number": 8,
+      "title": "Smoki",
+      "tech": [
+        "PHP",
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "avg",
+        "minMax",
+        "insert",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_08/inf_03_2025_06_08_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_08/INF_03_2025_06_08_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki7.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_08/pliki7.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-09-25.06-SG",
+      "session": "2025-06",
+      "number": 9,
+      "title": "Remonty",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 5,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "avg",
+        "minMax"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_09/inf_03_2025_06_09_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_09/INF_03_2025_06_09_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki5.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_09/pliki5.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-10-25.06-SG",
+      "session": "2025-06",
+      "number": 10,
+      "title": "Szkolenia i kursy",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "order",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_10/inf_03_2025_06_10_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_10/INF_03_2025_06_10_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki9.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_10/pliki9.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-11-25.06-SG",
+      "session": "2025-06",
+      "number": 11,
+      "title": "Opony",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_11/inf_03_2025_06_11_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_11/INF_03_2025_06_11_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki8.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_11/pliki8.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-12-25.06-SG",
+      "session": "2025-06",
+      "number": 12,
+      "title": "Przychodnia Medica",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "count",
+        "avg"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_12/inf_03_2025_06_12_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_12/INF_03_2025_06_12_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki3.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_06_12/pliki3.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-01-25.01-SG",
+      "session": "2025-01",
+      "number": 1,
+      "title": "Kursy komputerowe",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "update",
+        "permissions"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_01/inf_03_2025_01_01_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_01/INF_03_2025_01_01_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki10.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_01/pliki10.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-02-25.01-SG",
+      "session": "2025-01",
+      "number": 2,
+      "title": "Montaż paneli podłogowych",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "group",
+        "delete"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_02/inf_03_2025_01_02_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_02/INF_03_2025_01_02_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki12.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_02/pliki12.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-03-25.01-SG",
+      "session": "2025-01",
+      "number": 3,
+      "title": "Kalendarz",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_03/inf_03_2025_01_03_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_03/INF_03_2025_01_03_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki13.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_03/pliki13.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-04-25.01-SG",
+      "session": "2025-01",
+      "number": 4,
+      "title": "Obuwie",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_04/inf_03_2025_01_04_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_04/INF_03_2025_01_04_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki9.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_04/pliki9.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-05-25.01-SG",
+      "session": "2025-01",
+      "number": 5,
+      "title": "Firma szkoleniowa",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "count",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_05/inf_03_2025_01_05_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_05/INF_03_2025_01_05_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki8.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_05/pliki8.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-06-25.01-SG",
+      "session": "2025-01",
+      "number": 6,
+      "title": "Systemy liczbowe",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "order",
+        "minMax"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_06/inf_03_2025_01_06_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_06/INF_03_2025_01_06_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki14.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_06/pliki14.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-07-25.01-SG",
+      "session": "2025-01",
+      "number": 7,
+      "title": "Wyszukiwarka miast",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_07/inf_03_2025_01_07_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_07/INF_03_2025_01_07_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki11.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_07/pliki11.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-08-25.01-SG",
+      "session": "2025-01",
+      "number": 8,
+      "title": "Mieszalnia farb",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "count"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_08/inf_03_2025_01_08_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_08/INF_03_2025_01_08_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki7.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_08/pliki7.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-09-25.01-SG",
+      "session": "2025-01",
+      "number": 9,
+      "title": "Zdobywcy gór",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "order",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_09/inf_03_2025_01_09_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_09/INF_03_2025_01_09_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki4.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_09/pliki4.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-10-25.01-SG",
+      "session": "2025-01",
+      "number": 10,
+      "title": "Koło szachowe",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "order",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_10/inf_03_2025_01_10_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_10/INF_03_2025_01_10_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki3.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_10/pliki3.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-11-25.01-SG",
+      "session": "2025-01",
+      "number": 11,
+      "title": "Wolontariat szkolny",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "order",
+        "delete"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_11/inf_03_2025_01_11_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_11/INF_03_2025_01_11_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki2.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_11/pliki2.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-12-25.01-SG",
+      "session": "2025-01",
+      "number": 12,
+      "title": "Piekarnia",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "order",
+        "avg"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_12/inf_03_2025_01_12_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_12/INF_03_2025_01_12_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki1.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2025_01_12/pliki1.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-01-24.06-SG",
+      "session": "2024-06",
+      "number": 1,
+      "title": "Motocykle",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "count",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_01/inf_03_2024_06_01_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_01/INF_03_2024_06_01_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki1.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_01/pliki1.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-02-24.06-SG",
+      "session": "2024-06",
+      "number": 2,
+      "title": "Chat",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 5,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "avg",
+        "insert",
+        "update",
+        "permissions"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_02/inf_03_2024_06_02_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_02/INF_03_2024_06_02_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki2.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_02/pliki2.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-03-24.06-SG",
+      "session": "2024-06",
+      "number": 3,
+      "title": "Poziomy rzek",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "count",
+        "avg"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_03/inf_03_2024_06_03_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_03/INF_03_2024_06_03_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki3.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_03/pliki3.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-04-24.06-SG",
+      "session": "2024-06",
+      "number": 4,
+      "title": "Galeria",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "count",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_04/inf_03_2024_06_04_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_04/INF_03_2024_06_04_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki4.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_04/pliki4.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-05-24.06-SG",
+      "session": "2024-06",
+      "number": 5,
+      "title": "Komis aut",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_05/inf_03_2024_06_05_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_05/INF_03_2024_06_05_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki5.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_05/pliki5.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-06-24.06-SG",
+      "session": "2024-06",
+      "number": 6,
+      "title": "Rejestracja",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "count",
+        "avg",
+        "sum",
+        "delete"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_06/inf_03_2024_06_06_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_06/INF_03_2024_06_06_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki6.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_06/pliki6.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-07-24.06-SG",
+      "session": "2024-06",
+      "number": 7,
+      "title": "Ważenie samochodów ciężarowych",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "insert",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_07/inf_03_2024_06_07_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_07/INF_03_2024_06_07_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki7.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_07/pliki7.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-08-24.06-SG",
+      "session": "2024-06",
+      "number": 8,
+      "title": "Sklep - rejestracja",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "structure"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_08/inf_03_2024_06_08_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_08/INF_03_2024_06_08_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki8.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_08/pliki8.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-09-24.06-SG",
+      "session": "2024-06",
+      "number": 9,
+      "title": "Biuro turystyczne",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "group",
+        "count",
+        "avg",
+        "permissions"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_09/inf_03_2024_06_09_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_09/INF_03_2024_06_09_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki9.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_09/pliki9.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-10-24.06-SG",
+      "session": "2024-06",
+      "number": 10,
+      "title": "Nasz zespół",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_10/inf_03_2024_06_10_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_10/INF_03_2024_06_10_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki10.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_10/pliki10.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-11-24.06-SG",
+      "session": "2024-06",
+      "number": 11,
+      "title": "Hodowla świnek morskich",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_11/inf_03_2024_06_11_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_11/INF_03_2024_06_11_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki11.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_11/pliki11.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-12-24.06-SG",
+      "session": "2024-06",
+      "number": 12,
+      "title": "Efekty obrazu",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "count",
+        "avg",
+        "minMax",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_12/inf_03_2024_06_12_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_12/INF_03_2024_06_12_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki12.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_06_12/pliki12.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-01-24.01-SG",
+      "session": "2024-01",
+      "number": 1,
+      "title": "Firma IT",
+      "tech": [
+        "JS"
+      ],
+      "optionalTech": [],
+      "queryCount": 0,
+      "sqlFeatures": [],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_01/inf_03_2024_01_01_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_01/INF_03_2024_01_01_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "materialy1.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_01/materialy1.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-02-24.01-SG",
+      "session": "2024-01",
+      "number": 2,
+      "title": "Komputery",
+      "tech": [
+        "JS"
+      ],
+      "optionalTech": [],
+      "queryCount": 0,
+      "sqlFeatures": [],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_02/inf_03_2024_01_02_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_02/INF_03_2024_01_02_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "materialy2.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_02/materialy2.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-03-24.01-SG",
+      "session": "2024-01",
+      "number": 3,
+      "title": "Firma IT",
+      "tech": [
+        "JS"
+      ],
+      "optionalTech": [],
+      "queryCount": 0,
+      "sqlFeatures": [],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_03/INF.03-03-24.01.pdf",
+      "rubric": "https://technikinformatyk.pl/practical_exam_attachments/1758022713_inf_03_2024_01_03_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_03/pliki.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-04-24.01-SG",
+      "session": "2024-01",
+      "number": 4,
+      "title": "Zadania na lipiec",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_04/inf_03_2024_01_04_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_04/INF_03_2024_01_04_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "materialy4.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_04/materialy4.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-05-24.01-SG",
+      "session": "2024-01",
+      "number": 5,
+      "title": "Salon kosmetyczny",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "count",
+        "avg",
+        "update",
+        "permissions"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_05/inf_03_2024_01_05_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_05/INF_03_2024_01_05_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "materialy5.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_05/materialy5.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-06-24.01-SG",
+      "session": "2024-01",
+      "number": 6,
+      "title": "Poznaj Europę",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "delete"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_06/inf_03_2024_01_06_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_06/INF_03_2024_01_06_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "materialy6.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_06/materialy6.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-07-24.01-SG",
+      "session": "2024-01",
+      "number": 7,
+      "title": "Salon kosmetyczny",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "count",
+        "avg",
+        "update",
+        "permissions"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_07/INF.03-07-24.01.pdf",
+      "rubric": "https://technikinformatyk.pl/practical_exam_attachments/1758022854_inf_03_2024_01_07_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_07/pliki.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-08-24.01-SG",
+      "session": "2024-01",
+      "number": 8,
+      "title": "Fryzjerstwo",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "count",
+        "minMax",
+        "structure"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_08/inf_03_2024_01_08_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_08/INF_03_2024_01_08_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "materialy8.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_08/materialy8.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-09-24.01-SG",
+      "session": "2024-01",
+      "number": 9,
+      "title": "Komputery",
+      "tech": [
+        "JS"
+      ],
+      "optionalTech": [],
+      "queryCount": 0,
+      "sqlFeatures": [],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_09/INF.03-09-24.01.pdf",
+      "rubric": "https://technikinformatyk.pl/practical_exam_attachments/1758022929_inf_03_2024_01_09_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_09/pliki.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-10-24.01-SG",
+      "session": "2024-01",
+      "number": 10,
+      "title": "Poznaj Europę",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "delete"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_10/INF.03-10-24.01.pdf",
+      "rubric": "https://technikinformatyk.pl/practical_exam_attachments/1758022961_inf_03_2024_01_10_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_10/pliki.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-11-24.01-SG",
+      "session": "2024-01",
+      "number": 11,
+      "title": "Zadania na lipiec",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_11/INF.03-11-24.01.pdf",
+      "rubric": "https://technikinformatyk.pl/practical_exam_attachments/1758022983_inf_03_2024_01_11_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_11/pliki.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-12-24.01-SG",
+      "session": "2024-01",
+      "number": 12,
+      "title": "Fryzjerstwo",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "count",
+        "minMax",
+        "structure"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_12/INF.03-12-24.01.pdf",
+      "rubric": "https://technikinformatyk.pl/practical_exam_attachments/1758023005_inf_03_2024_01_12_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2024_01_12/pliki.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-01-23.06-SG",
+      "session": "2023-06",
+      "number": 1,
+      "title": "Sklep dla uczniów",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "count",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_01/inf_03_2023_06_01_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_01/INF_03_2023_06_01_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "materialy1.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_01/materialy1.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-02-23.06-SG",
+      "session": "2023-06",
+      "number": 2,
+      "title": "Hurtownia szkolna",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "count",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_02/inf_03_2023_06_02_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_02/INF_03_2023_06_02_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "materialy2.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_02/materialy2.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-03-23.06-SG",
+      "session": "2023-06",
+      "number": 3,
+      "title": "Sklep dla uczniów",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "count",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_03/inf_03_2023_06_03_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_03/inf_03_2023_06_03_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "materialy3.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_03/materialy3.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-04-23.06-SG",
+      "session": "2023-06",
+      "number": 4,
+      "title": "Biblioteka publiczna",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_04/inf_03_2023_06_04_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_04/INF_03_2023_06_04_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "materialy4.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_04/materialy4.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-05-23.06-SG",
+      "session": "2023-06",
+      "number": 5,
+      "title": "Hurtownia szkolna",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "count",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_05/inf_03_2023_06_05_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_05/inf_03_2023_06_05_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "materialy5.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_05/materialy5.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-06-23.06-SG",
+      "session": "2023-06",
+      "number": 6,
+      "title": "Biblioteka publiczna",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_06/inf_03_2023_06_06_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_06/inf_03_2023_06_06_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "materialy6.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_06/materialy6.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-07-23.06-SG",
+      "session": "2023-06",
+      "number": 7,
+      "title": "Biblioteka",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "order",
+        "count",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_07/inf_03_2023_06_07_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_07/INF_03_2023_06_07_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "materialy7.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_07/materialy7.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-08-23.06-SG",
+      "session": "2023-06",
+      "number": 8,
+      "title": "Sklep dla uczniów",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "count",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_08/inf_03_2023_06_08_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_08/inf_03_2023_06_08_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "materialy8.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_08/materialy8.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-09-23.06-SG",
+      "session": "2023-06",
+      "number": 9,
+      "title": "Biblioteka",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "order",
+        "count",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_09/inf_03_2023_06_09_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_09/inf_03_2023_06_09_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "materialy9.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_09/materialy9.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-10-23.06-SG",
+      "session": "2023-06",
+      "number": 10,
+      "title": "Biblioteka publiczna",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_10/inf_03_2023_06_10_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_10/inf_03_2023_06_10_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "materialy10.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_10/materialy10.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-11-23.06-SG",
+      "session": "2023-06",
+      "number": 11,
+      "title": "Biblioteka",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "order",
+        "count",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_11/inf_03_2023_06_11_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_11/inf_03_2023_06_11_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "materialy11.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_11/materialy11.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-12-23.06-SG",
+      "session": "2023-06",
+      "number": 12,
+      "title": "Hurtownia szkolna",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "count",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_12/inf_03_2023_06_12_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_12/inf_03_2023_06_12_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "materialy12.7z",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_06_12/materialy12.7z"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-01-23.01-SG",
+      "session": "2023-01",
+      "number": 1,
+      "title": "Portal o farbach",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "view"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_01_01/inf_03_2023_01_01_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_01_01/INF_03_2023_01_01_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "zad1.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_01_01/zad1.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-02-23.01-SG",
+      "session": "2023-01",
+      "number": 2,
+      "title": "Wynajem pokoi",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 5,
+      "sqlFeatures": [
+        "select",
+        "count",
+        "sum",
+        "minMax",
+        "update",
+        "permissions"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_01_02/inf_03_2023_01_02_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_01_02/INF_03_2023_01_02_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "zad2.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_01_02/zad2.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-03-23.01-SG",
+      "session": "2023-01",
+      "number": 3,
+      "title": "Kwiaty",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "count",
+        "structure"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_01_03/inf_03_2023_01_03_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_01_03/INF_03_2023_01_03_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "zad3.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_01_03/zad3.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-04-23.01-SG",
+      "session": "2023-01",
+      "number": 4,
+      "title": "Wycieczki po Europie",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "order",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_01_04/inf_03_2023_01_04_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_01_04/INF_03_2023_01_04_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "zad4.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_01_04/zad4.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-05-23.01-SG",
+      "session": "2023-01",
+      "number": 5,
+      "title": "Sierpniowy kalendarz",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "count",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_01_05/inf_03_2023_01_05_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_01_05/INF_03_2023_01_05_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "zad5.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2023_01_05/zad5.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-01-22.06-SG",
+      "session": "2022-06",
+      "number": 1,
+      "title": "Wędkowanie",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "insert"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2022_06_01/inf_03_2022_06_01_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2022_06_01/inf_03_2022_06_01_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki1.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2022_06_01/pliki1.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-02-22.06-SG",
+      "session": "2022-06",
+      "number": 2,
+      "title": "Stacja paliw",
+      "tech": [
+        "JS",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 5,
+      "sqlFeatures": [
+        "select",
+        "count",
+        "insert",
+        "update",
+        "permissions"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2022_06_02/inf_03_2022_06_02_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2022_06_02/inf_03_2022_06_02_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki2.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2022_06_02/pliki2.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-03-22.06-SG",
+      "session": "2022-06",
+      "number": 3,
+      "title": "Zawody wędkarskie",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "join",
+        "insert",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2022_06_03/inf_03_2022_06_03_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2022_06_03/inf_03_2022_06_03_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "pliki3.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2022_06_03/pliki3.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-01-22.01-SG",
+      "session": "2022-01",
+      "number": 1,
+      "title": "Restauracja Wszystkie Smaki",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "insert",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2022_01_01/inf_03_2022_01_01_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2022_01_01/inf_03_2022_01_01_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "zad1.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2022_01_01/zad1.zip"
+        }
+      ]
+    },
+    {
+      "id": "INF.03-01-21.06-SG",
+      "session": "2021-06",
+      "number": 1,
+      "title": "Restauracja Wszystkie Smaki",
+      "tech": [
+        "PHP",
+        "SQL"
+      ],
+      "optionalTech": [],
+      "queryCount": 4,
+      "sqlFeatures": [
+        "select",
+        "insert",
+        "update"
+      ],
+      "pdf": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2021_06_01/inf_03_2021_06_01_SG.pdf",
+      "rubric": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2021_06_01/inf_03_2021_06_01_SG_zo.pdf",
+      "materials": [
+        {
+          "name": "zad1.zip",
+          "url": "https://mahlik.ucz.edu.pl/kursy/materialy/pliki/inf03/inf03_2021_06_01/zad1.zip"
+        }
+      ]
+    }
+  ]
+}
