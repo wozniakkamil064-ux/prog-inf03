@@ -3,21 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="color-scheme" content="dark">
-  <meta name="theme-color" content="#101011">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#e5e6e7">
   <meta name="description" content="Kurs do INF.03 od zera. Lekcje, ćwiczenia z kodem, fiszki i próby egzaminacyjne dla technika programisty.">
   <title>PRÓG / Kurs INF.03</title>
-  <link rel="stylesheet" href="style.css">
-  <script type="module" src="app.mjs"></script>
+  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="activity.css">
+  <link rel="stylesheet" href="walkthrough.css">
+  <script type="module" src="app.mjs?v=3"></script>
 </head>
 <body>
 <a class="skip" href="#tresc">Przejdź do treści</a>
 <header class="site-header">
   <div class="wrap bar">
     <a class="brand" href="#start"><span class="brand-mark" aria-hidden="true">&gt;_</span> PRÓG<span class="brand-code">/ INF.03</span></a>
-    <button type="button" id="menu" aria-controls="nav" aria-expanded="false" hidden>Menu</button>
     <nav id="nav" aria-label="Kurs"><a href="#sciezka">Ścieżka</a><a href="#laboratorium">Laboratorium</a><a href="#powtorka">Powtórka</a><a href="#egzamin">Egzamin</a></nav>
-    <a class="head-progress" href="#sciezka"><span class="status-dot"></span><span id="header-progress">Mój postęp</span></a>
+    <a class="head-progress" href="#postep"><span class="status-dot" aria-hidden="true"></span><span id="header-progress">Mój postęp</span></a>
   </div>
 </header>
 <main id="tresc">
@@ -29,7 +30,6 @@
       <div class="actions"><a class="button primary" id="continue" href="#sciezka">Zacznij naukę</a><a class="button quiet" href="#laboratorium">Otwórz laboratorium</a></div>
     </div>
     <div class="hero-visual" aria-label="Interaktywny podgląd kodu i jego wyniku">
-      <div class="visual-grid" aria-hidden="true"></div>
       <div class="console">
         <div class="console-top"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span id="demo-file">index.html</span><span class="console-state"><i></i> PODGLĄD</span></div>
         <div class="demo-tabs" id="demo-tabs" role="group" aria-label="Przykładowa technologia"></div>
@@ -39,27 +39,43 @@
 <b>&lt;/form&gt;</b></code></pre>
         <div class="console-output"><span class="console-result" id="demo-result">Etykieta i pole działają razem.</span><button type="button" class="run" id="demo-run" hidden>Uruchom</button></div>
       </div>
-      <div class="orbit" aria-hidden="true"></div>
     </div>
   </section>
   <div class="wrap metrics" aria-label="Zawartość kursu">
     <div><strong>68</strong><span>lekcji od podstaw</span></div><div><strong>6 656</strong><span>wariantów ćwiczeń</span></div><div><strong>115</strong><span>elementów w słowniku HTML</span></div><div><strong>2 × 150 min</strong><span>próby praktyczne</span></div>
   </div>
+  <nav class="technology-strip" aria-label="Przejdź do modułu">
+    <div class="wrap technology-track">
+      <a href="#sciezka" data-track-module="html">HTML</a><a href="#sciezka" data-track-module="css">CSS</a><a href="#sciezka" data-track-module="sql">SQL</a><a href="#sciezka" data-track-module="js">JavaScript</a><a href="#sciezka" data-track-module="php">PHP</a><a href="#sciezka" data-track-module="media">Grafika</a><a href="#sciezka" data-track-module="pisemny">Teoria egzaminacyjna</a>
+    </div>
+  </nav>
   <noscript><div class="wrap notice">Materiały do czytania, przykłady, zadania i archiwum działają w <a href="lektura.html">wersji do czytania</a>. Edytor i quiz wymagają JavaScriptu.</div></noscript>
-  <section class="wrap section" id="sciezka" aria-labelledby="lesson-heading">
-    <div class="section-heading"><div><p class="kicker">PROGRAM KURSU</p><h2 id="lesson-heading">Ścieżka nauki</h2></div><p class="lede">Każda lekcja pokazuje regułę, przykład i zadanie do wykonania z pamięci.</p></div>
-    <div class="course layout" id="course"><div class="loading">Wczytuję lekcje… <a href="lektura.html">Wersja do czytania</a></div></div>
+  <section class="wrap section editorial" id="sciezka" aria-labelledby="lesson-heading">
+    <div class="editorial-intro"><p class="kicker">PROGRAM KURSU</p><h2 id="lesson-heading">Ścieżka<br class="wide-break"> nauki.</h2><p class="lede">Od pierwszego pliku HTML po pełną próbę INF.03. Otwórz moduł albo wpisz pojęcie, które chcesz powtórzyć.</p></div>
+    <div class="course" id="course"><div class="loading">Wczytuję lekcje… <a href="lektura.html">Wersja do czytania</a></div></div>
   </section>
-  <section class="wrap section" id="laboratorium" aria-labelledby="lab-heading">
-    <div class="section-heading"><div><p class="kicker">PRAKTYKA</p><h2 id="lab-heading">Laboratorium</h2></div><p class="lede">Napisz rozwiązanie albo napraw kod. Zmień wariant, żeby przećwiczyć tę samą umiejętność na nowych danych.</p></div>
-    <div id="lab" class="layout"></div>
+  <section class="activity-band" id="postep" aria-labelledby="progress-heading">
+    <div class="wrap section">
+      <div class="section-heading"><div><p class="kicker">TWÓJ POSTĘP</p><h2 id="progress-heading">Rytm nauki.</h2></div><p class="lede">Zobacz, w które dni pracujesz nad lekcjami, ćwiczeniami i quizami.</p></div>
+      <div id="activity"></div>
+    </div>
   </section>
+  <div class="dark-band">
+    <section class="wrap section" id="laboratorium" aria-labelledby="lab-heading">
+      <div class="section-heading"><div><p class="kicker">PRAKTYKA</p><h2 id="lab-heading">Laboratorium.</h2></div><p class="lede">Napisz rozwiązanie albo napraw kod. Zmień wariant, żeby przećwiczyć tę samą umiejętność na nowych danych.</p></div>
+      <div id="lab" class="layout"></div>
+    </section>
+    <section class="wrap section editorial worked" id="przyklad" aria-labelledby="worked-heading">
+      <div class="editorial-intro"><p class="kicker">PRZYKŁAD Z PRAKTYKI</p><h2 id="worked-heading">Gdzie zniknęła wartość?</h2><p class="lede">Prześledź drogę od pola formularza do skryptu PHP. Zacznij od objawu i sprawdź, gdzie dane przestają się zgadzać.</p></div>
+      <div id="walkthrough"></div>
+    </section>
+  </div>
   <section class="wrap section" id="powtorka" aria-labelledby="recall-heading">
-    <div class="section-heading"><div><p class="kicker">ĆWICZ PAMIĘĆ</p><h2 id="recall-heading">Powtórka</h2></div><p class="lede">Rozwiąż diagnozę, wyjaśnij pojęcia z fiszek i sprawdź składnię w słowniku.</p></div>
+    <div class="section-heading"><div><p class="kicker">ĆWICZ PAMIĘĆ</p><h2 id="recall-heading">Powtórka.</h2></div><p class="lede">Rozwiąż diagnozę, wyjaśnij pojęcia z fiszek i sprawdź składnię w słowniku.</p></div>
     <div id="recall" class="panel"></div>
   </section>
   <section class="wrap section" id="egzamin" aria-labelledby="exam-heading">
-    <div class="section-heading"><div><p class="kicker">PRACA NA CZAS</p><h2 id="exam-heading">Próby egzaminacyjne</h2></div><p class="lede">Pisemny to 40 pytań w 60 minut. Na praktyczny INF.03 masz 150 minut.</p></div>
+    <div class="section-heading"><div><p class="kicker">PRACA NA CZAS</p><h2 id="exam-heading">Próby egzaminacyjne.</h2></div><p class="lede">Pisemny to 40 pytań w 60 minut. Na praktyczny INF.03 masz 150 minut.</p></div>
     <div id="exams"></div>
     <div class="archive" id="archiwum"><h3>Archiwum INF.03</h3><p>94 publiczne warianty terminu głównego z 11 sesji od czerwca 2021 do czerwca 2026. Każdy wpis prowadzi do arkusza i klucza.</p><div id="archive"></div></div>
   </section>

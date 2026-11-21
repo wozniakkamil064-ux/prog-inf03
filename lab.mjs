@@ -47,7 +47,7 @@ function sqlRun(task, query, onResult) {
   worker.postMessage({setup:task.setup,query,inspect:task.verification.inspect});
 }
 
-export function mountLab(area, {q,qa,e,code,fold,btn,state,save}) {
+export function mountLab(area, {q,qa,e,code,fold,btn,state,save,trackActivity}) {
   const categories = [...new Set(katalog.map(item=>item.category))];
   let category = state.labCategory && categories.includes(state.labCategory) ? state.labCategory : 'JavaScript';
   const familyFor = (id,current) => katalog.find(item=>item.id===id && item.category===current) || katalog.find(item=>item.category===current);
@@ -102,6 +102,7 @@ export function mountLab(area, {q,qa,e,code,fold,btn,state,save}) {
     output.innerHTML = '<div class="note '+status+'"><strong>'+e(message)+'</strong>'+result+'</div>';
   }
   function mark(done) {
+    if (done && !state.completed[task.id]) trackActivity('exercise',task.id);
     state.completed[task.id] = done;
     save();
     q('#task-done',area).checked = done;
