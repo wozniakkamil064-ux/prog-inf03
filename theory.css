@@ -1,0 +1,25 @@
+.reference-tools{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1rem;padding:1.15rem 1.3rem;background:#e8e9e7;border-bottom:1px solid #cbd0d3}
+.reference-tools>.control{flex:1 1 20rem;max-width:38rem}.reference-tools .check{margin-bottom:.6rem}.reference-overview{margin:0;padding:.75rem 1.3rem;border-bottom:1px solid #d6d5d0;color:#596575;font:500 .78rem/1.5 var(--mono)}
+#reference-content{padding:0 1.3rem 1.3rem}.reference-results{font-size:.83rem;color:#596575;margin:1rem 0}
+.reference-language{border:1px solid #c9d0d9;border-radius:.7rem;background:#fbfaf6;overflow:hidden;margin:.75rem 0}
+.reference-language-summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.05rem 1rem;cursor:pointer;background:#ecefea}
+.reference-language-summary::before,.reference-group>summary::before{content:"";width:.45rem;height:.45rem;flex:none;border-right:2px solid #6c7e99;border-bottom:2px solid #6c7e99;transform:rotate(-45deg);margin-right:.15rem}
+.reference-language[open]>.reference-language-summary::before,.reference-group[open]>summary::before{transform:rotate(45deg)}
+.reference-language-summary>span:first-of-type,.reference-group>summary>span:first-of-type{margin-right:auto}
+.reference-language-summary::marker{color:#4c6596}.reference-language-summary>span:first-child{display:flex;align-items:baseline;flex-wrap:wrap;gap:.4rem .9rem}
+.reference-language-summary strong{font-size:1.26rem;letter-spacing:-.035em;color:#27384d}.reference-description{color:#596575;font-size:.84rem;font-weight:500}
+.reference-language-count{flex:none;color:#596575;font:.72rem/1.4 var(--mono);font-weight:500}.reference-language-body{padding:.15rem .9rem .85rem}
+.theory-panel{overflow:hidden}
+.reference-group{margin:.55rem 0;border:1px solid #cbd0d7;border-radius:.5rem;background:#f3f1ec;overflow:hidden}
+.reference-group>summary{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.66rem .85rem;cursor:pointer;font-weight:750;color:#35465f;font-size:.91rem}
+.reference-count{font:.75rem var(--mono);background:#dce4f2;color:#354f80;border-radius:.3rem;padding:.14rem .35rem}
+.reference-intro{font-size:.85rem;color:#596575;padding:.35rem .85rem 0}.reference-pattern-group{border-color:#a6b5ce;background:#e8edf5}
+.reference-item{margin:0 .85rem;padding:.65rem 0;border-top:1px solid #d2d5d9}.reference-item>summary{cursor:pointer;font-size:.91rem;line-height:1.45;font-weight:700;color:#283c58}
+.reference-item>summary>span:first-child{margin-right:.6rem}.reference-item>summary:hover{color:#234b8b}.reference-item p{font-size:.89rem;line-height:1.75;color:#505c6b;margin:.6rem 0}
+.reference-priority{font:500 .67rem var(--mono);color:#68758a;white-space:nowrap}.reference-item .codebox{margin:.6rem 0 .7rem}
+.reference-item .reference-trap{font-size:.83rem;border-left:2px solid #8e9fba;padding:.2rem .65rem;background:#e2e7ef;color:#354966}
+.reference-checks{padding-left:1.1rem;color:#435571;font-size:.85rem}.reference-checks li{margin:.25rem 0}.reference-sources{margin-top:1.2rem;border-top:1px solid #cbd0d3;padding-top:.75rem;color:#546375}
+.reference-sources>summary{cursor:pointer;font-size:.85rem;font-weight:700}.reference-sources p,.reference-sources ul{font-size:.82rem}.reference-sources a{color:#34598a;text-underline-offset:.2em}
+@media(max-width:760px){.reference-tools{padding:1rem;gap:.7rem}.reference-tools>.control{min-width:0;max-width:100%}.reference-overview{padding:.7rem 1rem}#reference-content{padding:0 .65rem .8rem}.reference-language-summary{padding:.8rem;align-items:start;flex-direction:column;gap:.4rem}.reference-language-summary>span:first-child{display:block}.reference-description{display:block;margin-top:.3rem;font-size:.8rem}.reference-language-count{font-size:.69rem}.reference-language-body{padding:.1rem .45rem .5rem}.reference-item{margin:0 .65rem}.reference-group>summary{font-size:.84rem;padding:.65rem}.reference-priority{display:block;margin-top:.15rem}.reference-item .codebox{font-size:.79rem}.reference-tools .check{font-size:.8rem;margin:0}}
+.reference-language-summary{display:grid;grid-template-columns:.65rem minmax(0,1fr) auto}
+@media(max-width:760px){.reference-language-summary{grid-template-columns:.65rem minmax(0,1fr);column-gap:.6rem}.reference-language-summary::before{align-self:start;margin-top:.55rem}.reference-language-count{grid-column:2}}

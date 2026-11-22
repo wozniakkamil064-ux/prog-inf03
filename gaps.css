@@ -1,0 +1,22 @@
+.gap-shell{background:var(--paper,#f3f1ec);color:var(--text,#262c32);border:1px solid #c6cfdb44;border-radius:var(--radius,18px);padding:clamp(1rem,2.3vw,1.6rem);color-scheme:light}
+.gap-intro{display:flex;align-items:start;justify-content:space-between;gap:1rem;margin-bottom:1.1rem}
+.gap-intro h2{font-size:clamp(1.4rem,2.5vw,2rem);margin-bottom:.5rem}
+.gap-intro p{color:var(--muted,#575e66);font-size:.9rem;max-width:43rem}
+.gap-progress{font:.76rem/1.65 var(--mono,monospace);max-width:14rem;flex:none}
+.gap-filters{display:flex;align-items:end;flex-wrap:wrap;gap:.7rem;padding:.8rem 0 1.1rem;border-top:1px solid var(--line,#d6d5d0);border-bottom:1px solid var(--line,#d6d5d0);margin-bottom:1.15rem}
+.gap-filters .control{min-width:10rem}
+.gap-filters select{max-width:100%}
+.gap-review{padding-block:.55rem;font-size:.84rem}
+.gap-meta{display:flex;justify-content:space-between;gap:.4rem 1rem;flex-wrap:wrap;font:.76rem/1.5 var(--mono,monospace);color:#5d6b7e;margin-bottom:.7rem}
+.gap-card{max-width:58rem;margin-inline:auto}
+.gap-card h3{font-size:clamp(1.4rem,2.5vw,2rem);margin-bottom:.7rem}
+.gap-card h3:focus{outline:none}
+.gap-card>p{color:var(--muted,#575e66)}
+.gap-code{font-size:.92rem;white-space:pre;line-height:1.65;padding:1rem 1.15rem}
+.gap-marker{background:#dbe5ff;color:#182d55;border:1px dashed #9fb7e9;border-radius:.25rem;padding:.04rem .19rem;letter-spacing:.12em}
+.gap-answer{display:block;width:100%;min-height:4rem;resize:vertical;background:#fffefa;border:1px solid #a9b7c8;border-radius:.55rem;padding:.65rem .75rem;color:#26364d;font:.95rem/1.5 var(--mono,monospace);margin-top:.3rem}
+.gap-answer::placeholder{font:400 .86rem/1.5 var(--sans,system-ui);color:#747d89}
+.gap-feedback:empty{display:none}
+.gap-counter{font-size:.78rem!important;margin-top:.85rem}
+.gap-empty{padding:1rem 0}
+@media(max-width:700px){.gap-intro{flex-direction:column;gap:.25rem}.gap-progress{max-width:100%;margin-bottom:0}.gap-filters{gap:.55rem}.gap-filters .control{min-width:calc(50% - .3rem);flex:1}.gap-filters .control select{width:100%;font-size:.8rem}.gap-review{width:100%;padding-block:.2rem}.gap-code{font-size:.83rem;padding:.8rem}.gap-meta{font-size:.7rem}.gap-card .tool-row .button{flex:1}}

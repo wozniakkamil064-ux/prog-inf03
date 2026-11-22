@@ -5,58 +5,52 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#171b20">
-  <meta name="description" content="Kurs do INF.03 od zera. Lekcje, ćwiczenia z kodem, fiszki i próby egzaminacyjne dla technika programisty.">
+  <meta name="description" content="Kurs INF.03. Teoria HTML, CSS, SQL, PHP i JavaScript, uzupełnianie kodu, lekcje i egzaminy na czas.">
   <title>PRÓG / Kurs INF.03</title>
-  <link rel="stylesheet" href="style.css?v=4">
-  <script type="module" src="app.mjs?v=4"></script>
+  <link rel="stylesheet" href="style.css?v=5">
+  
+  <script type="module" src="app.mjs?v=5"></script>
 </head>
-<body>
+<body data-page="home">
 <a class="skip" href="#tresc">Przejdź do treści</a>
 <header class="site-header">
   <div class="wrap bar">
-    <a class="brand" href="#start"><span class="brand-mark" aria-hidden="true">p.</span> PRÓG<span class="brand-code">INF.03</span></a>
-    <nav id="nav" aria-label="Kurs"><a href="#sciezka">Lekcje</a><a href="#laboratorium">Ćwiczenia</a><a href="#powtorka">Powtórka</a><a href="#egzamin">Egzamin</a></nav>
-    <a class="head-progress" href="#sciezka"><span id="header-progress">Moje lekcje</span></a>
+    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">p.</span> PRÓG<span class="brand-code">INF.03</span></a>
+    <nav id="nav" aria-label="Kurs"><a href="teoria.html">Teoria</a><a href="lekcje.html">Lekcje</a><a href="zadania.html">Ćwiczenia</a><a href="egzaminy.html">Egzaminy</a><a href="powtorka.html">Powtórka</a></nav>
+    <a class="head-progress" href="lekcje.html"><span id="header-progress">Moje lekcje</span></a>
   </div>
 </header>
 <main id="tresc">
-  <section id="start" class="wrap hero" aria-labelledby="hero-heading">
-    <div class="hero-text">
-      <p class="eyebrow">PRZYGOTOWANIE DO EGZAMINU INF.03</p>
-      <h1 id="hero-heading">Zrozum kod.<br><em>Zdaj INF.03.</em></h1>
-      <p class="intro">Od pierwszej strony do działającej aplikacji.<br class="desktop-break"> Ucz się na przykładach, pisz własny kod i przećwicz zadania, które wracają na egzaminie.</p>
-      <div class="actions"><a class="button primary" id="continue" href="#sciezka">Zacznij od podstaw</a><a class="button quiet" href="#laboratorium">Przejdź do ćwiczeń</a></div>
-      <div class="hero-facts"><span><strong>68</strong> krótkich lekcji</span><span><strong>5</strong> technologii</span><span><strong>2</strong> próbne egzaminy</span></div>
-    </div>
-    <div class="warmup" id="warmup" aria-labelledby="warmup-heading">
-      <div class="warmup-top"><span>NA ROZGRZEWKĘ</span><span class="warmup-subject" id="warmup-subject">JavaScript</span></div>
-      <h2 id="warmup-heading">Co wypisze ten kod?</h2>
-      <pre class="warmup-code" id="warmup-code"><code>const cena = "12";
+  
+    <section id="start" class="wrap hero" aria-labelledby="hero-heading">
+      <div class="hero-text">
+        <p class="eyebrow">PRZYGOTOWANIE DO EGZAMINU INF.03</p>
+        <h1 id="hero-heading">Zrozum kod.<br><em>Zdaj INF.03.</em></h1>
+        <p class="intro">Od pierwszej strony do działającej aplikacji. Wybierz lekcję, uzupełnij kod albo sprawdź się w egzaminie na czas.</p>
+        <div class="actions"><a class="button primary" id="continue" href="lekcje.html">Zacznij od podstaw</a><a class="button quiet" href="zadania.html">Przejdź do ćwiczeń</a></div>
+        <div class="hero-facts"><span><strong>68</strong> krótkich lekcji</span><span><strong>5</strong> technologii</span><span><strong>94</strong> arkusze w archiwum</span></div>
+      </div>
+      <div class="warmup" id="warmup" aria-labelledby="warmup-heading">
+        <div class="warmup-top"><span>NA ROZGRZEWKĘ</span><span class="warmup-subject" id="warmup-subject">JavaScript</span></div>
+        <h2 id="warmup-heading">Co wypisze ten kod?</h2>
+        <pre class="warmup-code" id="warmup-code"><code>const cena = "12";
 console.log(cena + 5);</code></pre>
-      <div id="warmup-options" class="warmup-options"></div>
-      <p id="warmup-feedback" class="warmup-feedback" role="status">Spróbuj odpowiedzieć z pamięci.</p>
-      <button type="button" id="warmup-next" class="text-button" hidden>Kolejny przykład</button>
-    </div>
-  </section>
-  <noscript><div class="wrap notice">Materiały do czytania, przykłady, zadania i archiwum działają w <a href="lektura.html">wersji do czytania</a>. Edytor i quiz wymagają JavaScriptu.</div></noscript>
-  <section class="wrap section" id="sciezka" aria-labelledby="lesson-heading">
-    <div class="section-heading"><div><p class="kicker">ZROZUM PODSTAWY</p><h2 id="lesson-heading">Po kolei, lekcja po lekcji.</h2></div><p class="lede">Wybierz temat. Przeczytaj przykład, sprawdź typową pułapkę i spróbuj napisać kod z pamięci.</p></div>
-    <div class="course" id="course"><div class="loading">Wczytuję lekcje… <a href="lektura.html">Wersja do czytania</a></div></div>
-  </section>
-    <section class="wrap section" id="laboratorium" aria-labelledby="lab-heading">
-      <div class="section-heading"><div><p class="kicker">TERAZ TWOJA KOLEJ</p><h2 id="lab-heading">Pisz. Sprawdzaj. Poprawiaj.</h2></div><p class="lede">6 656 wariantów ćwiczeń. Wybierz temat i wariant, uruchom rozwiązanie, wróć do podpowiedzi, gdy utkniesz.</p></div>
-      <div id="lab" class="layout"></div>
+        <div id="warmup-options" class="warmup-options"></div>
+        <p id="warmup-feedback" class="warmup-feedback" role="status">Spróbuj odpowiedzieć z pamięci.</p>
+        <button type="button" id="warmup-next" class="text-button" hidden>Kolejny przykład</button>
+      </div>
     </section>
-  <section class="wrap section" id="powtorka" aria-labelledby="recall-heading">
-    <div class="section-heading"><div><p class="kicker">UTRWAL WIEDZĘ</p><h2 id="recall-heading">Co już pamiętasz?</h2></div><p class="lede">Quiz z wyjaśnieniami, 42 fiszki i słownik HTML. Wróć do pojęć, przy których potrzebujesz chwili dłużej.</p></div>
-    <div id="recall" class="panel"></div>
-  </section>
-  <section class="wrap section" id="egzamin" aria-labelledby="exam-heading">
-    <div class="section-heading"><div><p class="kicker">PRZED EGZAMINEM</p><h2 id="exam-heading">Sprawdź się na czas.</h2></div><p class="lede">Zrób pełny projekt i sprawdź wymagane rezultaty. Na praktyczny INF.03 masz 150 minut.</p></div>
-    <div id="exams"></div>
-    <div class="archive" id="archiwum"><h3>Archiwum INF.03</h3><p>94 publiczne warianty terminu głównego z 11 sesji od czerwca 2021 do czerwca 2026. Każdy wpis prowadzi do arkusza i klucza.</p><div id="archive"></div></div>
-  </section>
+    <section class="wrap section" aria-labelledby="routes-heading">
+      <div class="section-heading"><div><p class="kicker">WYBIERZ SPOSÓB NAUKI</p><h2 id="routes-heading">Czego dziś potrzebujesz?</h2></div><p class="lede">Każdy dział ma własną stronę. Twój postęp i zapisany kod czekają po powrocie.</p></div>
+      <div class="home-routes">
+        <a class="route-card" href="teoria.html"><span class="route-label">TEORIA</span><h3>Sprawdź składnię.</h3><p>Znaczniki, właściwości, polecenia i gotowe struktury do zapamiętania.</p><span class="route-action">Otwórz teorię</span></a>
+        <a class="route-card" href="zadania.html"><span class="route-label">ĆWICZENIA</span><h3>Uzupełnij brakujący kod.</h3><p>Wpisz słowo lub fragment, sprawdź odpowiedź i przejdź do następnego zadania.</p><span class="route-action">Rozwiąż zadanie</span></a>
+        <a class="route-card" href="egzaminy.html"><span class="route-label">EGZAMINY NA CZAS</span><h3>Zrób pełną próbę.</h3><p>Test pisemny, projekt praktyczny lub arkusz z archiwum z własnym zegarem.</p><span class="route-action">Wybierz egzamin</span></a>
+        <a class="route-card" href="powtorka.html"><span class="route-label">POWTÓRKA</span><h3>Utrwal to, co wraca.</h3><p>Fiszki, diagnoza i powrót do pytań, które sprawiły Ci trudność.</p><span class="route-action">Zacznij powtórkę</span></a>
+      </div>
+    </section>
+  <noscript><div class="wrap notice">Otwórz <a href="lektura.html">materiały do czytania bez JavaScriptu</a>. Interaktywne ćwiczenia i zegary wymagają JavaScriptu.</div></noscript>
 </main>
-<footer class="site-footer"><div class="wrap footer-row"><a class="brand" href="#start"><span class="brand-mark" aria-hidden="true">p.</span> PRÓG<span class="brand-code">INF.03</span></a><a href="lektura.html">Wersja do czytania</a><a href="materialy-inf03.zip" download>Pobierz materiały</a><a href="https://bip.cke.gov.pl/attachments/download/8580">Informator CKE</a></div></footer>
+<footer class="site-footer"><div class="wrap footer-row"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true">p.</span> PRÓG<span class="brand-code">INF.03</span></a><a href="lektura.html">Wersja do czytania</a><a href="materialy-inf03.zip" download>Pobierz materiały</a><a href="https://bip.cke.gov.pl/attachments/download/8580">Informator CKE</a></div></footer>
 </body>
 </html>

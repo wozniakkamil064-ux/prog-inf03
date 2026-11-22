@@ -11,19 +11,19 @@ export const elapsed = (milliseconds, withHours=false) => {
   const fields = withHours ? [Math.floor(n/3600),Math.floor(n/60)%60,n%60] : [Math.floor(n/60),n%60];
   return fields.map(value=>String(value).padStart(2,'0')).join(':');
 };
-export function mountRecall(area,data,{q,qa,e,code,fold,btn,plain,countText,state,save}) {
+export function mountRecall(area,data,{q,qa,e,code,fold,btn,plain,countText,state,save,examOnly=false}) {
   const labels = { quiz:'Quiz',flash:'Fiszki',html:'Słownik HTML' };
   const modes = { diagnose:'Diagnoza',test:'Próba pisemna',review:'Powtórka błędów' };
   const modeInfo = { diagnose:'12 pytań. Wyjaśnienie otrzymasz od razu.',test:'40 pytań w 60 minut. Wynik zobaczysz po oddaniu.',review:'Powtórz błędne i pominięte pytania.' };
   const pool = new Map(data.pytania.map(item=>[item.id,item]));
   const missed = () => data.pytania.filter(item=>state.missed[item.id]);
   const topicNames = {html:'HTML',sql:'SQL',javascript:'JavaScript',css:'CSS',php:'PHP',media:'Multimedia i CMS',foundations:'Podstawy informatyki',workplace:'Praca zawodowa'};
-  let tab='quiz', mode='diagnose', quiz=state.quiz;
+  let tab='quiz', mode=examOnly?'test':'diagnose', quiz=state.quiz;
   let topic='Wszystkie', cardIndex=0, upright=false;
   let tagFilter='', tagPriority=false;
-  area.innerHTML = '<div class="tabs" aria-label="Tryb powtórki">'+Object.entries(labels).map(([id,label])=>
+  area.innerHTML = (examOnly?'':'<div class="tabs" aria-label="Tryb powtórki">'+Object.entries(labels).map(([id,label])=>
     '<button class="tab" type="button" data-pane="'+id+'" aria-pressed="'+(tab===id)+'">'+label+'</button>').join('')+
-    '</div><div class="recall-content" id="recall-view"></div>';
+    '</div>')+'<div class="recall-content" id="recall-view"></div>';
   const view=q('#recall-view',area);
   function start() {
     let questions=shuffle(mode==='review'?missed():data.pytania);
@@ -42,19 +42,20 @@ export function mountRecall(area,data,{q,qa,e,code,fold,btn,plain,countText,stat
     if (quiz.answers[item.id]===item.answer) delete state.missed[item.id];
     else state.missed[item.id]=true;
   }
-  function finish() {
+  function finish(expired=false) {
     if (!hasQuiz() || quiz.finished) return;
     quiz.finished=true;
+    quiz.expired=expired;
     quiz.ids.forEach(id=>grade(pool.get(id)));
     save();
   }
   function renderQuiz() {
-    if (hasQuiz() && quiz.deadline && Date.now()>=quiz.deadline) finish();
-    const setup = '<div class="choice-row">'+Object.entries(modes).map(([id,label])=>
+    if (hasQuiz() && quiz.deadline && Date.now()>=quiz.deadline) finish(true);
+    const setup = examOnly?'':'<div class="choice-row">'+Object.entries(modes).map(([id,label])=>
       '<button type="button" class="chip" data-mode="'+id+'" aria-pressed="'+(id===mode)+'">'+label+(id==='review'?' ('+missed().length+')':'')+'</button>'
     ).join('')+'</div>';
     if (!hasQuiz() || quiz.mode!==mode) {
-      return setup+'<h3>'+modes[mode]+'</h3><p>'+modeInfo[mode]+'</p>'+
+      return setup+'<h3>'+modes[mode]+'</h3><p>'+modeInfo[mode]+(examOnly?' Próg zaliczenia to 20 poprawnych odpowiedzi. Zegar biegnie także po przejściu na inną stronę kursu.':'')+'</p>'+
         (mode==='review'&&!missed().length?'<p>Nie masz jeszcze pytań do powtórzenia.</p>':btn('Rozpocznij','data-quiz="start"','primary'));
     }
     if (quiz.finished) {
@@ -70,6 +71,7 @@ export function mountRecall(area,data,{q,qa,e,code,fold,btn,plain,countText,stat
         return fold(item.text,'<p>Twoja odpowiedź: '+e(item.options[quiz.answers[id]] || 'brak')+'</p><p><strong>Poprawna:</strong> '+e(item.options[item.answer])+'</p><p>'+e(item.explanation)+'</p>');
       }).join('');
       return setup+'<h3 tabindex="-1">'+points+' / '+ids.length+' poprawnych</h3>'+
+        (quiz.expired?'<p class="note">Czas minął. Test został oddany automatycznie.</p>':'')+
         (mode==='test'?'<p>'+(points>=20?'Próg części pisemnej osiągnięty.':'Wynik poniżej progu 20 punktów.')+'</p>':'')+
         '<ul>'+byTopic+'</ul>'+feedback+btn('Nowa runda','data-quiz="start"','primary');
     }
@@ -82,7 +84,7 @@ export function mountRecall(area,data,{q,qa,e,code,fold,btn,plain,countText,stat
     const results=checked?'<div class="note '+(quiz.answers[item.id]===item.answer?'ok':'error')+'"><strong>'+
       (quiz.answers[item.id]===item.answer?'Dobrze.':'Poprawna odpowiedź: '+e(item.options[item.answer]))+'</strong><p>'+e(item.explanation)+'</p></div>':'';
     return setup+'<p class="small-label">Pytanie '+number+' / '+quiz.ids.length+' · '+e(topicNames[item.module]||'INF.03')+
-      (test?' · <span id="quiz-time">'+elapsed(quiz.deadline-Date.now())+'</span>':'')+'</p><h3 class="question" tabindex="-1">'+e(item.text)+'</h3>'+
+      (test?' · <span id="quiz-time" aria-label="Pozostały czas">'+elapsed(quiz.deadline-Date.now())+'</span>':'')+'</p><h3 class="question" tabindex="-1">'+e(item.text)+'</h3>'+
       '<div role="radiogroup" aria-label="Wybierz odpowiedź">'+options+'</div>'+results+'<div class="tool-row">'+
       (test&&quiz.index?btn('Poprzednie','data-quiz="back"'):'')+
       ((test||checked)&&number<quiz.ids.length?btn('Następne','data-quiz="next"'):'')+
@@ -156,14 +158,15 @@ export function mountRecall(area,data,{q,qa,e,code,fold,btn,plain,countText,stat
     } else quiz.endConfirmed=false;
     save(); render(); q('h3',view)?.focus({preventScroll:true});
   });
-  state.quizSessions ??= state.quiz?.mode ? { [state.quiz.mode]:state.quiz } : {};
+  state.quizSessions ??= {};
+  if (state.quiz?.mode && !state.quizSessions[state.quiz.mode]) state.quizSessions[state.quiz.mode]=state.quiz;
   quiz=state.quizSessions[mode];
   setInterval(()=>{
     const exam=state.quizSessions.test;
     if(!exam?.deadline||exam.finished) return;
     if(Date.now()>=exam.deadline) {
       const previous=quiz;
-      quiz=exam; finish(); quiz=previous;
+      quiz=exam; finish(true); quiz=previous;
       if(tab==='quiz'&&mode==='test') render();
       return;
     }

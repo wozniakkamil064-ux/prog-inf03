@@ -1,6 +1,9 @@
-import { mountLab } from './lab.mjs?v=4';
-import { mountRecall } from './recall.mjs?v=4';
-import { mountExams, mountArchive } from './exams.mjs';
+const page = document.body.dataset.page || 'home';
+const legacyRoutes = {
+  '#sciezka':'lekcje.html', '#laboratorium':'zadania.html#laboratorium',
+  '#powtorka':'powtorka.html', '#egzamin':'egzaminy.html', '#archiwum':'egzaminy.html#archiwum'
+};
+if (page === 'home' && legacyRoutes[location.hash]) location.replace(legacyRoutes[location.hash]);
 const q = (selector, root = document) => root.querySelector(selector);
 const qa = (selector, root = document) => [...root.querySelectorAll(selector)];
 const escapeHTML = (value) => String(value ?? '').replace(/[&<>"']/g,ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[ch]);
@@ -10,9 +13,30 @@ const fold = (title, inner) => '<details class="fold"><summary>' + e(title) + '<
 const btn = (label, attrs='', style='') => '<button type="button" class="button '+style+'" '+attrs+'>'+e(label)+'</button>';
 const plain = value => String(value).toLocaleLowerCase('pl').normalize('NFD').replace(/\p{Diacritic}/gu,'').replace(/ł/g,'l');
 const countText = (n, forms) => n+' '+forms[n===1?0:n%10>=2&&n%10<=4&&(n%100<12||n%100>14)?1:2];
+const storageKey='prog-inf03-kurs-2';
 let state;
-try { state = JSON.parse(localStorage.getItem('prog-inf03-kurs-2')) || {}; } catch { state = {}; }
-const save = () => { try { localStorage.setItem('prog-inf03-kurs-2',JSON.stringify(state)); } catch {} };
+try { state = JSON.parse(localStorage.getItem(storageKey)) || {}; } catch { state = {}; }
+let savedState=structuredClone(state);
+function mergeChanges(current,previous,latest) {
+  if(JSON.stringify(current)===JSON.stringify(previous)) return latest;
+  if(!current || typeof current!=='object' || Array.isArray(current)) return current;
+  const merged=latest && typeof latest==='object' && !Array.isArray(latest) ? {...latest} : {};
+  const before=previous && typeof previous==='object' ? previous : {};
+  for(const key of new Set([...Object.keys(before),...Object.keys(current)])) {
+    if(!(key in current)) delete merged[key];
+    else merged[key]=mergeChanges(current[key],before[key],merged[key]);
+  }
+  return merged;
+}
+const save = () => {
+  try {
+    const latest=JSON.parse(localStorage.getItem(storageKey)) || {};
+    const merged=mergeChanges(state,savedState,latest);
+    localStorage.setItem(storageKey,JSON.stringify(merged));
+    savedState=structuredClone(state);
+  } catch {}
+};
+window.addEventListener('pageshow',event=>{ if(event.persisted) location.reload(); });
 state.lessons ??= {};
 state.completed ??= {};
 state.variants ??= {};
@@ -28,6 +52,7 @@ const warmups = [
   {subject:'CSS',title:'Ile miejsca zajmie obrys?',code:'.karta {\n  width: 200px;\n  padding: 10px;\n  box-sizing: border-box;\n}',options:['200 px','220 px','180 px'],answer:0,why:'Przy border-box szerokość obejmuje padding i obramowanie. Obrys ma 200 px, a miejsce na treść ma 180 px.'},
   {subject:'HTML',title:'Co połączy etykietę z polem?',code:'<label for="imie">Imię</label>\n<input name="osoba" id="...">',options:['id="osoba"','id="label"','id="imie"'],answer:2,why:'Wartość for w label odpowiada identyfikatorowi id pola. Kliknięcie etykiety ustawi w nim fokus.'}
 ];
+function mountWarmup() {
 let warmupIndex=0;
 const warmupOptions=q('#warmup-options');
 const warmupFeedback=q('#warmup-feedback');
@@ -60,6 +85,7 @@ warmupOptions.addEventListener('click',event=>{
 });
 warmupNext.addEventListener('click',()=>{warmupIndex=(warmupIndex+1)%warmups.length;showWarmup(true);});
 showWarmup();
+}
 
 function mountCourse(data) {
   const area = q('#course');
@@ -90,7 +116,7 @@ function mountCourse(data) {
   }
   function updateProgress() {
     header.textContent = lessonCount() + ' / ' + all.length + ' lekcji';
-    continueButton.textContent = state.last ? 'Wróć do lekcji' : 'Zacznij naukę';
+    if (continueButton) continueButton.textContent = state.last ? 'Wróć do lekcji' : 'Zacznij naukę';
     currentTitle.textContent = module.title;
     currentStatus.textContent = progressText(module) + ' ukończonych lekcji';
     moduleList.innerHTML = modules.map(item =>
@@ -174,20 +200,8 @@ function mountCourse(data) {
     if (event.key==='/' && !event.ctrlKey && !event.metaKey && !event.altKey &&
       !event.target.closest('input,textarea,select,[contenteditable]')) { event.preventDefault(); search.focus(); }
   });
-  continueButton.addEventListener('click',()=>choose(lesson,false));
+  continueButton?.addEventListener('click',()=>choose(lesson,false));
   render();
-}
-
-const nav = qa('#nav a');
-if ('IntersectionObserver' in window) {
-  const watch = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const link = nav.find(item => item.hash === '#'+entry.target.id);
-      if (entry.isIntersecting) link?.setAttribute('aria-current','location');
-      else link?.removeAttribute('aria-current');
-    });
-  },{ rootMargin:'-18% 0px -63% 0px' });
-  nav.forEach(item=>watch.observe(q(item.hash)));
 }
 
 async function get(file) {
@@ -196,14 +210,43 @@ async function get(file) {
   return response.json();
 }
 try {
-  const [data,archive] = await Promise.all([get('materialy.json'),get('archiwum.json')]);
-  mountCourse(data);
-  mountLab(q('#lab'),kit);
-  mountRecall(q('#recall'),data,kit);
-  mountExams(q('#exams'),data,kit);
-  mountArchive(q('#archive'),archive,kit);
+  const completedLessons=Object.values(state.lessons).filter(Boolean).length;
+  q('#header-progress').textContent=completedLessons+' / 68 lekcji';
+  if(page==='home') {
+    if(state.last) q('#continue').textContent='Wróć do lekcji';
+    mountWarmup();
+  } else if(page==='lessons') {
+    mountCourse(await get('materialy.json'));
+  } else if(page==='theory') {
+    const [{mountTheory},data]=await Promise.all([import('./theory.mjs?v=5'),get('materialy.json')]);
+    mountTheory(q('#theory'),data,kit);
+  } else if(page==='tasks') {
+    const [{mountGaps},{mountLab}]=await Promise.all([import('./gaps.mjs?v=5'),import('./lab.mjs?v=5')]);
+    let labReady=false;
+    const panels={gaps:q('#gap-exercises'),lab:q('#lab-section')};
+    const switches=qa('[data-task-view]');
+    const changeView=view=>{
+      if(view==='lab'&&!labReady) { mountLab(q('#lab'),kit); labReady=true; }
+      Object.entries(panels).forEach(([key,panel])=>{panel.hidden=key!==view;});
+      switches.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.taskView===view)));
+    };
+    mountGaps(panels.gaps,kit);
+    switches.forEach(button=>button.addEventListener('click',()=>{
+      changeView(button.dataset.taskView);
+      history.replaceState(null,'',button.dataset.taskView==='lab'?'#laboratorium':location.pathname);
+    }));
+    changeView(location.hash==='#laboratorium'?'lab':'gaps');
+  } else if(page==='exams') {
+    const [{mountExamCenter},data,archive]=await Promise.all([import('./exams.mjs?v=5'),get('materialy.json'),get('archiwum.json')]);
+    if(location.hash==='#archiwum') state.examCenterMode='archive';
+    mountExamCenter(q('#exam-center'),data,archive,kit);
+  } else if(page==='recall') {
+    const [{mountRecall},data]=await Promise.all([import('./recall.mjs?v=5'),get('materialy.json')]);
+    mountRecall(q('#recall'),data,kit);
+  }
 } catch (error) {
   console.error(error);
   const errorMarkup = '<div class="notice">Nie udało się wczytać interaktywnej części. <a href="lektura.html">Otwórz wersję do czytania</a> lub odśwież stronę.</div>';
-  for(const selector of ['#course','#lab','#recall','#exams','#archive']) q(selector).innerHTML = errorMarkup;
+  const target=q('#course,#theory,#gap-exercises,#recall,#exam-center,#warmup');
+  if(target) target.innerHTML=errorMarkup;
 }
