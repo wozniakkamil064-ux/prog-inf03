@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="PRÓG INF.03">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#273956"/><stop offset="1" stop-color="#10151e"/></linearGradient>
+    <linearGradient id="tile" x2="1" y2="1"><stop stop-color="#d2ddff"/><stop offset="1" stop-color="#a6bdf9"/></linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect x="84" y="84" width="344" height="344" rx="92" fill="url(#tile)"/>
+  <path fill="#1d3356" fill-rule="evenodd" d="M173 157h91c58 0 94 34 94 86 0 53-36 87-94 87h-35v53h-56V157Zm56 52v70h32c26 0 40-13 40-36 0-22-14-34-40-34h-32Z"/>
+  <circle cx="366" cy="365" r="18" fill="#1d3356"/>
+</svg>
