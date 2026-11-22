@@ -236,6 +236,7 @@ try {
       history.replaceState(null,'',button.dataset.taskView==='lab'?'#laboratorium':location.pathname);
     }));
     changeView(location.hash==='#laboratorium'?'lab':'gaps');
+    switches.forEach(button=>{button.disabled=false;});
   } else if(page==='exams') {
     const [{mountExamCenter},data,archive]=await Promise.all([import('./exams.mjs?v=5'),get('materialy.json'),get('archiwum.json')]);
     if(location.hash==='#archiwum') state.examCenterMode='archive';
